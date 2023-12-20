@@ -44,8 +44,10 @@ const LoginComponent = () => {
             name="password"
             label="Password"
             placeholder="Password"
+            /* error={errors.password?.message} */
+            /* register={register} */
           />
-          
+
           <p className="my-1 text-xs">
             <Link href="/forgot-password" passHref>
               <span className="font-bold text-[#027D53] underline">
