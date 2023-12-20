@@ -18,7 +18,7 @@ const RegisterComponent = () => {
 
   return (
     <div className="pt-20 flex px-4 sm:px-20 gap-x-20 flex-col sm:flex-row">
-      <Header />
+      <Header isVisible />
       <div className="py-5 px-6 border border-[#EBEBEB] flex flex-col justify-center w-full sm:w-[438px]">
         <p className="mb-2 text-3xl font-bold text-[#1a1a1a] text-center">
           Get Started

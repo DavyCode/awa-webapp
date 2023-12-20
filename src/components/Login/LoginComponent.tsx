@@ -15,7 +15,7 @@ const LoginComponent = () => {
   const [showPassword, setShowPassword] = useState(true);
   return (
     <div className="pt-5 flex gap-x-20 flex-col sm:flex-row">
-      <Header />
+      <Header isVisible />
       <div className="py-5 px-6 border border-[#EBEBEB] flex flex-col justify-center w-full sm:w-[438px]">
         <p className="mb-2 text-3xl font-bold text-[#1a1a1a] text-center">
           Login
@@ -24,7 +24,7 @@ const LoginComponent = () => {
           Welcome back,Please Login to your account
         </span>
         <Button
-          className="bg-white/70 w-full gap-x-2 py-3 border-gray-10 rounded-md flex justify-center items-center border-white/70"
+          className="shadow-none bg-white/70 w-full gap-x-2 py-5 rounded-md flex justify-center items-center border-gray-300 border"
           type="button"
         >
           <GoogleIcon />
@@ -58,7 +58,7 @@ const LoginComponent = () => {
 
           <Button
             variant="default"
-            className="bg-[#3D663D] w-full flex justify-center items-center text-sm font-semibold text-white"
+            className="bg-[#3D663D] py-5 w-full flex justify-center items-center text-sm font-semibold text-white"
           >
             Log in
           </Button>

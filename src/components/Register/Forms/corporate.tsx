@@ -78,13 +78,13 @@ const CorporateForm = () => {
           />
           <Button
             variant="default"
-            className="bg-[#3D663D] w-full flex justify-center items-center text-sm font-semibold text-white"
+            className="bg-[#3D663D] py-5 w-full flex justify-center items-center text-sm font-semibold text-white"
           >
             Sign up
           </Button>
           <OrDivider content="or" />
           <Button
-            className="bg-white/20 w-full gap-x-2 py-3 border-gray-200 border rounded-md flex justify-center items-center shadow-none"
+            className="bg-white/20 w-full gap-x-2 py-5 border-gray-300 border rounded-md flex justify-center items-center shadow-none"
             type="button"
           >
             <GoogleIcon />
