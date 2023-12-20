@@ -62,13 +62,13 @@ const IndividualForm = () => {
         />
         <Button
           variant="default"
-          className="bg-[#3D663D] w-full flex justify-center items-center text-sm font-semibold text-white"
+          className="py-5 bg-[#3D663D] w-full flex justify-center items-center text-sm font-semibold text-white"
         >
           Continue
         </Button>
         <OrDivider content="or" />
         <Button
-          className="bg-white/20 w-full gap-x-2 py-3 border-gray-200 border rounded-md flex justify-center items-center shadow-none"
+          className="border-gray-300 bg-white/20 w-full gap-x-2 py-5 border-gray-200 border rounded-md flex justify-center items-center shadow-none"
           type="button"
         >
           <GoogleIcon />
