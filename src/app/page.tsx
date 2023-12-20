@@ -1,3 +1,4 @@
+import React from 'react'
 import LoginComponent from '@/components/Login/LoginComponent'
 import Image from 'next/image'
 
@@ -6,5 +7,5 @@ export default function Home() {
     <main className="flex min-h-screen flex-col justify-between p-24">
       <LoginComponent />
     </main>
-  )
+  );
 }
