@@ -9,8 +9,8 @@ interface IProp {
 
 const Header:React.FC<IProp> = ({ isVisible = false }) => {
   return (
-    <div className={clsx({"mb-2": true,
-      "w-1/6": !isVisible
+    <div className={clsx({"my-2": true,
+      "px-4 w-full sm:w-1/6": !isVisible
     })}>
       <div className="flex items-center gap-x-2 mb-5">
         <ArrowCircleLeft />
