@@ -12,12 +12,12 @@ const Header:React.FC<IProp> = ({ isVisible = false }) => {
     <div className={clsx({"my-2": true,
       "px-4 w-full sm:w-1/6": !isVisible
     })}>
-      <div className="flex items-center gap-x-2 mb-5">
+      <div className="flex items-center gap-x-2 mb-5 text-[#3D663D]">
         <ArrowCircleLeft />
         Go back
       </div>
       {isVisible && (
-        <div className="flex gap-x-4 w-full sm:w-fit sm:h-auto items-center">
+        <div className="flex gap-x-6 w-full sm:w-fit sm:h-auto items-center">
           <Image src={ActiveUsers} alt="active Users" sizes="80" />
           <div className="flex flex-col">
             <span className="font-bold text-[#1a1a1a]">50k+</span>
