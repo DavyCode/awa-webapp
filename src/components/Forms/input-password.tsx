@@ -28,7 +28,7 @@ const InputPassword = ({
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div>
-      <label htmlFor="password" className="flex-1 text-gray-400">
+      <label htmlFor="password" className="flex-1 text-gray-800">
         {label}
       </label>
       <div
