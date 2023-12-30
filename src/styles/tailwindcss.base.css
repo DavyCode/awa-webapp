@@ -1,0 +1,135 @@
+@import "tailwindcss/base";
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+
+    --primary: #3d663d;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 71.4% 4.1%;
+
+    --radius: 0.5rem;
+    --text-color: #101828;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 216 12.2% 83.9%;
+  }
+
+  * {
+    @apply border-border;
+    font-family: var(--font-inter);
+    /* border: 1px solid red */
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  [data-state="open"] {
+    @apply !pb-1;
+  }
+
+  .css-11egp40-control:focus,
+  .css-1uvxhby-ValueContainer:focus {
+    border-color: transparent !important;
+    box-shadow: transparent !important;
+  }
+
+  .react-datepicker-wrapper {
+    @apply !w-3/4;
+  }
+
+  .react-datepicker__input-container > input {
+    width: 70% !important;
+    @apply !py-4 !outline-none focus: !outline-none focus: !border-none;
+  }
+
+  .react-datepicker__header {
+    background-color: #027d53 !important;
+  }
+
+  .community_bg_images {
+    background:
+      url("/image_one_png.png") 84px 236px no-repeat,
+      url("/image_two_png.png") 37px 464px no-repeat,
+      url("/image_three_png.png") 563px 245px no-repeat,
+      url("/curved_line_one.svg") 174px 300px no-repeat,
+      url("/curved_line_two.svg") 0px calc(300px) no-repeat;
+  }
+
+  .card_front,
+  .card_back {
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .card_container {
+    position: relative;
+    /* overflow: hidden; */
+    perspective: 1000px;
+  }
+  .card_container:hover .image_card {
+    cursor: pointer;
+    transform: rotateY(180deg);
+  }
+
+  .image_card {
+    transition: transform 1000ms;
+    transform-style: preserve-3d;
+  }
+
+  .card_back {
+    transform: rotateY(180deg);
+  }
+}

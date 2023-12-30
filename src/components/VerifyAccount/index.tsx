@@ -47,34 +47,38 @@ const VerifyAccountComponent = () => {
           Email address
         </div>
       </div>
-        <form className='w-full'>
-            {activeTab === "phone" ? 
-            (<InputFieldPhoneNumber
-                label="Phone number"
-                name="phone"
-                type="tel"
-                /* error={errors.email?.message} */
-                placeholder="80xxxxxxxx"
-                register={register}
-            />) : (
-                <InputField
-                    label="Email address"
-                    name="email"
-                    type="email"
-                    /* error={errors.email?.message} */
-                    placeholder="Email address"
-                    /* register={register} */
-                />
-            )}
+      <form className="w-full">
+        {activeTab === "phone" ? (
+          <InputFieldPhoneNumber
+            label="Phone number"
+            name="phone"
+            type="tel"
+            /* error={errors.email?.message} */
+            placeholder="80xxxxxxxx"
+            register={register}
+          />
+        ) : (
+          <InputField
+            label="Email address"
+            name="email"
+            type="email"
+            /* error={errors.email?.message} */
+            placeholder="Email address"
+            /* register={register} */
+          />
+        )}
 
-            <Button
-                variant="default"
-                className="my-5 py-5 bg-[#3D663D] w-full flex justify-center items-center text-sm font-semibold text-white"
-                >
-                Verify
-            </Button>
+        <Button
+          type="button"
+          className="py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4 my-4 !w-full"
+          style={{
+            backgroundColor: "var(--primary)",
+          }}
+        >
+          Verify
+        </Button>
 
-            <p className="py-1 text-center text-sm">
+        <p className="py-1 text-center text-sm">
           Already have an account?
           <Link
             href="/"
@@ -83,7 +87,7 @@ const VerifyAccountComponent = () => {
             Log in
           </Link>
         </p>
-        </form>
+      </form>
     </div>
   );
 }

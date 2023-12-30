@@ -20,17 +20,20 @@ const ResetPasswordComponent = () => {
 
       {ResetPasswordOptions.map((datum, index) => (
         <RadioButton
-            key={index}
-            label={datum.label}
-            name={datum.name}
-            value={datum.value}
-            // Add other props like onChange if needed
+          key={index}
+          label={datum.label}
+          name={datum.name}
+          value={datum.value}
+          // Add other props like onChange if needed
         />
       ))}
 
       <Button
-        variant="default"
-        className="my-5 py-5 bg-[#3D663D] w-full flex justify-center items-center text-sm font-semibold text-white"
+        type="button"
+        className="w-full my-4 py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4"
+        style={{
+          backgroundColor: "var(--primary)",
+        }}
       >
         Reset
       </Button>

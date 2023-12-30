@@ -22,8 +22,11 @@ const OTPVerification:React.FC<IProp> = ({modeOfVerification = "phone number"}) 
       </span>
       <OtpInput length={4} onComplete={() => {}} />
       <Button
-        variant="default"
-        className="my-5 !py-5 bg-[#3D663D] w-full flex justify-center items-center text-sm font-semibold text-white"
+        type="button"
+        className="w-full my-4 py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4"
+        style={{
+          backgroundColor: "var(--primary)",
+        }}
       >
         Verify
       </Button>

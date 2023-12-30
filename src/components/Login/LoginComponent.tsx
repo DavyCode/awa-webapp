@@ -16,7 +16,7 @@ const LoginComponent = () => {
   return (
     <div className="pt-5 flex gap-x-40 flex-col sm:flex-row">
       <Header isVisible />
-      <div className="py-5 px-6 rounded-md shadow border border-[#EBEBEB] flex flex-col justify-center w-full sm:w-[438px]">
+      <div className="pt-5 px-6 rounded-md shadow border border-[#EBEBEB] flex flex-col w-full sm:w-[438px] lg:w-[350px]">
         <p className="mb-2 text-3xl font-bold text-[#1a1a1a] text-center">
           Login
         </p>
@@ -24,7 +24,8 @@ const LoginComponent = () => {
           Welcome back,Please Login to your account
         </span>
         <Button
-          className="shadow-none bg-white/70 w-full gap-x-2 py-5 rounded-md flex justify-center items-center border-gray-300 border"
+        variant={"outline"}
+          className="w-full gap-x-2 py-5 rounded-md flex justify-center items-center border"
           type="button"
         >
           <GoogleIcon />
@@ -57,12 +58,15 @@ const LoginComponent = () => {
           </p>
 
           <Button
-            variant="default"
-            className="bg-[#3D663D] py-5 w-full flex justify-center items-center text-sm font-semibold text-white"
+            type="button"
+            className="py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4"
+            style={{
+              backgroundColor: "var(--primary)",
+            }}
           >
             Log in
           </Button>
-          <p className="py-1 text-center text-sm">
+          <p className="py-1 text-center text-sm mb-2">
             Dont have an account?
             <Link
               href="/register"

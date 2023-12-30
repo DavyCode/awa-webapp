@@ -61,14 +61,18 @@ const IndividualForm = () => {
           /* register={register} */
         />
         <Button
-          variant="default"
-          className="py-5 bg-[#3D663D] w-full flex justify-center items-center text-sm font-semibold text-white"
+          type="button"
+          className="py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4"
+          style={{
+            backgroundColor: "var(--primary)",
+          }}
         >
           Continue
         </Button>
         <OrDivider content="or" />
         <Button
-          className="border-gray-300 bg-white/20 w-full gap-x-2 py-5 border-gray-200 border rounded-md flex justify-center items-center shadow-none"
+          variant={"outline"}
+          className="w-full gap-x-2 py-5 rounded-md flex justify-center items-center border"
           type="button"
         >
           <GoogleIcon />

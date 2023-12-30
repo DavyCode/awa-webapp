@@ -43,7 +43,7 @@ const InputPassword = ({
           id={name}
           placeholder={placeholder}
           disabled={disabled}
-          className="w-full h-10 px-4 focus:outline-0 border-none shadow appearance-none leading-tight"
+          className="w-full h-10 px-4 focus:outline-0 border-none appearance-none leading-tight"
           /* {...register(name)} */
         />
         {!showPassword ? (
@@ -53,7 +53,7 @@ const InputPassword = ({
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-10 h-10 text-gray-300 px-2 hover:text-gray-900 cursor-pointer"
+            className="w-10 h-10 text-gray-500 px-2 hover:text-gray-900 cursor-pointer"
             onClick={() => setShowPassword(!showPassword)}
           >
             <path
@@ -74,7 +74,7 @@ const InputPassword = ({
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6 text-gray-300 hover:text-gray-900 cursor-pointer"
+            className="w-10 h-10 text-gray-500 px-2 hover:text-gray-900 cursor-pointer"
             onClick={() => setShowPassword(!showPassword)}
           >
             <path

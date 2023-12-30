@@ -36,7 +36,7 @@ const InputFieldPhoneNumber = ({
         >
           {register ? (
             <div className="flex items-center px-2 w-full">
-              <span className="w-fit pr-2 text-gray-400 inline-block border-r border-gray-200">
+              <span className="w-fit pr-2 text-gray-900 inline-block border-r border-gray-200">
                 +234{" "}
               </span>
               <input
@@ -50,14 +50,19 @@ const InputFieldPhoneNumber = ({
               />
             </div>
           ) : (
-            <input
-              type={type}
-              id={name}
-              maxLength={9}
-              placeholder={placeholder}
-              disabled={disabled}
-              className="w-full h-10 px-4 border-none focus:outline-0 shadow appearance-none leading-tight"
-            />
+            <div className="flex items-center px-2 w-full">
+              <span className="w-fit pr-2 text-gray-400 inline-block border-r border-gray-200">
+                +234{" "}
+              </span>
+              <input
+                type={type}
+                id={name}
+                maxLength={9}
+                placeholder={placeholder}
+                disabled={disabled}
+                className="w-full h-10 pl-2 border-none pr-4 focus:outline-0 appearance-none leading-tight"
+              />
+            </div>
           )}
           {icon !== undefined ? (
             <span className="px-2" aria-label="Open">
