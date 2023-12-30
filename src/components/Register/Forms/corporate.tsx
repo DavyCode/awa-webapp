@@ -77,14 +77,18 @@ const CorporateForm = () => {
             /* register={register} */
           />
           <Button
-            variant="default"
-            className="bg-[#3D663D] py-5 w-full flex justify-center items-center text-sm font-semibold text-white"
+            type="button"
+            className="py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4"
+            style={{
+              backgroundColor: "var(--primary)",
+            }}
           >
             Sign up
           </Button>
           <OrDivider content="or" />
           <Button
-            className="bg-white/20 w-full gap-x-2 py-5 border-gray-300 border rounded-md flex justify-center items-center shadow-none"
+            variant={"outline"}
+            className="w-full gap-x-2 py-5 rounded-md flex justify-center items-center border"
             type="button"
           >
             <GoogleIcon />

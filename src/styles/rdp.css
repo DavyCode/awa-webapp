@@ -1,0 +1,105 @@
+.react-datepicker-wrapper {
+    width: 100%
+}
+
+.react-datepicker {
+    @apply bg-white max-h-[640px] p-6 w-[300px] rounded-lg font-medium;
+    border: 1px solid rgb(226 232 240/1);
+
+}
+
+.react-datepicker__month-container {
+    float: unset;
+}
+
+.react-datepicker * {
+    font-weight: 500;
+
+}
+
+.react-datepicker__triangle {
+    display: none;
+}
+
+.react-datepicker__header {
+    @apply bg-white p-0 border-b-0 pb-4
+}
+
+.react-datepicker__day-names, .react-datepicker__day-name {
+    color: rgb(148 163 184/1);
+    font-size: 0.75rem;
+}
+
+.react-datepicker__day-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.react-datepicker__day-names,
+.react-datepicker__week {
+    display: flex;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day {
+    flex: 1;
+    height: 36px;
+    margin: 0;
+    border-radius: 0;
+    font-size: 0.875rem;
+    flex-basis: calc(100% / 7);
+    width: calc(100% / 7);
+}
+
+.react-datepicker__day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(248 250 252/1);
+}
+
+.react-datepicker__day:hover {
+    border-radius: 0;
+    background: var(--primary);
+    color: #fff
+}
+
+.react-datepicker__month {
+    margin: 0;
+}
+
+.react-datepicker__day--selected {
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.react-datepicker__day--outside-month {
+
+    color: rgb(148 163 184/1);
+    background-color: #fff;
+}
+
+.react-datepicker__input-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* padding-left: 48px; */
+}
+
+.react-datepicker__input-container>svg {
+    /* position: relative !important; */
+    padding: 0 !important;
+    padding-left: 16px !important;
+}
+
+.react-datepicker__input-container>svg path {
+    /* position: relative !important; */
+    stroke: #667085;
+}
+
+/* .react-datepicker__input-container>input {
+    padding-left: calc(32px + 0.5rem) !important;
+} */

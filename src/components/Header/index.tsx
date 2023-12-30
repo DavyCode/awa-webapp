@@ -3,19 +3,23 @@ import ActiveUsers from "../../../public/users.png";
 import Image from "next/image";
 import ArrowCircleLeft from "../../../assets/icons/ArrowCircleLeft";
 import clsx from "clsx"
+import Link from 'next/link'
 interface IProp {
   isVisible?: boolean
 }
 
 const Header:React.FC<IProp> = ({ isVisible = false }) => {
   return (
-    <div className={clsx({"my-2": true,
-      "px-4 w-full sm:w-1/6": !isVisible
-    })}>
-      <div className="flex items-center gap-x-2 mb-5 text-[#3D663D]">
-        <ArrowCircleLeft />
-        Go back
-      </div>
+    <div className={clsx({ "my-2": true, "px-4 w-full sm:w-1/6": !isVisible })}>
+      <Link
+        href="https://awa-site.netlify.app
+"
+      >
+        <div className="flex items-center gap-x-2 mb-5 text-[#3D663D]">
+          <ArrowCircleLeft />
+          Go back
+        </div>
+      </Link>
       {isVisible && (
         <div className="flex gap-x-6 w-full sm:w-fit sm:h-auto items-center">
           <Image src={ActiveUsers} alt="active Users" sizes="80" />
