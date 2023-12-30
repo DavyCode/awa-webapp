@@ -6,8 +6,8 @@ import { Button } from "@/components/Forms/Button";
 import InputField from "@/components/Forms/input-text";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import GoogleIcon from "../../../../assets/icons/GoogleIcon";
 import InputFieldPhoneNumber from "@/components/Forms/input-phone-number";
+import GoogleIcon from "@/assets/icons/GoogleIcon";
 
 const options = ["Option 1", "Option 2", "Option 3"];
 
@@ -87,8 +87,7 @@ const CorporateForm = () => {
           </Button>
           <OrDivider content="or" />
           <Button
-            variant={"outline"}
-            className="w-full gap-x-2 py-5 rounded-md flex justify-center items-center border"
+            className="bg-[rgba(241,241,241,0.60)] w-full gap-x-2 py-3 rounded-md flex justify-center items-center border-[#EBEBEB] border px-4 h-[unset] shadow-none"
             type="button"
           >
             <GoogleIcon />

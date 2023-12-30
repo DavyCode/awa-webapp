@@ -17,9 +17,10 @@ const RegisterComponent = () => {
   };
 
   return (
-    <div className="pt-20 flex px-4 sm:px-20 gap-x-40 flex-col sm:flex-row">
-      <Header isVisible />
-      <div className="shadow py-5 rounded-md px-6 border border-[#EBEBEB] flex flex-col justify-center w-full sm:w-[438px]">
+    <div className="pt-12 flex px-4 sm:px-20 gap-x-20 flex-col sm:flex-row relative sm:justify-center pb-[20px]">
+      <div className="py-6 px-[40px] flex flex-col justify-center w-full sm:max-w-[518px] relative">
+      <Header />
+      <div className="shadow py-5 rounded-md px-6  flex flex-col justify-center w-full sm:w-[438px]">
         <p className="mb-2 text-3xl font-bold text-[#1a1a1a] text-center">
           Get Started
         </p>
@@ -46,6 +47,7 @@ const RegisterComponent = () => {
         </div>
         {activeTab === "individual" ? <IndividualForm /> : <CorporateForm />}
       </div>
+    </div>
     </div>
   );
 };
