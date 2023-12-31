@@ -1,16 +1,16 @@
-import React from "react";
-import ActiveUsers from "../../../public/users.png";
 import Image from "next/image";
-import ArrowCircleLeft from "../../../assets/icons/ArrowCircleLeft";
-import clsx from "clsx"
-import Link from 'next/link'
+import { useRouter } from "next/navigation";
+import ArrowCircleLeft from "@/assets/icons/ArrowCircleLeft";
+import Link from "next/link";
+
 interface IProp {
-  isVisible?: boolean
+  isVisible?: boolean;
 }
 
-const Header:React.FC<IProp> = ({ isVisible = false }) => {
+const Header: React.FC<IProp> = ({ isVisible = false }) => {
+  const router = useRouter();
   return (
-    <div className={clsx({ "my-2": true, "px-4 w-full sm:w-1/6": !isVisible })}>
+    <div className="mb-2 absolute top-0 -translate-x-[calc(100%+24px+120px)]">
       <Link
         href="https://awa-site.netlify.app
 "
@@ -20,17 +20,37 @@ const Header:React.FC<IProp> = ({ isVisible = false }) => {
           Go back
         </div>
       </Link>
-      {isVisible && (
-        <div className="flex gap-x-6 w-full sm:w-fit sm:h-auto items-center">
-          <Image src={ActiveUsers} alt="active Users" sizes="80" />
-          <div className="flex flex-col">
-            <span className="font-bold text-[#1a1a1a]">50k+</span>
-            <p className="text-xs">Happy Customers</p>
-          </div>
+      ;
+      <div className="inline-flex gap-x-4 items-center justify-center min-w-[auto]">
+        <Image
+          src={"/users.png"}
+          alt="active Users"
+          sizes="80"
+          width={118}
+          height={45}
+        />
+        <div className="flex flex-col min-w-[auto]">
+          <p className="font-bold text-[#1a1a1a] text-[20.5px] leading-[30px]">
+            50k+
+          </p>
+          <p className="text-[10.28px] leading-[15.42px] whitespace-nowrap">
+            Happy Customers
+          </p>
         </div>
-      )}
+      </div>
     </div>
   );
 };
 
 export default Header;
+
+/* 
+<Link
+  href="https://awa-site.netlify.app
+"
+>
+  <div className="flex items-center gap-x-2 mb-5 text-[#3D663D]">
+    <ArrowCircleLeft />
+    Go back
+  </div>
+</Link>; */

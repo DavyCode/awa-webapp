@@ -20,7 +20,7 @@ const VerifyAccountComponent = () => {
     }
 
   return (
-    <div className="flex h-fit rounded flex-col px-10 py-6 my-32 justify-center items-center w-full sm:w-[518px] mx-auto border border-gray-200">
+    <div className="flex h-fit rounded flex-col px-10 py-6 sm:mt-[110px] sm:mb-10 justify-center items-center w-full sm:w-[518px] mx-auto border border-gray-200">
       <p className="mb-2 text-3xl font-bold text-[#1a1a1a] text-center">
         Verify your account
       </p>

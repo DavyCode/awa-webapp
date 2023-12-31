@@ -1,5 +1,5 @@
+import ValidatedIcon from '@/assets/icons/ValidatedIcon';
 import React from 'react'
-import ValidatedIcon from '../../../assets/icons/ValidatedIcon'
 
 interface ValidatedIconProps {
     isValid?: boolean;

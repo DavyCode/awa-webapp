@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col justify-between px-4 py-14 sm:p-24 w-full">
+    <main className="flex min-h-screen flex-col justify-between px-4 py-16 sm:px-24 sm:py-0 w-full">
       <LoginComponent />
     </main>
   );
