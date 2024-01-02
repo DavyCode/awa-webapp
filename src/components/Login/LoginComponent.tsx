@@ -48,7 +48,7 @@ const LoginComponent = () => {
             /* register={register} */
           />
           <p className="">
-            <Link href="/forgot-password" passHref>
+            <Link href="/reset-password" passHref>
               <span className="font-semibold text-[#3D663D] underline text-sm leading-4">
                 Reset password?
               </span>
