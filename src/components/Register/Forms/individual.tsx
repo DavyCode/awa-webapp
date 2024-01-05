@@ -40,11 +40,10 @@ const IndividualForm = () => {
         />
         <InputFieldPhoneNumber
           label="Phone number"
-          name="phone"
-          type="tel"
           /* error={errors.email?.message} */
-          placeholder="80xxxxxxxx"
-          register={register}
+          name="phone"
+          placeholder="Enter phone number"
+          register={register} // Pass the register function
         />
         <CountryDropdown control={control} name="country" label="Country" />
         <Dropdown

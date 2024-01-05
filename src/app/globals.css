@@ -81,5 +81,5 @@
 }
 
   .react-tel-input .flag-dropdown {
-    @apply bg-transparent border-none
+    @apply !bg-transparent !border-none
   }
