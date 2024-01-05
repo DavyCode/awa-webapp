@@ -79,3 +79,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+  .react-tel-input .flag-dropdown {
+    @apply bg-transparent border-none
+  }
