@@ -771,6 +771,11 @@ class-variance-authority@^0.7.0:
   dependencies:
     clsx "2.0.0"
 
+classnames@^2.2.6, classnames@^2.3.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.5.1.tgz#ba774c614be0f016da105c858e7159eae8e7687b"
+  integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
+
 client-only@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/client-only/-/client-only-0.0.1.tgz#38bba5d403c41ab150bff64a95c85013cf73bca1"
@@ -830,6 +835,11 @@ cosmiconfig@^7.0.0:
     parse-json "^5.0.0"
     path-type "^4.0.0"
     yaml "^1.10.0"
+
+country-flag-icons@^1.5.4:
+  version "1.5.9"
+  resolved "https://registry.yarnpkg.com/country-flag-icons/-/country-flag-icons-1.5.9.tgz#5ee10d9c8c1dcfb031724121b2adecdf166996cd"
+  integrity sha512-9jrjv2w7kRbqNtdtMdK2j3gmDIZzd5l9L2pZiQjF9J0mUcB+NKIGDNADTDHBEp8EQtjOkCOcciJGGSOpERdXPQ==
 
 cross-spawn@^7.0.2:
   version "7.0.3"
@@ -1595,6 +1605,13 @@ inherits@2:
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
 
+input-format@^0.3.9:
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/input-format/-/input-format-0.3.9.tgz#d287b5082aeaa9c01e37ff599a2988d090003054"
+  integrity sha512-99Gew2huiuYpNsyZoucauy5OT3oXEoWUeINGES4SlU74eFxbtYqNO+yEP6uKFhfB0UKTvq4gOC+6/3Oskru+IQ==
+  dependencies:
+    prop-types "^15.8.1"
+
 internal-slot@^1.0.5:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/internal-slot/-/internal-slot-1.0.6.tgz#37e756098c4911c5e912b8edbf71ed3aa116f930"
@@ -1882,6 +1899,11 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
+libphonenumber-js@^1.10.53:
+  version "1.10.53"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.10.53.tgz#8dbfe1355ef1a3d8e13b8d92849f7db7ebddc98f"
+  integrity sha512-sDTnnqlWK4vH4AlDQuswz3n4Hx7bIQWTpIcScJX+Sp7St3LXHmfiax/ZFfyYxHmkdCvydOLSuvtAO/XpXiSySw==
+
 lilconfig@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/lilconfig/-/lilconfig-2.1.0.tgz#78e23ac89ebb7e1bfbf25b18043de756548e7f52"
@@ -1904,10 +1926,30 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
+lodash.debounce@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
+  integrity sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==
+
+lodash.memoize@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
+  integrity sha512-t7j+NzmgnQzTAYXcsHYLgimltOV1MXHtlOWf6GjL9Kj8GK5FInw5JotxvbOs+IvV1/Dzo04/fCGfLVs7aXb4Ag==
+
 lodash.merge@^4.6.2:
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
+
+lodash.reduce@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.reduce/-/lodash.reduce-4.6.0.tgz#f1ab6b839299ad48f784abbf476596f03b914d3b"
+  integrity sha512-6raRe2vxCYBhpBu+B+TtNGUzah+hQjVdu3E17wfusjyrXBka2nBS8OH/gjVZ5PvHOhWmIZTYri09Z6n/QfnNMw==
+
+lodash.startswith@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/lodash.startswith/-/lodash.startswith-4.2.1.tgz#c598c4adce188a27e53145731cdc6c0e7177600c"
+  integrity sha512-XClYR1h4/fJ7H+mmCKppbiBmljN/nGs73iq2SjCT9SF4CBPoUHzLvWmH1GtZMhMBZSiRkHXfeA2RY1eIlJ75ww==
 
 loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
@@ -2258,7 +2300,7 @@ prelude-ls@^1.2.1:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.8.1:
+prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -2294,6 +2336,29 @@ react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-phone-input-2@^2.15.1:
+  version "2.15.1"
+  resolved "https://registry.yarnpkg.com/react-phone-input-2/-/react-phone-input-2-2.15.1.tgz#31edf2adb03cbc990b5432e0567d8a5303f3de49"
+  integrity sha512-W03abwhXcwUoq+vUFvC6ch2+LJYMN8qSOiO889UH6S7SyMCQvox/LF3QWt+cZagZrRdi5z2ON3omnjoCUmlaYw==
+  dependencies:
+    classnames "^2.2.6"
+    lodash.debounce "^4.0.8"
+    lodash.memoize "^4.1.2"
+    lodash.reduce "^4.6.0"
+    lodash.startswith "^4.2.1"
+    prop-types "^15.7.2"
+
+react-phone-number-input@^3.3.8:
+  version "3.3.8"
+  resolved "https://registry.yarnpkg.com/react-phone-number-input/-/react-phone-number-input-3.3.8.tgz#6fcfb1f21c831caaf1c90b0fb6c30182ee13ce5e"
+  integrity sha512-9k9OslI3OfutpUbDgyvsiDuLXqZ5YqdPTT4fOynK0WsWFEdYp4inkgLchvXkqpCmnG1P8uTQLj6PBCkLJJvC7g==
+  dependencies:
+    classnames "^2.3.1"
+    country-flag-icons "^1.5.4"
+    input-format "^0.3.9"
+    libphonenumber-js "^1.10.53"
+    prop-types "^15.8.1"
 
 react-select-country-list@^2.2.3:
   version "2.2.3"

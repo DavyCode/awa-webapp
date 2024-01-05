@@ -1,83 +1,58 @@
-import { clsx } from "clsx";
-interface IProps {
-  type: string;
-  label?: string;
+import React from "react";
+import { useForm, Controller } from "react-hook-form";
+import clsx from "clsx";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+
+interface PhoneNumberInputProps {
   placeholder?: string;
+  label?: string;
   name: string;
+  required?: boolean;
+  error?: string;
   register?: any;
-  icon?: JSX.Element;
-  error?: any;
-  additionalClassname?: any;
-  value?: any;
-  disabled?: boolean;
 }
 
 const InputFieldPhoneNumber = ({
-  type,
   placeholder,
+  label,
   name,
+  required,
   error,
   register,
-  label,
-  icon,
-  additionalClassname,
-  disabled = false,
-}: IProps): JSX.Element => {
+}: PhoneNumberInputProps) => {
+  const { control } = useForm();
+
   return (
-    <div className="">
-      <div className="w-full">
-        <span className="text-base text-[#333] font-medium">{label}</span>
-        <div
-          className={clsx({
-            ["flex justify-between items-center border border-solid border-gray-200 focus:border-gray-200 focus:outline-none placeholder:text-color-100 rounded-md overflow-hidden mt-1"]:
-              true,
-            [additionalClassname]: !!additionalClassname,
-          })}
-        >
-          {register ? (
-            <div className="flex items-center px-2 w-full">
-              <span className="w-fit pr-2 text-gray-900 inline-block border-r border-gray-200">
-                +234{" "}
-              </span>
-              <input
-                type={type}
-                id={name}
-                maxLength={9}
-                placeholder={placeholder}
-                disabled={disabled}
-                className="w-full h-10 pl-2 border-none pr-4 focus:outline-0 appearance-none leading-tight"
-                {...register(name)}
-              />
-            </div>
-          ) : (
-            <div className="flex items-center px-2 w-full">
-              <span className="w-fit pr-2 text-gray-400 inline-block border-r border-gray-200">
-                +234{" "}
-              </span>
-              <input
-                type={type}
-                id={name}
-                maxLength={9}
-                placeholder={placeholder}
-                disabled={disabled}
-                className="w-full h-10 pl-2 border-none pr-4 focus:outline-0 appearance-none leading-tight"
-              />
-            </div>
-          )}
-          {icon !== undefined ? (
-            <span className="px-2" aria-label="Open">
-              {icon}
-            </span>
-          ) : (
-            ""
-          )}
-        </div>
-      </div>
-      {error ? (
-        <p className="flex items-center lowercase text-[#ED2E7E] text-xs">
-          {error}
-        </p>
-      ) : null}
+    <div className="relative z-10">
+      <span className="text-base text-[#333] font-medium">{label}</span>
+      <Controller
+        name={name}
+        control={control}
+        rules={{ required: required && "This field is required" }}
+        render={({ field }) => (
+          <PhoneInput
+            value={field.value}
+            onChange={(value, country, e, formattedValue) => {
+              field.onChange(value);
+            }}
+            countryCodeEditable
+            country={"ng"}
+            autoFormat
+            placeholder={placeholder}
+            inputClass={clsx({
+              ["flex justify-between items-center !w-full !border-none focus:outline-none placeholder:text-color-100 rounded-md overflow-hidden"]:
+                true,
+            })}
+            containerClass={clsx({
+              "border border-solid border-gray-200 focus:border-gray-200 focus:outline-none placeholder:text-color-100 rounded-md mt-1 py-1":
+                true,
+              "border-red-600": !!error,
+            })}
+            dropdownClass="absolute z-20" // Set the dropdown class with a higher z-index
+          />
+        )}
+      />
     </div>
   );
 };

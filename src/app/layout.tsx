@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Mulish } from "next/font/google";
+import 'react-phone-input-2/lib/style.css'
 import './globals.css'
 import NavBar from '@/components/NavBar';
 
