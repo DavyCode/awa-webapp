@@ -107,7 +107,7 @@ const NavBar = () => {
   const router = useRouter();
 
   return (
-    <div className="w-full shadow-[0_20px_40px_0px_rgba(223,223,223,0.25)] max-w-[299px] sticky left-0 top-0 bg-white h-screen overflow-auto">
+    <div className="w-full sm:w-[299px] shadow-[0_20px_40px_0px_rgba(223,223,223,0.25)] max-w-[299px] sticky left-0 top-0 bg-white h-screen overflow-auto">
       <div className="py-[6px] border-b border-[#EBEBEB] pl-10">
         <Button
           className="h-14 px-4 py-[10.5px]"
