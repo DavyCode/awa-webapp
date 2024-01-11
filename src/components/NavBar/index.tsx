@@ -194,17 +194,17 @@ const Menu = ({ list }: { list: (typeof routes)[1][] }) => {
     const divEl = window.getComputedStyle(divRef.current as HTMLDivElement);
     const elHeight = parseInt(el.height);
     const divHeight = parseInt(divEl.height);
-    console.log("el.height :>> ", parseInt(el.height));
-    console.log("el.divHeight :>> ", divHeight);
-    console.log(
-      "divHeight.current scrollHeight :>> ",
-      divRef.current?.scrollHeight,
-    );
+    // console.log("el.height :>> ", parseInt(el.height));
+    // console.log("el.divHeight :>> ", divHeight);
+    // console.log(
+    //   "divHeight.current scrollHeight :>> ",
+    //   divRef.current?.scrollHeight,
+    // );
     // console.log("ref.current scrollHeight :>> ", ref.current?.scrollHeight);
     // console.log("ref.current offsetHeight :>> ", ref.current?.offsetHeight);
     // console.log("ref.current clientHeight :>> ", ref.current?.clientHeight);
     if (divHeight) {
-      console.log("ref.current scrollHeight :>> ", ref.current?.scrollHeight);
+      //   console.log("ref.current scrollHeight :>> ", ref.current?.scrollHeight);
 
       gsap.to(divRef.current, { height: 0, duration: 0.25 });
       return;
