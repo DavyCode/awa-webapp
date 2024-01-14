@@ -1,10 +1,12 @@
 
 import InformationIcon from '@/assets/svg/information.svg'
-import RevealTextIcon from '@/assets/svg/eye.svg'
-import AddIcon from '@/assets/svg/add.svg'
+import RevealSmallIcon from '@/assets/svg/eye-small.svg'
+import AddBlackIcon from '@/assets/svg/add-black.svg'
 import TransferIcon from '@/assets/svg/transfer.svg'
 import PayBillsIcon from '@/assets/svg/pay-bills.svg'
+import RenewIcon from '@/assets/svg/renew.svg'
 import UserPlanIcon from '@/assets/svg/user-plan.svg'
+import InviteIcon from "@/assets/svg/invite.svg"
 
 import { formatAmount } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -15,13 +17,17 @@ const UserPlanCard = () => {
         <div className="py-6 px-4 bg-white rounded-2xl border border-[#EBEBEB] w-full sm:w-[544px]">
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <UserPlanIcon />
-            <div className="w-full sm:w-[248px] bg-[#F6FFF6] p-2 flex gap-[18px] justify-center">
+            <div className="w-full sm:w-[284px] bg-[#F6FFF6] p-2 flex gap-[18px] justify-center">
               <div className="w-full sm:w-[68px] text-[#3D663D]">
-                <h1 className="font-medium text-sm">2</h1>
+                <h1 className="font-medium text-sm">0</h1>
                 <span className="text-xs italic">Active plans</span>
               </div>
-              <div className="w-full sm:w-[75px] text-[#3D663D]">
+              <div className="w-full sm:w-[79px] text-[#3D663D]">
                 <h1 className="font-medium text-sm">1</h1>
+                <span className="text-xs italic">Pending plans</span>
+              </div>
+              <div className="w-full sm:w-[75px] text-[#3D663D]">
+                <h1 className="font-medium text-sm">0</h1>
                 <span className="text-xs italic">Expired plans</span>
               </div>
             </div>
@@ -32,20 +38,22 @@ const UserPlanCard = () => {
               <InformationIcon />
             </span>
           </div>
-          <h1 className="sm:text-2xl font-bold text-[#333] mb-4">3</h1>
+          <h1 className="sm:text-2xl font-bold text-[#333] mb-4">0</h1>
           <div className="flex justify-between items-center">
             <Button
               type="button"
               variant="outline"
-              className="py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#EBEBEB] rounded px-4 w-full font-medium sm:w-[134px] flex gap-2"
+              className="py-[14.5px] h-[unset] bg-product-button-gradient rounded px-4 w-full font-medium sm:w-[134px] flex gap-2"
             >
+              <AddBlackIcon />
               Add new
             </Button>
             <Button
               type="button"
               variant="outline"
-              className="py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#EBEBEB] rounded px-4 w-full sm:w-[134px] font-medium flex gap-2"
+              className="py-[14.5px] h-[unset] bg-product-button-gradient rounded px-4 w-full sm:w-[134px] font-medium flex gap-2"
             >
+              <RenewIcon />
               Renew
             </Button>
             <Button
@@ -53,11 +61,12 @@ const UserPlanCard = () => {
               variant="outline"
               className="py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#EBEBEB] rounded px-4 w-full sm:w-[134px] flex font-medium items-center gap-2"
             >
+              <RevealSmallIcon />
               View plans
             </Button>
           </div>
         </div>
-        <div className="py-6 px-4 bg-white rounded-2xl border border-[#EBEBEB] w-full sm:w-[457px]">
+        <div className="py-6 px-4 bg-white rounded-2xl border border-[#EBEBEB] w-full sm:w-[472px]">
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <UserPlanIcon />
           </div>
@@ -68,17 +77,25 @@ const UserPlanCard = () => {
             </span>
           </div>
           <h1 className="sm:text-2xl font-bold text-[#333] mb-8">3</h1>
-          <div className="flex justify-between items-center">
+          <div className="flex gap-[13px] items-center">
             <Button
               type="button"
               variant="outline"
-              className="py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#EBEBEB] rounded px-4 w-full font-medium sm:w-[134px] flex gap-2"
+              className="py-[14.5px] h-[unset] bg-product-button-gradient rounded px-4 w-full font-medium sm:w-[200px] flex gap-2"
             >
+              <RevealSmallIcon />
               View Beneficiaries
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              className="py-[14.5px] h-[unset] bg-product-button-gradient rounded px-4 w-full font-medium sm:w-[200px] flex gap-2"
+            >
+              <InviteIcon />
+              Invite Beneficiaries
             </Button>
           </div>
         </div>
-        
       </div>
     );
 }
