@@ -39,7 +39,7 @@ const UserPlanCard = () => {
             </span>
           </div>
           <h1 className="sm:text-2xl font-bold text-[#333] mb-4">0</h1>
-          <div className="flex justify-between items-center">
+          <div className="flex gap-[13px] items-center">
             <Button
               type="button"
               variant="outline"
@@ -59,7 +59,7 @@ const UserPlanCard = () => {
             <Button
               type="button"
               variant="outline"
-              className="py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#EBEBEB] rounded px-4 w-full sm:w-[134px] flex font-medium items-center gap-2"
+              className="py-[14.5px] h-[unset] bg-product-button-gradient rounded px-4 w-full sm:w-[134px] flex font-medium items-center gap-2"
             >
               <RevealSmallIcon />
               View plans
