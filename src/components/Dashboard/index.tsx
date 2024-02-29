@@ -5,10 +5,12 @@ import CardInfos from "./CardInfos";
 import ModalComponent from "../Modal";
 import InsertPFAPin from "./InsertRSA";
 import { Button } from "../ui/button";
+import VerifyEmailComponent from "../VerifyEmail";
+import EnrolOnBoarding from "../EnrolOnBoarding";
 
 const Dashboard = () => {
   const [hasPFAPin] = useState(false);
-  const [newUserTourModalOpen, setIsNewUserModalOpen] = useState(true)
+  const [newUserTourModalOpen, setIsNewUserModalOpen] = useState(false)
   const [isInsertModalOpen, setIsInsertModalOpen] = useState(false)
 
   useEffect(() => {
@@ -19,8 +21,12 @@ const Dashboard = () => {
   const handleCloseInsertModal = () => setIsInsertModalOpen(false);
 
   return (
-    <div className="sm:pl-10 sm:pr-[10px] mt-12">
-      <UserCard hasPFAPin={hasPFAPin} setIsInsertModalOpen={setIsInsertModalOpen} />
+    <div className="sm:pl-10 sm:pr-[10px] mt-6 relative">
+      <VerifyEmailComponent />
+      <UserCard
+        hasPFAPin={hasPFAPin}
+        setIsInsertModalOpen={setIsInsertModalOpen}
+      />
       <CardInfos />
       <ModalComponent
         isOpen={isInsertModalOpen}
@@ -28,7 +34,7 @@ const Dashboard = () => {
         title={"Insert RSA Pin"}
         size="medium"
       >
-        <InsertPFAPin />
+        <InsertPFAPin handleCloseInsertModal={handleCloseInsertModal} />
       </ModalComponent>
       <ModalComponent
         isOpen={newUserTourModalOpen}
@@ -58,6 +64,8 @@ const Dashboard = () => {
           </Button>
         </div>
       </ModalComponent>
+
+      <EnrolOnBoarding />
     </div>
   );
 };

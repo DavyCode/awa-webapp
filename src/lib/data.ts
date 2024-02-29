@@ -39,6 +39,19 @@ export const ResetPasswordOptions: ResetPasswordProps[] = [
   },
 ];
 
+export const ResidentialOptions: ResetPasswordProps[] = [
+  {
+    label: "Nigeria",
+    name: "residential",
+    value: "Nigeria",
+  },
+  {
+    label: "Aboard",
+    name: "residential",
+    value: "Aboard",
+  },
+];
+
 export const UserWalletInfo: WalletInfoProps[] = [
   {
     title: "Total Wallet Balance",

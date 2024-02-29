@@ -45,7 +45,7 @@ const InputFieldPhoneNumber = ({
                 true,
             })}
             containerClass={clsx({
-              "border border-solid border-gray-200 focus:border-gray-200 focus:outline-none placeholder:text-color-100 rounded-md mt-1 py-1":
+              "border border-solid border-gray-200 focus:border-gray-200 focus:outline-none placeholder:text-color-100 rounded-md h-10 mt-1":
                 true,
               "border-red-600": !!error,
             })}
