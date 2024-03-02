@@ -160,11 +160,11 @@ const PersonalForm = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-between mb-4">
           {/* State of residence */}
           <div className="w-full sm:w-[263px]">
-            <CountryStateCity
+            {/* <CountryStateCity
               countryName="country"
               stateName="state"
               cityName="city"
-            />
+            /> */}
           </div>
 
           {/* LGA Origin */}
