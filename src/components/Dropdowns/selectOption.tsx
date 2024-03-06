@@ -19,14 +19,14 @@ const Dropdown: React.FC<DropdownProps> = ({ options, onSelect, label }) => {
   };
 
   return (
-    <div className="relative inline-block text-left">
+    <div className="relative inline-block text-left w-full">
       <div>
-        <label className="my-2 font-medium block text-[#454040]">{label}</label>
-        <div className="relative inline-flex w-full rounded-md border border-gray-200 bg-white">
+        <label className="font-medium block text-[#454040]">{label}</label>
+        <div className="relative inline-flex w-full rounded-md border border-gray-200 bg-white mt-1">
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="inline-flex justify-between w-full rounded-md px-4 py-2 bg-white text-sm font-medium text-gray-500"
+            className="inline-flex justify-between w-full rounded-md px-4 py-2 bg-white text-sm font-medium text-gray-500 h-10"
           >
             {selectedOption || "Select an option"}
             <ChevronDownIcon className="h-5 w-5 ml-2 text-gray-300" />

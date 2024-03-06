@@ -26,6 +26,59 @@ interface TransactionInfoProps {
   status: string
 }
 
+
+interface PlanCardProps {
+  label: string;
+  title: string;
+  amount: number;
+  desc: string;
+}
+
+export const PlanData: PlanCardProps[] = [
+  {
+    label: "Suitable for anyone",
+    title: "Valubah Premium",
+    amount: 3000,
+    desc: "Valubah offers flexible pricing plans tailored to suit your financial goals and needs",
+  },
+  {
+    label: "Suitable for anyone",
+    title: "Valubah Gold",
+    amount: 3500,
+    desc: "Valubah offers flexible pricing plans tailored to suit your financial goals and needs",
+  },
+  {
+    label: "Suitable for middle-level workers",
+    title: "Valubah Flexicare",
+    amount: 3900,
+    desc: "Valubah offers flexible pricing plans tailored to suit your financial goals and needs",
+  },
+  {
+    label: "Suitable for senior-level workers",
+    title: "Valubah Flexicare",
+    amount: 6000,
+    desc: "Valubah offers flexible pricing plans tailored to suit your financial goals and needs",
+  },
+  {
+    label: "Suitable for Bosses",
+    title: "Valubah Sapphire",
+    amount: 9300,
+    desc: "Valubah offers flexible pricing plans tailored to suit your financial goals and needs",
+  },
+  {
+    label: "Suitable for senior-level workers",
+    title: "Valubah Platinum",
+    amount: 14300,
+    desc: "Valubah offers flexible pricing plans tailored to suit your financial goals and needs",
+  },
+  {
+    label: "Suitable for HNIs",
+    title: "Diamond(No waiting period)",
+    amount: 18300,
+    desc: "Valubah offers flexible pricing plans tailored to suit your financial goals and needs",
+  },
+];
+
 export const ResetPasswordOptions: ResetPasswordProps[] = [
   {
     label: "Phone number",
@@ -36,6 +89,19 @@ export const ResetPasswordOptions: ResetPasswordProps[] = [
     label: "Email address",
     name: "resetOption",
     value: "Email address",
+  },
+];
+
+export const ResidentialOptions: ResetPasswordProps[] = [
+  {
+    label: "Nigeria",
+    name: "residential",
+    value: "Nigeria",
+  },
+  {
+    label: "Aboard",
+    name: "residential",
+    value: "Aboard",
   },
 ];
 
