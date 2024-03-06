@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import InputField from "@/components/Forms/input-text";
 import { Button } from "@/components/Forms/Button";
 import OrDivider from "@/components/Divider";
@@ -9,11 +9,14 @@ import CountryDropdown from "@/components/Dropdowns/CountryList";
 import Dropdown from "@/components/Dropdowns/selectOption";
 import InputFieldPhoneNumber from "@/components/Forms/input-phone-number";
 import GoogleIcon from "@/assets/icons/GoogleIcon";
+import { useAuthContext } from "@/context/AuthContext";
 
 const options = ["Option 1", "Option 2", "Option 3"];
 
 const IndividualForm = () => {
-  const { control, handleSubmit, register } = useForm();
+  const {
+    authForm: { control, handleSubmit, register },
+  } = useAuthContext();
 
   const handleSelect = (selectedOption: string) => {
     console.log(`Selected: ${selectedOption}`);
@@ -38,14 +41,21 @@ const IndividualForm = () => {
           placeholder="Email address"
           /* register={register} */
         />
-        <InputFieldPhoneNumber
-          label="Phone number"
-          /* error={errors.email?.message} */
-          name="phone"
-          placeholder="Enter phone number"
-          register={register} // Pass the register function
+        <Controller
+          render={({ field: { ref, ...others } }) => {
+            return (
+              <InputFieldPhoneNumber
+                label="Phone number"
+                /* error={errors.email?.message} */
+                placeholder="Enter phone number"
+                {...others}
+              />
+            );
+          }}
+          control={control}
+          name="phoneNumber"
         />
-        <CountryDropdown control={control} name="country" label="Country" />
+        {/* <CountryDropdown control={control} name="country" label="Country" /> */}
         <Dropdown
           options={options}
           onSelect={handleSelect}
