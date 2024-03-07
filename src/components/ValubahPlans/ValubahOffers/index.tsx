@@ -9,7 +9,6 @@ const ValubahOffers = () => {
     <div>
       <ValubahOfferHeader />
       <ValubahOfferFormTabs />
-      <BenefitsComponent />
     </div>
   );
 };
