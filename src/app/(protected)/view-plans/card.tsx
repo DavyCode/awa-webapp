@@ -1,17 +1,31 @@
-import React from 'react'
-import { formatAmountVariant } from '@/lib/utils'
-import clsx from 'clsx';
+"use client";
+import React, { useState } from "react";
+import { formatAmountVariant } from "@/lib/utils";
+import clsx from "clsx";
 
 interface PlanCardProps {
-    label: string;
-    index: number;
-    title: string;
-    amount: number;
-    desc: string
+  label: string;
+  index: number;
+  title: string;
+  amount: number;
+  desc: string;
+  setIsForWhoPurchaseModalOpen: any;
 }
-const PlanCard:React.FC<PlanCardProps> = ({ label, index, title, amount, desc}) => {
+const PlanCard: React.FC<PlanCardProps> = ({
+  label,
+  index,
+  title,
+  amount,
+  desc,
+  setIsForWhoPurchaseModalOpen,
+}) => {
   return (
-    <div className="w-full sm:w-[322px] h-fit sm:h-[190px] rounded-[8px]  border border-2 mt-10 overflow-hidden">
+    <div
+      className="w-full sm:w-[322px] h-fit sm:h-[190px] rounded-[8px]  border border-2 mt-10 overflow-hidden"
+      onClick={() => {
+        setIsForWhoPurchaseModalOpen(true);
+      }}
+    >
       <div
         className={clsx({
           "w-full h-fit sm:h-screen border-l-4 p-2 pb-6": true,
@@ -51,6 +65,6 @@ const PlanCard:React.FC<PlanCardProps> = ({ label, index, title, amount, desc}) 
       </div>
     </div>
   );
-}
+};
 
-export default PlanCard
+export default PlanCard;
