@@ -4,7 +4,7 @@ import Tabs from "../../Tabs";
 import SwitchFormEngine from "./ValubahOfferSwitchForm";
 
 const ValubahOfferFormTabs = () => {
-  const [currentTab, setCurrentTab] = useState("");
+  const [currentTab, setCurrentTab] = useState("Benefits");
 
   const [tabMenus, setTabs] = useState([
     {
