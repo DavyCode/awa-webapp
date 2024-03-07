@@ -5,6 +5,7 @@ import PlanCard from "./card";
 import { PlanData } from "@/lib/data";
 import { useState } from "react";
 import ModalComponent from "@/components/Modal";
+import PurchaseFor from "@/components/ValubahPlans/PurchaseFor";
 
 const ViewPlans = () => {
   const [isForWhoPurchaseModalOpen, setIsForWhoPurchaseModalOpen] =
@@ -47,7 +48,7 @@ const ViewPlans = () => {
           title={"Valuebah Premium"}
           size="medium"
         >
-          <p>hello</p>
+          <PurchaseFor />
         </ModalComponent>
       </div>
     </div>
