@@ -7,7 +7,6 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
-  size: "small" | "medium" | "large";
   children: JSX.Element;
   width: string;
 }
@@ -16,7 +15,6 @@ const ModalComponent: React.FC<ModalProps> = ({
   isOpen,
   onClose,
   title,
-  size,
   children,
   width,
 }) => {
@@ -47,24 +45,15 @@ const ModalComponent: React.FC<ModalProps> = ({
     return null;
   }
 
-  //   let modalSizeClass = "";
-  //   if (size === "small") {
-  //     modalSizeClass = "w-full mx-8 sm:mx-0 sm:max-w-sm";
-  //   } else if (size === "medium") {
-  //     modalSizeClass = "w-full mx-4 sm:mx-0 sm:max-w-[422px] sm:w-[422px]";
-  //   } else if (size === "large") {
-  //     modalSizeClass = "w-full mx-4 sm:mx-0 sm:w-[70%] sm:ml-[200px]";
-  //   }
-
   return (
     <>
-      <div className="relative top-0 left-0 w-full h-[1041px] z-50 flex items- justify-center bg-opacity-0 bg-black flex-col">
+      <div className="relative top-0 left-0 w-full  z-50 flex items- justify-center bg-opacity-0 bg-black flex-col overflow-hidden">
         <div
           ref={modalRef}
-          className={`fixed top-0 right-0 w-[${width}] mx-4 sm:mx-0 `}
+          className={`fixed top-0 right-0  mx-4 sm:mx-0 sm:w-[${width}] sm:max-w-[${width}]`}
         >
           <div
-            className={`bg-white h-fit p-4 sm:px-[37px] sm:pt-[47px] w-full shadow-xl overflow-hidden `}
+            className={`bg-white  p-4 sm:px-[37px] sm:pt-[47px] w-full shadow-xl overflow-scroll`}
           >
             <div
               className="mb-4 flex justify-end cursor-pointer"

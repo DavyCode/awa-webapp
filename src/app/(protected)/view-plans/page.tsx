@@ -68,7 +68,6 @@ const ViewPlans = () => {
           isOpen={isValubahOffersModalOpen}
           onClose={handleCloseValubahOffersModal}
           title=""
-          size="medium"
           width="523px"
         >
           <ValubahOffers />
