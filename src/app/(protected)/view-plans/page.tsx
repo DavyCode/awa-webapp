@@ -10,6 +10,8 @@ import RightSideModal from "@/components/Modal/RightSideModal";
 import ValubahOffers from "@/components/ValubahPlans/ValubahOffers";
 
 const ViewPlans = () => {
+  const [modalStack, setModalStack] = useState([]);
+
   const [isForWhoPurchaseModalOpen, setIsForWhoPurchaseModalOpen] =
     useState(false);
 
@@ -21,7 +23,6 @@ const ViewPlans = () => {
   const handleCloseValubahOffersModal = () => {
     setIsValubahOffersModalOpen(false);
   };
-
   const router = useRouter();
   return (
     <div className="px-10 mt-12 mb-14">
