@@ -37,7 +37,7 @@ interface PlanCardProps {
 }
 
 interface PurchaseForProps {
-  icon: React.ComponentType;
+  icon: React.Component;
   title: string;
 }
 
