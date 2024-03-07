@@ -53,7 +53,7 @@ const ModalComponent: React.FC<ModalProps> = ({
           className={`fixed top-0 right-0  mx-4 sm:mx-0 sm:w-[${width}] sm:max-w-[${width}]`}
         >
           <div
-            className={`bg-white  p-4 sm:px-[37px] sm:pt-[47px] w-full shadow-xl overflow-scroll`}
+            className={`bg-white  p-4 sm:px-[37px] sm:pt-[47px] w-[523px] h-[100vh] shadow-xl overflow-scroll`}
           >
             <div
               className="mb-4 flex justify-end cursor-pointer"
