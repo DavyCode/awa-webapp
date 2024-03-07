@@ -37,9 +37,10 @@ interface PlanCardProps {
 }
 
 interface PurchaseForProps {
-  icon: React.Component;
+  icon: JSX.Element;
   title: string;
 }
+[];
 
 export const PlanData: PlanCardProps[] = [
   {
@@ -140,15 +141,15 @@ export const DummyTransactionInfo: TransactionInfoProps[] = [
 
 export const PurchaseForData: PurchaseForProps[] = [
   {
-    icon: MyselfIcon,
+    icon: <MyselfIcon />,
     title: "Myself",
   },
   {
-    icon: MyselfandOthersIcon,
+    icon: <MyselfandOthersIcon />,
     title: "Myself and Others",
   },
   {
-    icon: OthersIcon,
+    icon: <OthersIcon />,
     title: "Others",
   },
 ];
