@@ -1,7 +1,8 @@
 import React from "react";
+import BenefitsComponent from "./BenefitsCard.tsx";
 
 const TermsCard = () => {
-  return <div>TermsCard</div>;
+  return <BenefitsComponent />;
 };
 
 export default TermsCard;
