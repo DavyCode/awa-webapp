@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import RadioButton from "../Forms/Button/radio";
 import { PurchaseForData } from "@/lib/data";
-import { Console } from "console";
 
 interface PurchaseForProps {
   setIsValubahOffersModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -24,10 +23,9 @@ const PurchaseFor: React.FC<PurchaseForProps> = ({
               className="flex items-center gap-2 w-full"
               onClick={() => {
                 setIsValubahOffersModalOpen(true);
-                console.log("true");
               }}
             >
-              <div className="bg-[#F9FDF7] w-10 h-10 rounded-full flex items-center">
+              <div className="bg-[#F9FDF7] w-10 h-10 rounded-full p-auto flex justify-center items-center">
                 {item.icon}
               </div>
               <div>
