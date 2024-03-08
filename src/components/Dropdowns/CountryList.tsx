@@ -18,12 +18,10 @@ const CountryDropdown: React.FC<CountryDropdownFormProps> = ({
   });
 
   const [value, setValue] = useState("");
-  const options = useMemo(() => countryList().getData(), []);
 
   const changeHandler = (value: any) => {
     setValue(value);
   };
-  console.log("selectedValue :>> ", selectedValue);
 
   return (
     <div className="">
@@ -45,7 +43,7 @@ const CountryDropdown: React.FC<CountryDropdownFormProps> = ({
         )} */}
 
       <Select
-        options={options as any[]}
+        // options={options as any[]}
         value={value}
         onChange={changeHandler}
       />
