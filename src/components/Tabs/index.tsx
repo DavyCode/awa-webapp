@@ -1,6 +1,6 @@
 import React from "react";
 import Tab from "./tab";
-import clsx from 'clsx';
+import clsx from "clsx";
 
 interface TabsProps {
   tabsData: {
@@ -17,9 +17,11 @@ const Tabs: React.FC<TabsProps> = ({
   activeTabLabel,
 }) => {
   return (
-    <ul className={clsx({
-      ["w-full flex justify-between"]: true
-    })}>
+    <ul
+      className={clsx({
+        ["w-full flex justify-between "]: true,
+      })}
+    >
       {tabsData.map((datum) => {
         return (
           <Tab

@@ -18,7 +18,7 @@ const ValubahOfferFormTabs = () => {
     },
   ]);
   return (
-    <div className="mt-[23px] mb-[22px] mr-[20px]">
+    <div className="mt-[23px] mb-[22px]">
       <Tabs
         tabsData={tabMenus}
         handleTabClick={(tabName) => setCurrentTab(tabName)}

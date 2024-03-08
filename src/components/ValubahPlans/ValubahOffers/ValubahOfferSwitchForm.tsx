@@ -18,7 +18,7 @@ const SwitchFormEngine: React.FC<IProps> = ({ currentTab }) => {
         <p>Valubah Offers</p>;
     }
   };
-  return <div className="mt-[41px]">{currentDisplay()}</div>;
+  return <div className="mt-[23px]">{currentDisplay()}</div>;
 };
 
 export default SwitchFormEngine;

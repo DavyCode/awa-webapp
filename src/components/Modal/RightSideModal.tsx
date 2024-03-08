@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import CloseIcon from "@/assets/svg/close-circle.svg";
+import { Button } from "../Forms/Button";
 
 interface ModalProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface ModalProps {
   title?: string;
   children: JSX.Element;
   width: string;
+  height: string;
 }
 
 const ModalComponent: React.FC<ModalProps> = ({
@@ -17,6 +19,7 @@ const ModalComponent: React.FC<ModalProps> = ({
   title,
   children,
   width,
+  height,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -48,13 +51,13 @@ const ModalComponent: React.FC<ModalProps> = ({
   return (
     <>
       <div className="relative top-0 left-0 w-full  z-50 flex items- justify-center bg-opacity-0 bg-black flex-col overflow-hidden">
-        <div
-          ref={modalRef}
-          className={`fixed top-0 right-0  mx-4 sm:mx-0 sm:w-[${width}] sm:max-w-[${width}]`}
-        >
+        <div ref={modalRef} className={`fixed top-0 right-0  mx-4 sm:mx-0`}>
           <div
-            className={`bg-white  p-4 sm:px-[37px] sm:pt-[47px] w-[523px] h-[100vh] shadow-xl overflow-scroll`}
+            className={`bg-white p-4 sm:px-[37px] sm:pt-[47px] w-[${width}] h-[${height}] shadow-xl overflow-scroll`}
           >
+            <div className=" w-full flex self-center bg-white absolute top-[78%]">
+              <Button className="w-[450px] px-20 ">Buy Valubah Premium</Button>
+            </div>
             <div
               className="mb-4 flex justify-end cursor-pointer"
               onClick={onClose}
@@ -77,3 +80,4 @@ const ModalComponent: React.FC<ModalProps> = ({
 
 export default ModalComponent;
 // sm:max-w-[800px] sm:w-[800px]
+// sm:w-[${width}] sm:max-w-[${width}]

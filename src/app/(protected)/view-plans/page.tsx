@@ -69,6 +69,7 @@ const ViewPlans = () => {
           onClose={handleCloseValubahOffersModal}
           title=""
           width="523px"
+          height="100vh"
         >
           <ValubahOffers />
         </RightSideModal>

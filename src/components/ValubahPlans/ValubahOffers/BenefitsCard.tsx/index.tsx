@@ -6,7 +6,7 @@ import PersonalAccidentCoverCard from "./PersonalAccidentCoverCard";
 
 const BenefitsComponent = () => {
   return (
-    <div className="mt-[23px] space-y-4">
+    <div className=" space-y-4">
       <HealthInsuranceCard />
       <PensionCard />
       <LifeInsuranceCard />
