@@ -21,7 +21,7 @@ const PlanCard: React.FC<PlanCardProps> = ({
 }) => {
   return (
     <div
-      className="w-full sm:w-[322px] h-fit sm:h-[190px] rounded-[8px]  border border-2 mt-10 overflow-hidden"
+      className="w-full sm:w-[322px] h-fit sm:h-[190px] rounded-[8px] border-2 mt-10 overflow-hidden"
       onClick={() => {
         setIsForWhoPurchaseModalOpen(true);
       }}
