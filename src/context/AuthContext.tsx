@@ -1,42 +1,89 @@
 "use client";
 
-import { signUpSchema } from "@/schema/authSchema";
-import { yupResolver } from "@hookform/resolvers/yup";
 import {
-  createContext,
-  ReactNode,
-  useContext,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+  createPasswordSchema,
+  loginSchema,
+  signUpSchema,
+} from "@/schema/authSchema";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { createContext, ReactNode, useContext, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
+import countryList from "react-select-country-list";
+
+const howDidYouHearAboutUs = [
+  {
+    label: "Others",
+    value: "Others",
+  },
+];
 
 export const useAuthManager = () => {
   const [activeTab, setActiveTab] = useState<"individual" | "corporate">(
     "individual",
   );
 
-  const authForm = useForm({
+  const [activeSection, setActiveSection] = useState<
+    "registration" | "password"
+  >("registration");
+
+  const signupForm = useForm({
     defaultValues: {
       firstName: "",
       lastName: "",
       email: "",
-      password: "",
       phoneNumber: "",
       //   phoneCountryCode: "",
       howDidYouHearAboutUs: "",
       referredBy: "",
+      country: undefined,
+      refCode: "",
+      //   type: "individual",
     },
     context: {
       activeTab,
     },
     resolver: yupResolver(signUpSchema),
   });
+
+  const loginForm = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    resolver: yupResolver(loginSchema),
+  });
+  const passwordCreationForm = useForm({
+    defaultValues: {
+      confirm_password: "",
+      password: "",
+    },
+    resolver: yupResolver(createPasswordSchema),
+  });
+
+  const countryArr = useMemo(() => countryList().getData(), []);
+
+  const onSubmit = signupForm.handleSubmit((data) => {
+    console.log("data :>> ", data);
+  });
+  const loginSubmit = loginForm.handleSubmit((data) => {
+    console.log("data :>> ", data);
+  });
+  const createPasswordSubmit = passwordCreationForm.handleSubmit((data) => {
+    console.log("data :>> ", data);
+  });
+
   return {
     setActiveTab,
     activeTab,
-    authForm,
+    signupForm,
+    countryArr,
+    onSubmit,
+    loginSubmit,
+    howDidYouHearAboutUs,
+    activeSection,
+    setActiveSection,
+    createPasswordSubmit,
+    passwordCreationForm,
   };
 };
 

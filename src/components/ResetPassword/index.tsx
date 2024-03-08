@@ -7,7 +7,6 @@ import RadioButton from "../Forms/Button/radio";
 import { ResetPasswordOptions } from "@/lib/data";
 
 const ResetPasswordComponent = () => {
-    const { control, handleSubmit, register } = useForm();
   return (
     <div className="flex h-fit rounded-md shadow flex-col px-10 py-6 sm:mt-[73px] justify-center items-center w-full sm:w-[518px] mx-auto border border-gray-200">
       <p className="mb-2 text-3xl font-bold text-[#1a1a1a] text-center">
