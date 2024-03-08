@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import CloseIcon from "@/assets/svg/close-circle.svg";
 import { Button } from "../Forms/Button";
+import ArrowCircleLeft from "@/assets/icons/ArrowCircleLeft";
 
 interface ModalProps {
   isOpen: boolean;
@@ -50,18 +51,19 @@ const ModalComponent: React.FC<ModalProps> = ({
 
   return (
     <>
-      <div className="relative top-0 left-0 w-full  z-50 flex items- justify-center bg-opacity-0 bg-black flex-col overflow-hidden">
+      <div className="relative top-0 left-0 w-full z-50 flex items- justify-center bg-opacity-0 bg-black flex-col overflow-hidden">
         <div ref={modalRef} className={`fixed top-0 right-0  mx-4 sm:mx-0`}>
           <div
-            className={`bg-white p-4 sm:px-[37px] sm:pt-[47px] w-[${width}] h-[${height}] shadow-xl overflow-scroll`}
+            className={`bg-white p- sm:px-[24px] sm:pt-[24px] w-[${width}] h-[${height}] shadow-xl overflow-scroll`}
           >
-            <div className=" w-full flex self-center bg-white absolute top-[78%]">
-              <Button className="w-[450px] px-20 ">Buy Valubah Premium</Button>
-            </div>
             <div
-              className="mb-4 flex justify-end cursor-pointer"
+              className="mb-4 flex justify-between items-center cursor-pointer"
               onClick={onClose}
             >
+              <div className="flex items-center gap-x-2 text-[#3D663D]">
+                <ArrowCircleLeft />
+                Go back
+              </div>
               <div className="w-6 h-6 rounded-full bg-white flex justify-center items-center">
                 <CloseIcon />
               </div>

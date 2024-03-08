@@ -71,7 +71,9 @@ const ViewPlans = () => {
           width="523px"
           height="100vh"
         >
-          <ValubahOffers />
+          <ValubahOffers
+            setIsBeneficiaryModalOpen={setIsValubahOffersModalOpen}
+          />
         </RightSideModal>
       </div>
     </div>
