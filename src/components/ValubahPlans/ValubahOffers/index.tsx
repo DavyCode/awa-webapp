@@ -13,6 +13,8 @@ const ValubahOffers: React.FC<ValubahOffersProps> = ({
   setIsBeneficiaryModalOpen,
   planData,
 }) => {
+  // console.log(planData);
+
   return (
     <div className=" w-[476px] h-[100vh] flex flex-col">
       <div className=" w-full flex self-center justify-center bg-white absolute top-[70%]">
