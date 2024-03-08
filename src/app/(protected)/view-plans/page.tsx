@@ -12,17 +12,6 @@ import ValubahOffers from "@/components/ValubahPlans/ValubahOffers";
 const ViewPlans = () => {
   const [modalStack, setModalStack] = useState([]);
 
-  const [isForWhoPurchaseModalOpen, setIsForWhoPurchaseModalOpen] =
-    useState(false);
-
-  const closeForWhoPurchaseModal = () => setIsForWhoPurchaseModalOpen(false);
-
-  const [isValubahOffersModalOpen, setIsValubahOffersModalOpen] =
-    useState(false);
-
-  const handleCloseValubahOffersModal = () => {
-    setIsValubahOffersModalOpen(false);
-  };
   const router = useRouter();
   return (
     <div className="px-10 mt-12 mb-14">
@@ -43,38 +32,9 @@ const ViewPlans = () => {
         <h1 className="text-xl text-[#1A1A1A] font-medium">View Plans</h1>
       </div>
       <div className="flex flex-col sm:flex-row justify-between flex-wrap">
-        {PlanData.map(({ label, title, amount, desc }, index) => (
-          <PlanCard
-            label={label}
-            index={index}
-            title={title}
-            amount={amount}
-            desc={desc}
-            key={amount}
-            setIsForWhoPurchaseModalOpen={setIsForWhoPurchaseModalOpen}
-          />
+        {PlanData.map((data, index) => (
+          <PlanCard key={data.title} planData={{ ...data, index }} />
         ))}
-        <ModalComponent
-          isOpen={isForWhoPurchaseModalOpen}
-          onClose={closeForWhoPurchaseModal}
-          title={"Valubah Premium"}
-          size="medium"
-        >
-          <PurchaseFor
-            setIsValubahOffersModalOpen={setIsValubahOffersModalOpen}
-          />
-        </ModalComponent>
-        <RightSideModal
-          isOpen={isValubahOffersModalOpen}
-          onClose={handleCloseValubahOffersModal}
-          title=""
-          width="523px"
-          height="100vh"
-        >
-          <ValubahOffers
-            setIsBeneficiaryModalOpen={setIsValubahOffersModalOpen}
-          />
-        </RightSideModal>
       </div>
     </div>
   );
