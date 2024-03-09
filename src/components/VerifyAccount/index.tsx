@@ -1,23 +1,22 @@
-"use client"
-import React, { useState } from 'react'
+"use client";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import InputFieldPhoneNumber from "@/components/Forms/input-phone-number";
 import InputField from "@/components/Forms/input-text";
-import { Button } from '../Forms/Button';
-import Link from 'next/link';
+import { Button } from "../Forms/Button";
+import Link from "next/link";
 
 const VerifyAccountComponent = () => {
-    const [activeTab, setActiveTab] = useState("phone");
-      const { control, handleSubmit, register } = useForm();
+  const [activeTab, setActiveTab] = useState("phone");
+  const { control, handleSubmit, register } = useForm();
 
-
-    const handleTabMenu = (type: string) => {
-        if(type === "phone") {
-            setActiveTab("phone")
-        } else {
-            setActiveTab("email")
-        }
+  const handleTabMenu = (type: string) => {
+    if (type === "phone") {
+      setActiveTab("phone");
+    } else {
+      setActiveTab("email");
     }
+  };
 
   return (
     <div className="flex h-fit rounded flex-col px-10 py-6 sm:mt-[110px] sm:mb-10 justify-center items-center w-full sm:w-[518px] mx-auto border border-gray-200">
@@ -49,13 +48,15 @@ const VerifyAccountComponent = () => {
       </div>
       <form className="w-full">
         {activeTab === "phone" ? (
-          <InputFieldPhoneNumber
-            label="Phone number"
-            /* error={errors.email?.message} */
-            name="phone"
-            placeholder="Enter phone number"
-            register={register} // Pass the register function
-          />
+          <>
+            {/* <InputFieldPhoneNumber
+              label="Phone number"
+
+              name="phone"
+              placeholder="Enter phone number"
+              register={register} // Pass the register function
+            /> */}
+          </>
         ) : (
           <InputField
             label="Email address"
@@ -89,6 +90,6 @@ const VerifyAccountComponent = () => {
       </form>
     </div>
   );
-}
+};
 
-export default VerifyAccountComponent
+export default VerifyAccountComponent;
