@@ -1,14 +1,13 @@
 "use client";
 import OrDivider from "@/components/Divider";
-import Dropdown from "@/components/Dropdowns/selectOption";
-import { Button } from "@/components/Forms/Button";
 import InputField from "@/components/Forms/input-text";
 import Link from "next/link";
-import { Controller, useForm } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import InputFieldPhoneNumber from "@/components/Forms/input-phone-number";
 import GoogleIcon from "@/assets/icons/GoogleIcon";
 import { useAuthContext } from "@/context/AuthContext";
 import Select, { StylesConfig, CSSObjectWithLabel } from "react-select";
+import { Button } from "@/components/ui/button";
 
 const options = ["Option 1", "Option 2", "Option 3"];
 
@@ -117,6 +116,7 @@ const CorporateForm = () => {
       handleSubmit,
       register,
       formState: { errors },
+      setValue,
     },
     countryArr,
     howDidYouHearAboutUs,
@@ -161,15 +161,19 @@ const CorporateForm = () => {
               return (
                 <InputFieldPhoneNumber
                   label="Phone number"
-                  error={errors.phoneNumber?.message}
+                  error={errors.phoneCountryCode?.message}
+                  errors={errors}
                   placeholder="Enter phone number"
-                  register={register} // Pass the register function
+                  control={control}
                   {...others}
+                  name="phoneCountryCode"
+                  register={register}
+                  setValue={setValue}
                 />
               );
             }}
-            name="phoneNumber"
             control={control}
+            name="phoneCountryCode"
           />
           <Controller
             render={({ field: { ref, ...others } }) => (
@@ -218,27 +222,40 @@ const CorporateForm = () => {
             register={register}
           />
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 my-2">
-              How did you hear about us
-            </label>
-            <Select
-              options={howDidYouHearAboutUs}
-              styles={selectStyles}
-              placeholder="How did you hear about us"
+          <div className="relative inline-block text-left w-full">
+            <Controller
+              render={({ field: { ref, ...others } }) => {
+                return (
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 my-2">
+                      How did you hear about us
+                    </label>
+                    <Select
+                      options={howDidYouHearAboutUs}
+                      styles={selectStyles}
+                      placeholder="How did you hear about us"
+                      {...others}
+                      id="corporate-hear-about-us-dropdown-select"
+                      instanceId="corporate-hear-about-us-dropdown-select"
+                    />
+                  </div>
+                );
+              }}
+              name="howDidYouHearAboutUs"
+              control={control}
             />
           </div>
           <InputField
             label="Refferal code (optional)"
-            name="refferal"
+            name="referredBy"
             type="text"
-            /* error={errors.userPassword?.message} */
+            error={errors.referredBy?.message}
             placeholder="Referral code"
-            /* register={register} */
+            register={register}
           />
           <Button
             type="submit"
-            className="py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4"
+            className="py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4 cursor-pointer"
             style={{
               backgroundColor: "var(--primary)",
             }}

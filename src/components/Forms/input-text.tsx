@@ -3,6 +3,7 @@ import EyeIcon from "@/assets/svg/eye.svg";
 import EyeSlashIcon from "@/assets/svg/eye-slash.svg";
 import { useState } from "react";
 import { Button } from "../ui/button";
+import CSS from "csstype";
 
 interface IProps {
   type: string;
@@ -13,9 +14,11 @@ interface IProps {
   icon?: JSX.Element;
   error?: any;
   additionalClassname?: any;
+  inputClassNames?: string;
   value?: any;
   disabled?: boolean;
   showIcon?: boolean;
+  style?: CSS.Properties;
 }
 
 const InputField = ({
@@ -27,15 +30,23 @@ const InputField = ({
   label,
   icon,
   additionalClassname,
+  inputClassNames,
   disabled = false,
   showIcon,
+  style,
 }: IProps): JSX.Element => {
   const [showPassword, setshowPassword] = useState(false);
-  console.log("showPassword :>> ", showPassword);
+
   return (
     <div className="">
       <div className="w-full">
-        <span className="text-base text-[#333] font-medium">{label}</span>
+        <span
+          className={cn("text-base text-[#333] font-medium", {
+            hidden: !label,
+          })}
+        >
+          {label}
+        </span>
         <div
           className={cn({
             ["flex justify-between items-center border border-solid border-gray-200 focus:border-gray-200 focus:outline-none placeholder:text-color-100 rounded-md overflow-hidden mt-1"]:
@@ -53,8 +64,10 @@ const InputField = ({
               disabled={disabled}
               className={cn(
                 "w-full leading-[28px] focus:outline-0 appearance-none py-[10px] px-4 placeholder:text-[#D6D6D6]",
+                [inputClassNames],
               )}
               {...register(name)}
+              {...(style ? { style } : {})}
             />
           ) : (
             <input
@@ -64,7 +77,9 @@ const InputField = ({
               disabled={disabled}
               className={cn(
                 "w-full focus:outline-0 appearance-none leading-[28px] py-[10px] px-4 placeholder:text-[#D6D6D6]",
+                [inputClassNames],
               )}
+              {...(style ? { style } : {})}
             />
           )}
           {(icon || showIcon) !== undefined ? (
@@ -74,6 +89,7 @@ const InputField = ({
               variant={"ghost"}
               onClick={() => setshowPassword(!showPassword)}
               type="button"
+              tabIndex={-1}
             >
               {showPassword ? <EyeSlashIcon /> : <EyeIcon />}
             </Button>
