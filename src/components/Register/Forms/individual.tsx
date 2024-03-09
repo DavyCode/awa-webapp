@@ -26,8 +26,6 @@ const IndividualForm = () => {
     isIndividualApplicationLoading,
   } = useAuthContext();
 
-  console.log("errors :>> ", errors);
-
   const handleSelect = (selectedOption: string) => {
     console.log(`Selected: ${selectedOption}`);
   };

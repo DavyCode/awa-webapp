@@ -13,9 +13,9 @@ interface PhoneNumberInputProps {
   required?: boolean;
   error?: string;
   errors?: { [key: string]: any };
-  register: any;
-  control: Control<any>;
-  setValue: UseFormSetValue<any>;
+  register?: any;
+  control?: Control<any>;
+  setValue?: UseFormSetValue<any>;
 }
 
 const InputFieldPhoneNumber = (props: PhoneNumberInputProps) => {
@@ -33,7 +33,7 @@ const InputFieldPhoneNumber = (props: PhoneNumberInputProps) => {
 
   const callbackRef = useCallback((node: HTMLInputElement) => {
     if (!node) return;
-    setValue(name, node.value);
+    setValue?.(name, node.value);
   }, []);
 
   return (
@@ -70,8 +70,8 @@ const InputFieldPhoneNumber = (props: PhoneNumberInputProps) => {
                 dropdownClass="absolute z-20" // Set the dropdown class with a higher z-index
                 {...others}
                 onChange={(value, country, e, formattedValue) => {
-                  setValue("phoneNumber", formattedValue);
-                  setValue(name, formattedValue);
+                  setValue?.("phoneNumber", formattedValue);
+                  setValue?.(name, formattedValue);
                 }}
               />
             );
