@@ -4,6 +4,7 @@ import IndividualForm from "./Forms/individual";
 import CorporateForm from "./Forms/corporate";
 import { useAuthContext } from "@/context/AuthContext";
 import CreatePasswordComponent from "../CreatePassword/CreatePassword";
+import RegistrationProvider from "@/context/RegistrationContext";
 
 const RegisterComponent = () => {
   const {
@@ -51,6 +52,7 @@ const RegisterComponent = () => {
                 Corporate Business
               </div>
             </div>
+
             {activeTab === "individual" ? (
               <IndividualForm />
             ) : (

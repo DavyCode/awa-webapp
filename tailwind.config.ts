@@ -81,6 +81,8 @@ const config: Config = {
         contact_page: "url('/contact_img_bg.jpg')",
         about_us_page:
           "linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%),url('/about-us/main.jpg')",
+        button_loading:
+          "linear-gradient(270deg, #3D663D 37.09%, rgba(18, 54, 18, 0.80) 48.62%)",
       }),
       backgroundSize: {},
       gridTemplateColumns: {

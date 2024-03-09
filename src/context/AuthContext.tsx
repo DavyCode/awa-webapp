@@ -1,10 +1,13 @@
 "use client";
 
+import useToast from "@/hooks/useToast";
+import { useCreateIndividual } from "@/queries/auth-queries";
 import {
   createPasswordSchema,
   loginSchema,
   signUpSchema,
 } from "@/schema/authSchema";
+import { IndividualSignupFormProps } from "@/types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { createContext, ReactNode, useContext, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -12,8 +15,52 @@ import countryList from "react-select-country-list";
 
 const howDidYouHearAboutUs = [
   {
-    label: "Others",
-    value: "Others",
+    label: "FACEBOOK",
+    value: "Facebook",
+  },
+  {
+    label: "INSTAGRAM",
+    value: "Instagram",
+  },
+  {
+    label: "TWITTER",
+    value: "Twitter",
+  },
+  {
+    label: "NEWS",
+    value: "News",
+  },
+  {
+    label: "EVENT",
+    value: "Event",
+  },
+  {
+    label: "FRIENDS",
+    value: "Friends",
+  },
+  {
+    label: "FAMILY",
+    value: "Family",
+  },
+  {
+    label: "ONLINE_BLOG",
+    value: "Online Blog",
+  },
+  {
+    label: "GOOGLE",
+    value: "Google",
+  },
+  {
+    label: "GOOGLE_PLAYSTORE",
+    value: "Google Playstore",
+  },
+  {
+    label: "APPLE_APPSTORE",
+    value: "Apple Appstore",
+  },
+  {
+    label: "OTHERS",
+    value: "Other",
   },
 ];
 
@@ -24,7 +71,20 @@ export const useAuthManager = () => {
 
   const [activeSection, setActiveSection] = useState<
     "registration" | "password"
-  >("registration");
+  >("password");
+  const [individualFormData, setIndividualFormData] = useState<Omit<
+    IndividualSignupFormProps,
+    "password"
+  > | null>(null);
+  const [corporateFormData, setCorporateFormData] = useState({});
+  const { errorToastHandler } = useToast();
+
+  const { mutate, isPending } = useCreateIndividual(
+    errorToastHandler,
+    (data) => {
+      console.log("data :>> ", data);
+    },
+  );
 
   const signupForm = useForm({
     defaultValues: {
@@ -32,11 +92,10 @@ export const useAuthManager = () => {
       lastName: "",
       email: "",
       phoneNumber: "",
-      //   phoneCountryCode: "",
-      howDidYouHearAboutUs: "",
+      phoneCountryCode: "",
+      howDidYouHearAboutUs: null as any,
       referredBy: "",
       country: undefined,
-      refCode: "",
       //   type: "individual",
     },
     context: {
@@ -45,6 +104,7 @@ export const useAuthManager = () => {
     resolver: yupResolver(signUpSchema),
   });
 
+  //login form data
   const loginForm = useForm({
     defaultValues: {
       email: "",
@@ -52,7 +112,12 @@ export const useAuthManager = () => {
     },
     resolver: yupResolver(loginSchema),
   });
+
+  //create password form data
   const passwordCreationForm = useForm({
+    mode: "all",
+    reValidateMode: "onChange",
+    criteriaMode: "all",
     defaultValues: {
       confirm_password: "",
       password: "",
@@ -64,12 +129,35 @@ export const useAuthManager = () => {
 
   const onSubmit = signupForm.handleSubmit((data) => {
     console.log("data :>> ", data);
+    activeTab === "individual"
+      ? setIndividualFormData({
+          ...data,
+          howDidYouHearAboutUs: data.howDidYouHearAboutUs?.value as string,
+        })
+      : setCorporateFormData((curr) => ({
+          ...curr,
+          ...data,
+        }));
+    setActiveSection("password");
   });
   const loginSubmit = loginForm.handleSubmit((data) => {
     console.log("data :>> ", data);
   });
   const createPasswordSubmit = passwordCreationForm.handleSubmit((data) => {
     console.log("data :>> ", data);
+    activeTab === "individual"
+      ? mutate({
+          ...((individualFormData as Omit<
+            IndividualSignupFormProps,
+            "password"
+          >) || {}),
+          password: data.password,
+          //   phoneCountryCode: "",
+        })
+      : setCorporateFormData((curr) => ({
+          ...curr,
+          ...data,
+        }));
   });
 
   return {
@@ -84,6 +172,9 @@ export const useAuthManager = () => {
     setActiveSection,
     createPasswordSubmit,
     passwordCreationForm,
+    corporateFormData,
+    individualFormData,
+    isIndividualApplicationLoading: isPending,
   };
 };
 

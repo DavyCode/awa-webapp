@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Mulish } from "next/font/google";
 import "react-phone-input-2/lib/style.css";
 import "./globals.css";
+import Providers from "@/lib/Providers";
+import ToastProvider from "@/lib/ToastProvider";
 
 const mulish = Mulish({ subsets: ["latin"] });
 
@@ -18,7 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={mulish.className}>
-        <div className="flex flex-col">{children}</div>
+        <div className="flex flex-col">
+          <Providers>
+            <ToastProvider>{children}</ToastProvider>
+          </Providers>
+        </div>
       </body>
     </html>
   );

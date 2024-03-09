@@ -3,14 +3,12 @@ import React from "react";
 import Link from "next/link";
 import { Controller } from "react-hook-form";
 import InputField from "@/components/Forms/input-text";
-import { Button } from "@/components/Forms/Button";
-import OrDivider from "@/components/Divider";
-import Dropdown from "@/components/Dropdowns/selectOption";
 import InputFieldPhoneNumber from "@/components/Forms/input-phone-number";
-import GoogleIcon from "@/assets/icons/GoogleIcon";
 import { useAuthContext } from "@/context/AuthContext";
 import Select from "react-select";
 import { selectStyles } from "./corporate";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 const options = ["Option 1", "Option 2", "Option 3"];
 
@@ -21,14 +19,23 @@ const IndividualForm = () => {
       handleSubmit,
       register,
       formState: { errors },
+      setValue,
     },
     countryArr,
     howDidYouHearAboutUs,
+    isIndividualApplicationLoading,
   } = useAuthContext();
+
+  console.log("errors :>> ", errors);
 
   const handleSelect = (selectedOption: string) => {
     console.log(`Selected: ${selectedOption}`);
   };
+
+  console.log(
+    "isIndividualApplicationLoading :>> ",
+    isIndividualApplicationLoading,
+  );
 
   return (
     <div>
@@ -62,14 +69,19 @@ const IndividualForm = () => {
             return (
               <InputFieldPhoneNumber
                 label="Phone number"
-                error={errors.phoneNumber?.message}
+                error={errors.phoneCountryCode?.message}
+                errors={errors}
                 placeholder="Enter phone number"
+                control={control}
                 {...others}
+                name="phoneCountryCode"
+                register={register}
+                setValue={setValue}
               />
             );
           }}
           control={control}
-          name="phoneNumber"
+          name="phoneCountryCode"
         />
         {/* <CountryDropdown control={control} name="country" label="Country" /> */}
         <div className="relative inline-block text-left w-full">
@@ -85,6 +97,8 @@ const IndividualForm = () => {
                     styles={selectStyles}
                     placeholder="How did you hear about us"
                     {...others}
+                    id="individual-hear-about-us-dropdown-select"
+                    instanceId="individual-hear-about-us-dropdown-select"
                   />
                 </div>
               );
@@ -95,29 +109,37 @@ const IndividualForm = () => {
         </div>
         <InputField
           label="Refferal code (optional)"
-          name="refCode"
+          name="referredBy"
           type="text"
-          error={errors.refCode?.message}
+          error={errors.referredBy?.message}
           placeholder="Referral code"
           register={register}
         />
         <Button
           type="submit"
-          className="py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4"
+          className={cn(
+            "py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4 bg-no-repeat cursor-pointer",
+            {
+              "bg-button_loading": isIndividualApplicationLoading,
+            },
+          )}
           style={{
             backgroundColor: "var(--primary)",
           }}
+          disabled={isIndividualApplicationLoading}
         >
-          Continue
+          {isIndividualApplicationLoading
+            ? "Creating acount. Please wait..."
+            : "Continue"}
         </Button>
-        <OrDivider content="or" />
+        {/* <OrDivider content="or" />
         <Button
           className="bg-[rgba(241,241,241,0.60)] w-full gap-x-2 py-3 rounded-md flex justify-center items-center border-[#EBEBEB] border px-4 h-[unset] shadow-none"
           type="button"
         >
           <GoogleIcon />
           <span className="text-sm text-gray-800">Sign up with Google</span>
-        </Button>
+        </Button> */}
 
         <p className="py-1 text-center text-sm">
           Already have an account?
