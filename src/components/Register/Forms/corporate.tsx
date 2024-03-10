@@ -207,17 +207,17 @@ const CorporateForm = () => {
           />
           <InputField
             label="Business name"
-            name="business_name"
+            name="businessName"
             type="text"
-            error={errors.business_name?.message}
+            error={errors.businessName?.message}
             placeholder="Business name"
             register={register}
           />
           <InputField
             label="Business Location"
-            name="business_location"
+            name="businessLocation"
             type="text"
-            error={errors.business_location?.message}
+            error={errors.businessLocation?.message}
             placeholder="Business Location"
             register={register}
           />

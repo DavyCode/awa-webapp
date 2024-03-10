@@ -7,4 +7,7 @@ export interface IndividualSignupFormProps {
   lastName: string;
   howDidYouHearAboutUs: string;
   referredBy?: string;
+  country: string | null;
+  businessName?: string;
+  businessLocation?: string;
 }

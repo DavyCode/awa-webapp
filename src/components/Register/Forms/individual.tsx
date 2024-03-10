@@ -26,6 +26,8 @@ const IndividualForm = () => {
     isIndividualApplicationLoading,
   } = useAuthContext();
 
+  console.log("errors :>> ", errors);
+
   const handleSelect = (selectedOption: string) => {
     console.log(`Selected: ${selectedOption}`);
   };
@@ -81,7 +83,36 @@ const IndividualForm = () => {
           control={control}
           name="phoneCountryCode"
         />
-        {/* <CountryDropdown control={control} name="country" label="Country" /> */}
+        <Controller
+          render={({ field: { ref, ...others } }) => (
+            <div>
+              <label className="block text-sm font-medium text-gray-700 my-2">
+                Country
+              </label>
+              <Select
+                options={countryArr}
+                styles={selectStyles}
+                classNames={{
+                  container: (state) => {
+                    console.log(
+                      "errors.country?.message :>> ",
+                      errors.country?.message,
+                    );
+                    return errors.country?.message ? "!border-red-600" : "";
+                  },
+                }}
+                {...others}
+              />
+              {errors.country?.message ? (
+                <p className="flex items-center lowercase text-red-600 text-xs">
+                  {errors.country?.message}
+                </p>
+              ) : null}
+            </div>
+          )}
+          name="country"
+          control={control}
+        />
         <div className="relative inline-block text-left w-full">
           <Controller
             render={({ field: { ref, ...others } }) => {

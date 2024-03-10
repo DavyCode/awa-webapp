@@ -30,19 +30,15 @@ export const signUpSchema = yup.object().shape({
       label: yup.string(),
       value: yup.string(),
     })
-    .default(undefined)
-    .when("$activeTab", ([activeTab], schema) => {
-      console.log("activeTab :>> ", activeTab);
-      return activeTab === "corporate"
-        ? schema.required("Country is required")
-        : schema;
-    }),
-  business_name: yup.string().when("$activeTab", ([activeTab], schema) => {
+    .nullable()
+    .default(null)
+    .required("Country is required"),
+  businessName: yup.string().when("$activeTab", ([activeTab], schema) => {
     return activeTab === "corporate"
       ? schema.required("Business name is required")
       : schema.notRequired();
   }),
-  business_location: yup.string().when("$activeTab", ([activeTab], schema) => {
+  businessLocation: yup.string().when("$activeTab", ([activeTab], schema) => {
     return activeTab === "corporate"
       ? schema.required("Business location is required")
       : schema.notRequired();
