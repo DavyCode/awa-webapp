@@ -1,41 +1,32 @@
-"use client"
-import React, { useState, useRef, ChangeEvent } from "react";
+"use client";
+import { useOTPContext } from "@/context/OTPContext";
+import { useRef, ChangeEvent } from "react";
 
 interface OtpInputProps {
   length: number;
-  onComplete: (otp: string) => void;
+  onComplete: (otpInput: string) => void;
 }
 
 const OtpInput: React.FC<OtpInputProps> = ({ length, onComplete }) => {
-  const [otp, setOtp] = useState<string[]>(new Array(length).fill(""));
+  const { otpInput, setOtpInput } = useOTPContext();
   const inputRefs = useRef<(HTMLInputElement | null)[]>(
-    Array.from({ length }, () => null)
+    Array.from({ length }, () => null),
   );
 
   const handleInputChange = (index: number, value: string) => {
-    const newOtp = [...otp];
+    const newOtp = [...otpInput];
     newOtp[index] = value;
-    setOtp(newOtp);
+    setOtpInput(newOtp);
 
     // Move focus to the next input
     if (value !== "" && index < length - 1 && inputRefs.current[index + 1]) {
       inputRefs.current[index + 1]?.focus();
     }
-
+    onComplete(newOtp.join("").trim());
     // Check if OTP is complete
-    if (!newOtp.includes("")) {
-      onComplete(newOtp.join(""));
-    }
-  };
-
-  const handleInputPaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    const clipboardData = e.clipboardData
-      .getData("text/plain")
-      .slice(0, length);
-    clipboardData
-      .split("")
-      .forEach((char, index) => handleInputChange(index, char));
+    // if (!newOtp.includes("")) {
+    //   onComplete(newOtp.join(""));
+    // }
   };
 
   return (
@@ -46,13 +37,13 @@ const OtpInput: React.FC<OtpInputProps> = ({ length, onComplete }) => {
           ref={(el) => (inputRefs.current[index] = el)}
           type="text"
           autoFocus={index === 0}
-          className="w-14 h-14 text-xl mx-3 p-2 border rounded-md border-gray-200 bg-white focus:outline-none text-center"
+          className="w-14 h-14 text-xl mx-3 p-2 border rounded-md border-gray-200 bg-white text-center focus:outline-[#3D663D]"
           maxLength={1}
-          value={otp[index]}
+          value={otpInput[index]}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             handleInputChange(index, e.target.value)
           }
-          onPaste={handleInputPaste}
+          //   onPaste={handleInputPaste}
         />
       ))}
     </div>

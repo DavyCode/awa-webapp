@@ -5,6 +5,7 @@ import {
   useQuery,
 } from "@tanstack/react-query";
 import { AxiosError, AxiosResponse } from "axios";
+import { useEffect } from "react";
 
 type LoginProps = { email: string; password: string };
 type IndividualSignupForm = {
@@ -17,7 +18,7 @@ type IndividualSignupForm = {
   howDidYouHearAboutUs: string;
   referredBy?: string;
 };
-type VerifyEmailProps = { otp: string; email: string };
+type VerifyPhoneProps = { otp: string; phoneNumber: string };
 const loginUser = async (obj: LoginProps) => {
   const response = await request({
     url: "fane-admin-secure/auth",
@@ -28,16 +29,15 @@ const loginUser = async (obj: LoginProps) => {
   return response;
 };
 
-// const forgotPassword = async ({ queryKey }: QueryFunctionContext) => {
-//   const [, email] = queryKey;
-//   const response = request({
-//     // url: `users/password/reset/${email}`,
-//     url: `fane-admin-secure/admins/password/reset/${email}`,
-//     method: "GET",
-//   });
+const requestPhoneOTP = async ({ queryKey }: QueryFunctionContext) => {
+  const [, phone] = queryKey;
+  const response = request({
+    url: `/auth/phone/verify/${phone}`,
+    method: "GET",
+  });
 
-//   return response;
-// };
+  return response;
+};
 
 // const resetPassword = async (obj: { otp: string; password: string }) => {
 //   const response = request({
@@ -71,9 +71,9 @@ const createIndividual = async (obj: IndividualSignupForm) => {
 
   return response;
 };
-const verifyEmail = async (obj: VerifyEmailProps) => {
+const verifyPhoneOTP = async (obj: VerifyPhoneProps) => {
   const response = await request({
-    url: "auth/verify/email",
+    url: "/auth/phone/verify",
     method: "POST",
     data: obj,
   });
@@ -81,33 +81,43 @@ const verifyEmail = async (obj: VerifyEmailProps) => {
   return response;
 };
 
-// export const useForgotPassword = (
-//   email: string,
-//   errorCb: (msg: string) => void,
-//   cb?: (msg: string) => void,
-// ) => {
-//   return useQuery({
-//     queryKey: ["forgot-password", email],
-//     queryFn: forgotPassword,
-//     retry: 0,
-//     // enabled: false,
-//     enabled: false,
-//     onError(err: AxiosError) {
-//       const message =
-//         (err.response?.data as { errors: string[] })?.errors?.join(", ") ||
-//         (err.response?.data as { message: string })?.message;
-//       errorCb(message || err.message);
-//     },
-//     onSuccess(data) {
-//       cb?.(data?.data?.message || "");
-//     },
-//     // refetchInterval: false,
-//     // refetchOnMount: false,
-//     // refetchOnReconnect: false,
-//     // refetchIntervalInBackground: false,
-//     // refetchOnWindowFocus: false,
-//   });
-// };
+export const useRequestPhoneOTP = (
+  phone: string,
+  errorCb: (msg: string) => void,
+  cb?: (msg: string) => void,
+) => {
+  const queryResponse = useQuery({
+    queryKey: ["request-phone-otp", phone],
+    queryFn: requestPhoneOTP,
+    retry: 0,
+    enabled: false,
+    refetchInterval: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+    refetchIntervalInBackground: false,
+    refetchOnWindowFocus: false,
+  });
+
+  useEffect(() => {
+    if (queryResponse.isError) {
+      const err = queryResponse.error as AxiosError;
+      const message =
+        (err.response?.data as { errors: string[] })?.errors?.join(", ") ||
+        (err.response?.data as { message: string })?.message;
+      errorCb(message || err.message);
+    }
+  }, [queryResponse.isError]);
+
+  useEffect(() => {
+    if (queryResponse.isSuccess) {
+      const data = queryResponse.data as AxiosResponse;
+      console.log("data :>> ", data);
+      cb?.(data?.data?.message || "");
+    }
+  }, [queryResponse.isSuccess]);
+
+  return queryResponse;
+};
 
 // export const useResetPassword = (
 //   errorCb: (err: string) => void,
@@ -178,15 +188,15 @@ export const useLogin = (
 };
 export const useCreateIndividual = (
   errorCb: (err: string) => void,
-  cb: (data: { [key: string]: any }) => void,
+  cb: (msg: string) => void,
 ) => {
   return useMutation({
     mutationFn: createIndividual,
     mutationKey: ["create-individual"],
     onSuccess(response: AxiosResponse) {
       console.log("response :>> ", response);
-      const data = response.data?.data;
-      cb(data);
+      const msg = response.data?.message;
+      cb(msg);
     },
     onError(error: AxiosError) {
       const message =
@@ -197,13 +207,13 @@ export const useCreateIndividual = (
   });
 };
 
-export const useVerifyEmail = (
+export const useVerifyPhone = (
   errorCb: (err: string) => void,
   cb: (message: string, data: { [key: string]: any }) => void,
 ) => {
   return useMutation({
-    mutationFn: verifyEmail,
-    mutationKey: ["verify-email"],
+    mutationFn: verifyPhoneOTP,
+    mutationKey: ["verify-phone-otp"],
     onSuccess(response: AxiosResponse) {
       const message = response?.data?.message;
       const data = response.data?.data;

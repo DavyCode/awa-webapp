@@ -34,6 +34,7 @@ const InputFieldPhoneNumber = (props: PhoneNumberInputProps) => {
   const callbackRef = useCallback((node: HTMLInputElement) => {
     if (!node) return;
     setValue?.(name, node.value);
+    setValue?.("phoneNumber", node.value);
   }, []);
 
   return (
