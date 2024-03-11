@@ -132,7 +132,6 @@ export const useAuthManager = () => {
   const countryArr = useMemo(() => countryList().getData(), []);
 
   const onSubmit = signupForm.handleSubmit(({ referredBy, ...others }) => {
-    console.log("others :>> ", others);
     setFormData({
       ...others,
       howDidYouHearAboutUs: (others.howDidYouHearAboutUs as any)
@@ -149,7 +148,6 @@ export const useAuthManager = () => {
     console.log("data :>> ", data);
   });
   const createPasswordSubmit = passwordCreationForm.handleSubmit((data) => {
-    console.log("data :>> ", data);
     loadingToastHandler("Creating an account. Please wait...");
     mutate({
       ...((formData as Omit<IndividualSignupFormProps, "password">) || {}),
