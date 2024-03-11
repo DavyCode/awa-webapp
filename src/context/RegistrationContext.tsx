@@ -16,8 +16,7 @@ const howDidYouHearAboutUs = [
 ];
 
 export const useRegistrationManager = () => {
-  const { onSubmit, loginSubmit, createPasswordSubmit, individualFormData } =
-    useAuthContext();
+  const { onSubmit, loginSubmit, createPasswordSubmit } = useAuthContext();
   const [activeTab, setActiveTab] = useState<"individual" | "corporate">(
     "individual",
   );

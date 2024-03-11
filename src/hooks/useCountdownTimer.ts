@@ -59,9 +59,9 @@ const useCountdownTimer = (
       let secs = 0;
 
       const setTime = dayjs().tz("Africa/Lagos").add(retryTime, "minutes");
-      console.log("setTime :>> ", setTime);
+
       const expiryTime = setTime.diff(dayjs().tz("Africa/Lagos"), "seconds");
-      console.log("expiryTime :>> ", expiryTime);
+
       mins = expiryTime / 60;
       secs = expiryTime % 60;
       setcountDownTimer(

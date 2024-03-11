@@ -4,20 +4,21 @@ import useCountdownTimer from "@/hooks/useCountdownTimer";
 import useToast from "@/hooks/useToast";
 import { useRequestPhoneOTP, useVerifyPhone } from "@/queries/auth-queries";
 import { useRouter, useSearchParams } from "next/navigation";
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useRef, useState } from "react";
 
 export const useOTPManager = () => {
   const [disableButton, setDisableButton] = useState(true);
   const [isActive, setIsActive] = useState(false);
-  const { countDownTimer, setrequestCount } = useCountdownTimer(
-    isActive,
-    setIsActive,
-  );
+  const { countDownTimer, setrequestCount, setRetryTime, requestCount } =
+    useCountdownTimer(isActive, setIsActive);
   const otpLength = 5;
 
   const [otp, setOtp] = useState<string>("");
   const [otpInput, setOtpInput] = useState<string[]>(
-    new Array(length).fill(""),
+    new Array(otpLength).fill(""),
+  );
+  const inputRefs = useRef<(HTMLInputElement | null)[]>(
+    Array.from({ length: otpLength }, () => null),
   );
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -26,7 +27,10 @@ export const useOTPManager = () => {
 
   const clearOTPHandler = () => {
     setOtp("");
-    setOtpInput(new Array(length).fill(""));
+    setOtpInput(new Array(otpLength).fill(""));
+    inputRefs.current = Array.from({ length: otpLength }, () => null);
+    setRetryTime([0, 1].includes(requestCount) ? 3 : 5);
+    setrequestCount((curr) => curr + 1);
   };
   const { refetch } = useRequestPhoneOTP(
     searchParams.get("p") as string,
@@ -34,7 +38,6 @@ export const useOTPManager = () => {
     (msg: string) => {
       successToastHandler(msg);
       setIsActive(false);
-      setrequestCount((curr) => curr + 1);
       clearOTPHandler();
     },
   );
@@ -42,7 +45,6 @@ export const useOTPManager = () => {
     errorToastHandler,
     (msg: string, data: any) => {
       successToastHandler(msg);
-      console.log("data :>> ", data);
       router.push("/");
     },
   );
@@ -60,8 +62,6 @@ export const useOTPManager = () => {
     });
   };
 
-  console.log("countDownTimer :>> ", countDownTimer);
-
   return {
     setOtp,
     setDisableButton,
@@ -76,6 +76,7 @@ export const useOTPManager = () => {
     clearOTPHandler,
     otpInput,
     setOtpInput,
+    inputRefs,
   };
 };
 

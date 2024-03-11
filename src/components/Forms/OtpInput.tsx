@@ -8,10 +8,7 @@ interface OtpInputProps {
 }
 
 const OtpInput: React.FC<OtpInputProps> = ({ length, onComplete }) => {
-  const { otpInput, setOtpInput } = useOTPContext();
-  const inputRefs = useRef<(HTMLInputElement | null)[]>(
-    Array.from({ length }, () => null),
-  );
+  const { otpInput, setOtpInput, inputRefs } = useOTPContext();
 
   const handleInputChange = (index: number, value: string) => {
     const newOtp = [...otpInput];

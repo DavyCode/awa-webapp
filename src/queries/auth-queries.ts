@@ -39,16 +39,16 @@ const requestPhoneOTP = async ({ queryKey }: QueryFunctionContext) => {
   return response;
 };
 
-// const resetPassword = async (obj: { otp: string; password: string }) => {
-//   const response = request({
-//     // url: `users/password/reset`,
-//     url: `fane-admin-secure/admins/password/reset`,
-//     method: "POST",
-//     data: obj,
-//   });
+const login = async (obj: { phone: string; password: string }) => {
+  const response = request({
+    // url: `users/password/reset`,
+    url: `/auth`,
+    method: "POST",
+    data: obj,
+  });
 
-//   return response;
-// };
+  return response;
+};
 // const changePassword = async (obj: {
 //   oldPassword: string;
 //   newPassword: string;
@@ -111,7 +111,6 @@ export const useRequestPhoneOTP = (
   useEffect(() => {
     if (queryResponse.isSuccess) {
       const data = queryResponse.data as AxiosResponse;
-      console.log("data :>> ", data);
       cb?.(data?.data?.message || "");
     }
   }, [queryResponse.isSuccess]);
@@ -165,27 +164,27 @@ export const useRequestPhoneOTP = (
 //   });
 // };
 
-export const useLogin = (
-  errorCb: (err: string, email: string, isNotVerified?: boolean) => void,
-  cb: (data: { [key: string]: any }) => void,
-  email: string,
-) => {
-  return useMutation({
-    mutationFn: loginUser,
-    mutationKey: ["login"],
-    onSuccess(response: AxiosResponse) {
-      const data = response.data?.data;
-      cb(data);
-    },
-    onError(error: AxiosError) {
-      const statusCode = (error.response?.data as any)?.statusCode as number;
-      const message =
-        (error.response?.data as { errors: string[] })?.errors?.join(", ") ||
-        (error.response?.data as { message: string })?.message;
-      errorCb(message || error.message, email, statusCode === 406);
-    },
-  });
-};
+// export const useLogin = (
+//   errorCb: (err: string, email: string, isNotVerified?: boolean) => void,
+//   cb: (data: { [key: string]: any }) => void,
+//   email: string,
+// ) => {
+//   return useMutation({
+//     mutationFn: loginUser,
+//     mutationKey: ["login"],
+//     onSuccess(response: AxiosResponse) {
+//       const data = response.data?.data;
+//       cb(data);
+//     },
+//     onError(error: AxiosError) {
+//       const statusCode = (error.response?.data as any)?.statusCode as number;
+//       const message =
+//         (error.response?.data as { errors: string[] })?.errors?.join(", ") ||
+//         (error.response?.data as { message: string })?.message;
+//       errorCb(message || error.message, email, statusCode === 406);
+//     },
+//   });
+// };
 export const useCreateIndividual = (
   errorCb: (err: string) => void,
   cb: (msg: string) => void,
@@ -194,7 +193,6 @@ export const useCreateIndividual = (
     mutationFn: createIndividual,
     mutationKey: ["create-individual"],
     onSuccess(response: AxiosResponse) {
-      console.log("response :>> ", response);
       const msg = response.data?.message;
       cb(msg);
     },
@@ -214,6 +212,28 @@ export const useVerifyPhone = (
   return useMutation({
     mutationFn: verifyPhoneOTP,
     mutationKey: ["verify-phone-otp"],
+    onSuccess(response: AxiosResponse) {
+      const message = response?.data?.message;
+      const data = response.data?.data;
+
+      cb(message, data);
+    },
+    onError(error: AxiosError, variables, context) {
+      const message =
+        (error.response?.data as { errors: string[] })?.errors?.join(", ") ||
+        (error.response?.data as { message: string })?.message;
+      errorCb(message || error.message);
+    },
+  });
+};
+
+export const useLogin = (
+  errorCb: (err: string) => void,
+  cb: (message: string, data: { [key: string]: any }) => void,
+) => {
+  return useMutation({
+    mutationFn: login,
+    mutationKey: ["login"],
     onSuccess(response: AxiosResponse) {
       const message = response?.data?.message;
       const data = response.data?.data;
