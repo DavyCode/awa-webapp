@@ -34,7 +34,7 @@ const InputFieldPhoneNumber = (props: PhoneNumberInputProps) => {
   const callbackRef = useCallback((node: HTMLInputElement) => {
     if (!node) return;
     setValue?.(name, node.value);
-    setValue?.("phoneNumber", node.value);
+    // setValue?.("phoneNumber", node.value);
   }, []);
 
   return (
@@ -71,7 +71,7 @@ const InputFieldPhoneNumber = (props: PhoneNumberInputProps) => {
                 dropdownClass="absolute z-20" // Set the dropdown class with a higher z-index
                 {...others}
                 onChange={(value, country, e, formattedValue) => {
-                  setValue?.("phoneNumber", formattedValue);
+                  //   setValue?.("phoneNumber", formattedValue);
                   setValue?.(name, formattedValue);
                 }}
               />

@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 import lottie, { AnimationItem } from "lottie-web";
-import { useSearchParams } from "next/navigation";
 import tick_lottie from "@/assets/tick_lottie.json";
 import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 const EmailVerifiedComp = () => {
-  const searchParams = useSearchParams();
+  const router = useRouter();
   const lottieRef = useRef<AnimationItem>();
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -34,6 +34,9 @@ const EmailVerifiedComp = () => {
             className="w-full my-4 py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4 font-medium max-w-[184px] mx-auto"
             style={{
               backgroundColor: "var(--primary)",
+            }}
+            onClick={() => {
+              router.replace("/");
             }}
           >
             Login

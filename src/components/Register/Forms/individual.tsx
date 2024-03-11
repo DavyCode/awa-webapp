@@ -26,16 +26,9 @@ const IndividualForm = () => {
     isIndividualApplicationLoading,
   } = useAuthContext();
 
-  console.log("errors :>> ", errors);
-
   const handleSelect = (selectedOption: string) => {
     console.log(`Selected: ${selectedOption}`);
   };
-
-  console.log(
-    "isIndividualApplicationLoading :>> ",
-    isIndividualApplicationLoading,
-  );
 
   return (
     <div>
@@ -94,10 +87,6 @@ const IndividualForm = () => {
                 styles={selectStyles}
                 classNames={{
                   container: (state) => {
-                    console.log(
-                      "errors.country?.message :>> ",
-                      errors.country?.message,
-                    );
                     return errors.country?.message ? "!border-red-600" : "";
                   },
                 }}
