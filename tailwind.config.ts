@@ -52,11 +52,9 @@ const config: Config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      /*    borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      }, */
+      boxShadow: {
+        auth_header_shadow: "0px 20px 40px 0px rgba(221, 221, 221, 0.25)",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

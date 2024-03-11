@@ -5,11 +5,21 @@ import GoogleIcon from "@/assets/icons/GoogleIcon";
 import Link from "next/link";
 import InputFieldText from "../Forms/input-text";
 import Header from "../Header";
-import { Button } from "../Forms/Button";
 import OrDivider from "../Divider";
+import { useAuthContext } from "@/context/AuthContext";
+import { Button } from "../ui/button";
+import { cn } from "@/lib/utils";
 
 const LoginComponent = () => {
   const [showPassword] = useState(true);
+  const {
+    loginForm: {
+      register,
+      formState: { errors },
+    },
+    loginSubmit,
+    isLoginPending,
+  } = useAuthContext();
   return (
     <div className="pt-12 flex px-4 sm:px-20 gap-x-20 flex-col sm:flex-row relative sm:justify-center pb-[20px]">
       <div className="py-6 px-[40px] border border-[#EBEBEB] flex flex-col justify-center w-full sm:max-w-[518px] relative">
@@ -20,7 +30,7 @@ const LoginComponent = () => {
         <span className="mt-2 mb-4 text-[#333] text-center text-sm sm:text-base">
           Welcome back. Please Login to your account
         </span>
-        <Button
+        {/* <Button
           className="bg-[rgba(241,241,241,0.60)] w-full gap-x-2 py-3 rounded-md flex justify-center items-center border-[#EBEBEB] border px-4 h-[unset] shadow-none"
           type="button"
         >
@@ -29,23 +39,27 @@ const LoginComponent = () => {
             Login with Google
           </span>
         </Button>
-        <OrDivider content="or" />
-        <div className="flex flex-col gap-6 text-left sm:gap-4">
+        <OrDivider content="or" /> */}
+        <form
+          className="flex flex-col gap-6 text-left sm:gap-4"
+          onSubmit={loginSubmit}
+        >
           <InputFieldText
-            label="Email address / Phone number"
+            label="Email address"
             name="email"
             type="email"
-            /* error={errors.email?.message} */
+            error={errors.email?.message}
             placeholder="Email address"
-            /* register={register} */
+            register={register}
           />
           <InputFieldText
-            label="Password"
+            label="Create password"
             name="password"
-            type={showPassword ? "text" : "password"}
-            /* error={errors.userPassword?.message} */
-            placeholder="Password"
-            /* register={register} */
+            type="password"
+            error={errors.password?.message}
+            placeholder="Enter password"
+            register={register}
+            showIcon={true}
           />
           <p className="">
             <Link href="/reset-password" passHref>
@@ -56,13 +70,19 @@ const LoginComponent = () => {
           </p>
 
           <Button
-            type="button"
-            className="py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4"
+            type="submit"
+            className={cn(
+              "py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4",
+              {
+                "bg-button_loading": isLoginPending,
+              },
+            )}
             style={{
               backgroundColor: "var(--primary)",
             }}
+            disabled={isLoginPending}
           >
-            Log in
+            {isLoginPending ? "Logging in. Please wait..." : "Log in"}
           </Button>
           <p className="py-1 text-center text-[#333]">
             Dont have an account?
@@ -73,7 +93,7 @@ const LoginComponent = () => {
               Sign up
             </Link>
           </p>
-        </div>
+        </form>
       </div>
     </div>
   );
