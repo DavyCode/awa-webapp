@@ -33,7 +33,7 @@ const ViewPlans = () => {
       </div>
       <div className="flex flex-col sm:flex-row justify-between flex-wrap">
         {PlanData.map((data, index) => (
-          <PlanCard key={data.title} planData={{ ...data, index }} />
+          <PlanCard key={index} planData={{ ...data, index }} />
         ))}
       </div>
     </div>
