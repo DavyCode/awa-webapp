@@ -1,7 +1,7 @@
 "use client";
 
 import useToast from "@/hooks/useToast";
-import { useCreateIndividual } from "@/queries/auth-queries";
+import { useCreateIndividual, useLogin } from "@/queries/auth-queries";
 import {
   createPasswordSchema,
   loginSchema,
@@ -85,10 +85,20 @@ export const useAuthManager = () => {
     (msg: string) => {
       successToastHandler(msg);
       router.push(
-        `/otp-verification?p=${encodeURIComponent(
-          formData?.phoneCountryCode as string,
-        )}${encodeURIComponent(formData?.phoneNumber as string)}`,
+        `/success?e=${encodeURIComponent(formData?.email as string)}`,
       );
+      //   router.push(
+      //     `/otp-verification?p=${encodeURIComponent(
+      //       formData?.phoneCountryCode as string,
+      //     )}${encodeURIComponent(formData?.phoneNumber as string)}`,
+      //   );
+    },
+  );
+
+  const { mutate: loginUser, isPending: isLoginPending } = useLogin(
+    errorToastHandler,
+    () => {
+      router.push("/dashboard");
     },
   );
 
@@ -146,6 +156,7 @@ export const useAuthManager = () => {
   });
   const loginSubmit = loginForm.handleSubmit((data) => {
     console.log("data :>> ", data);
+    loginUser(data);
   });
   const createPasswordSubmit = passwordCreationForm.handleSubmit((data) => {
     loadingToastHandler("Creating an account. Please wait...");
@@ -168,7 +179,9 @@ export const useAuthManager = () => {
     createPasswordSubmit,
     passwordCreationForm,
     formData,
+    loginForm,
     isIndividualApplicationLoading: isPending,
+    isLoginPending,
   };
 };
 

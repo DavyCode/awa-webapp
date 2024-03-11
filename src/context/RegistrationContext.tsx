@@ -16,11 +16,6 @@ const howDidYouHearAboutUs = [
 ];
 
 export const useRegistrationManager = () => {
-  const { onSubmit, loginSubmit, createPasswordSubmit } = useAuthContext();
-  const [activeTab, setActiveTab] = useState<"individual" | "corporate">(
-    "individual",
-  );
-
   const { errorToastHandler } = useToast();
 
   const { mutate, isPending } = useCreateIndividual(
