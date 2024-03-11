@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ValubahOfferFormTabs from "./ValubahOfferFormTabs";
 import { Button } from "@/components/Forms/Button";
 import { PlanCardProps } from "@/lib/data";
+import { formatAmountVariant } from "@/lib/utils";
 
 interface ValubahOffersProps {
   setIsBeneficiaryModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -36,7 +37,7 @@ const ValubahOffers: React.FC<ValubahOffersProps> = ({
           </p>
         </div>
         <span className="flex-1  flex justify-end text-[24px] font-bold leading-[32px] text-[#3D663D]">
-          ₦{planData.amount}/month
+          ₦{formatAmountVariant(planData.amount)}/month
         </span>
       </div>
       <ValubahOfferFormTabs />
