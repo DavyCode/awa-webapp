@@ -3,7 +3,7 @@ import { routes } from "./routes";
 
 export default function middleware(req: NextRequest) {
   let { pathname } = req.nextUrl;
-  const token = req.cookies.get("tkn");
+  const token = req.cookies.get("awabah_tkn");
   const isProtected = [...routes].find((route) => route.path === pathname);
 
   if (isProtected && !token) {

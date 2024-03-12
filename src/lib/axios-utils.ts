@@ -15,7 +15,7 @@ const client = axios.create({
 const cookies = new Cookies();
 client.interceptors.request.use(
   (config) => {
-    const tkn = cookies.get("tkn");
+    const tkn = cookies.get("awabah_tkn");
     if (tkn) {
       config.headers["Authorization"] = `Bearer ${tkn}`;
     }

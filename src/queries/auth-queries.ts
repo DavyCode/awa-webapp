@@ -39,6 +39,17 @@ const requestEmailOTP = async ({ queryKey }: QueryFunctionContext) => {
   return response;
 };
 
+const requestForgotPasswordOTP = async ({ queryKey }: QueryFunctionContext) => {
+  const [, email] = queryKey;
+  const response = request({
+    // url: `/auth/email/verify/${email}`,
+    url: `/users/password/reset/${email}`,
+    method: "GET",
+  });
+
+  return response;
+};
+
 const login = async (obj: { email: string; password: string }) => {
   const response = request({
     url: `/auth`,
@@ -82,6 +93,15 @@ const verifyPhoneOTP = async (obj: VerifyPhoneProps) => {
 const verifyEmail = async (obj: { email: string; emailToken: string }) => {
   const response = await request({
     url: "/auth/email/verify",
+    method: "POST",
+    data: obj,
+  });
+
+  return response;
+};
+const setNewPassword = async (obj: { otp: string; password: string }) => {
+  const response = await request({
+    url: "/users/password/reset",
     method: "POST",
     data: obj,
   });
@@ -162,6 +182,42 @@ export const useRequestEmailOTP = (
 
   return queryResponse;
 };
+export const useRequestForgotPasswordOTP = (
+  email: string,
+  errorCb: (msg: string) => void,
+  cb?: (msg: string) => void,
+) => {
+  const queryResponse = useQuery({
+    queryKey: ["request-forgot-password-otp", email],
+    queryFn: requestForgotPasswordOTP,
+    retry: 0,
+    enabled: false,
+    refetchInterval: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+    refetchIntervalInBackground: false,
+    refetchOnWindowFocus: false,
+  });
+
+  useEffect(() => {
+    if (queryResponse.isError) {
+      const err = queryResponse.error as AxiosError;
+      const message =
+        (err.response?.data as { errors: string[] })?.errors?.join(", ") ||
+        (err.response?.data as { message: string })?.message;
+      errorCb(message || err.message);
+    }
+  }, [queryResponse.isError]);
+
+  useEffect(() => {
+    if (queryResponse.isSuccess) {
+      const data = queryResponse.data as AxiosResponse;
+      cb?.(data?.data?.message || "");
+    }
+  }, [queryResponse.isSuccess]);
+
+  return queryResponse;
+};
 
 export const useCreateIndividual = (
   errorCb: (err: string) => void,
@@ -211,6 +267,27 @@ export const useVerifyEmail = (
   return useMutation({
     mutationFn: verifyEmail,
     mutationKey: ["verify-email"],
+    onSuccess(response: AxiosResponse) {
+      const message = response?.data?.message;
+      const data = response.data?.data;
+      cb(message, data);
+    },
+    onError(error: AxiosError, variables, context) {
+      const message =
+        (error.response?.data as { errors: string[] })?.errors?.join(", ") ||
+        (error.response?.data as { message: string })?.message;
+      errorCb(message || error.message);
+    },
+  });
+};
+
+export const useSetNewPassword = (
+  errorCb: (err: string) => void,
+  cb: (message: string, data: { [key: string]: any }) => void,
+) => {
+  return useMutation({
+    mutationFn: setNewPassword,
+    mutationKey: ["set-new-password"],
     onSuccess(response: AxiosResponse) {
       const message = response?.data?.message;
       const data = response.data?.data;

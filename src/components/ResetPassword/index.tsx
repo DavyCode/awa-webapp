@@ -1,17 +1,23 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { Button } from "../Forms/Button";
 import Link from "next/link";
 import InputField from "../Forms/input-text";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { resetPasswordSchema } from "@/schema/authSchema";
+import { useRequestForgotPasswordOTP } from "@/queries/auth-queries";
+import useToast from "@/hooks/useToast";
+import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const ResetPasswordComponent = () => {
+  const router = useRouter();
   const {
     handleSubmit,
     register,
     formState: { errors },
+    control,
   } = useForm<{ email: string }>({
     defaultValues: {
       email: "",
@@ -19,29 +25,37 @@ const ResetPasswordComponent = () => {
     resolver: yupResolver<any>(resetPasswordSchema),
   });
 
-  const onSubmit = handleSubmit((data) => {});
+  const email = useWatch({
+    name: "email",
+    control,
+  });
+  const { errorToastHandler, loadingToastHandler, successToastHandler } =
+    useToast();
+  const { refetch, isLoading } = useRequestForgotPasswordOTP(
+    email,
+    errorToastHandler,
+    (msg: string) => {
+      successToastHandler(msg);
+      router.push(`/set-password?e=${email}`);
+    },
+  );
+
+  const onSubmit = handleSubmit((data) => {
+    loadingToastHandler("Requesting password reset. Please wait...");
+    refetch();
+  });
   return (
-    <div className="flex h-fit rounded-md shadow flex-col px-10 py-6 sm:mt-[73px] justify-center items-center w-full sm:w-[518px] mx-auto border border-gray-200">
+    <div className="w-full max-w-[499px] mx-auto px-10 py-6 border border-[#EBEBEB] text-[#333]">
       <p className="mb-2 text-3xl font-bold text-[#1a1a1a] text-center">
         Reset password
       </p>
-      <span className="mt-2 mb-4 text-[#333333] text-center text-sm sm:text-base">
+      <p className="mt-2 mb-4 text-[#333333] text-center text-sm sm:text-base">
         Reset your password via email. Be sure the email is linked to your
         account
-      </span>
-
-      {/* {ResetPasswordOptions.map((datum, index) => (
-        <RadioButton
-          key={index}
-          label={datum.label}
-          name={datum.name}
-          value={datum.value}
-          // Add other props like onChange if needed
-        />
-      ))} */}
+      </p>
 
       <form onSubmit={onSubmit}>
-        <div>
+        <div className="pb-6">
           <InputField
             label="Email address"
             name="email"
@@ -52,13 +66,19 @@ const ResetPasswordComponent = () => {
           />
         </div>
         <Button
-          type="button"
-          className="w-full my-4 py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4"
+          type="submit"
+          className={cn(
+            "py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4 bg-no-repeat w-full",
+            {
+              "bg-button_loading": isLoading,
+            },
+          )}
           style={{
             backgroundColor: "var(--primary)",
           }}
+          disabled={isLoading}
         >
-          Reset
+          Reset password
         </Button>
       </form>
 

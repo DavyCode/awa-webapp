@@ -86,3 +86,37 @@ export const createPasswordSchema = yup.object().shape({
     .required("Please retype your password.")
     .oneOf([yup.ref("password")], "Password do not match."),
 });
+
+export const setNewPasswordSchema = yup.object().shape({
+  password: yup
+    .string()
+    .test("lowercase", "Atleast one lowercase character", (val, ctx) => {
+      console.log("val :>> ", val);
+      return /[a-z]/.test(val as string);
+    })
+    .test("uppercase", "Atleast one uppercase character", (val, ctx) => {
+      return /[A-Z]/.test(val as string);
+    })
+    .test("hasNumber", "Atleast one number", (val, ctx) => {
+      const hasNumber = /[0-9]/.test(val as string);
+      return hasNumber;
+    })
+    .test("hasSymbol", "Atleast one symbol", (val, ctx) => {
+      const hasSymbol = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(
+        val as string,
+      );
+      return hasSymbol;
+    })
+    .test("length", "Atleast one lowercase character", (val, ctx) => {
+      return val ? val.trim().length >= 8 : false;
+    })
+    .test("itMatches", "Passwords do not match", (val, ctx) => {
+      return ctx.parent.confirm_password === val;
+    })
+    .required("Password is required"),
+  confirm_password: yup
+    .string()
+    .required("Please retype your password.")
+    .oneOf([yup.ref("password")], "Password do not match."),
+  otp: yup.string().required("OTP is required"),
+});
