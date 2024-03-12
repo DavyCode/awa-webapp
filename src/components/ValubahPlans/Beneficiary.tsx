@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import InputField from "../Forms/input-text";
 import { Button } from "../Forms/Button";
+import { PlanCardProps } from "@/lib/data";
+import { formatAmount, formatAmountVariant } from "@/lib/utils";
 
-const Beneficiary = () => {
+interface BeneficiaryProps {
+  planData: PlanCardProps;
+}
+
+const Beneficiary: React.FC<BeneficiaryProps> = (planData) => {
+  const [inputValue, setInputValue] = useState(4);
+  // const formattedAmount = Number(formatAmountVariant(planData.planData.amount));
+
   return (
-    <div className=" mb-[67px]">
-      <div>
-        <h2>Valubah Premium</h2>
+    <div className=" mb-[67px] w-[476px]">
+      <div className=" ">
+        <h2>{planData.planData.title} </h2>
         <span className="flex-1 mt-[9px]  flex justify-start text-[24px] font-bold leading-[32px] text-[#3D663D]">
-          ₦3,000/month
+          ₦{formatAmountVariant(planData.planData.amount)} /month
         </span>
         <div className="bg-red-400 flex items-center w-full h-[20px] mt-[23px]">
           jff
@@ -17,10 +26,11 @@ const Beneficiary = () => {
       <div className="mt-[24px]">
         <div className="mb-[16px]">
           <InputField
-            type={"type"}
+            type={"number"}
+            value={""}
             name={"name"}
             label="Enter number of beneficiaries"
-            placeholder="Enter promo code"
+            placeholder="2"
           />
         </div>
         <div>
@@ -34,9 +44,16 @@ const Beneficiary = () => {
 
         <div className="flex flex-col mt-[24px]">
           <Button className="bg-[#DAFEDA] text-[#244D24] mb-[32px] py-[21px]">
-            2 X ₦3,000= ₦6,000/month
+            {inputValue} X ₦{formatAmountVariant(planData.planData.amount)} =
+            ₦6,000/month
           </Button>
-          <Button>Proceed</Button>
+          <Button
+            onClick={() => {
+              console.log("true");
+            }}
+          >
+            Proceed
+          </Button>
         </div>
       </div>
     </div>

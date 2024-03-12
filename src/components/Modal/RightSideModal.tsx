@@ -11,7 +11,7 @@ interface ModalProps {
   title?: string;
   children: JSX.Element;
   width: string;
-  height: string;
+  height?: string;
 }
 
 const ModalComponent: React.FC<ModalProps> = ({
@@ -52,7 +52,7 @@ const ModalComponent: React.FC<ModalProps> = ({
   return (
     <>
       <div className="relative top-0 left-0 w-full z-50 flex items- justify-center bg-opacity-0 bg-black flex-col overflow-hidden">
-        <div ref={modalRef} className={`fixed top-0 right-0  mx-4 sm:mx-0`}>
+        <div ref={modalRef} className={`fixed top-0 right-0 mx-4 sm:mx-0`}>
           <div
             className={`bg-white p- sm:px-[24px] sm:pt-[24px] w-[${width}] h-[${height}] shadow-xl overflow-scroll`}
           >

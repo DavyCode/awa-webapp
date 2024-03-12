@@ -6,7 +6,8 @@ import ModalComponent from "@/components/Modal";
 import PurchaseFor from "@/components/ValubahPlans/PurchaseFor";
 import RightSideModal from "@/components/Modal/RightSideModal";
 import ValubahOffers from "@/components/ValubahPlans/ValubahOffers";
-import { PlanData } from "@/lib/data";
+// import { PlanData } from "@/lib/data";
+import Beneficiary from "@/components/ValubahPlans/Beneficiary";
 
 interface PlanCardProps {
   planData: {
@@ -20,6 +21,7 @@ interface PlanCardProps {
 const PlanCard: React.FC<PlanCardProps> = (props) => {
   const { planData } = props;
   const { label, index, title, amount, desc } = planData;
+
   const [isForWhoPurchaseModalOpen, setIsForWhoPurchaseModalOpen] =
     useState(false);
 
@@ -31,7 +33,11 @@ const PlanCard: React.FC<PlanCardProps> = (props) => {
   const handleCloseValubahOffersModal = () => {
     setIsValubahOffersModalOpen(false);
   };
-  console.log(PlanData);
+  const [isBeneficiaryModalOpen, setIsBeneficiaryModalOpen] = useState(false);
+
+  const handleCloseBeneficiaryModal = () => {
+    setIsBeneficiaryModalOpen(false);
+  };
 
   return (
     <>
@@ -94,12 +100,19 @@ const PlanCard: React.FC<PlanCardProps> = (props) => {
         onClose={handleCloseValubahOffersModal}
         title=""
         width="523px"
-        height="100vh"
       >
         <ValubahOffers
-          setIsBeneficiaryModalOpen={setIsValubahOffersModalOpen}
+          setIsBeneficiaryModalOpen={setIsBeneficiaryModalOpen}
           planData={planData}
         />
+      </RightSideModal>
+      <RightSideModal
+        isOpen={isBeneficiaryModalOpen}
+        onClose={handleCloseBeneficiaryModal}
+        title=""
+        width="523px"
+      >
+        <Beneficiary planData={planData} />
       </RightSideModal>
     </>
   );

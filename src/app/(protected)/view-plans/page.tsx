@@ -3,15 +3,8 @@ import { useRouter } from "next/navigation";
 import BackIcon from "@/assets/svg/back-icon.svg";
 import PlanCard from "./card";
 import { PlanData } from "@/lib/data";
-import { useState } from "react";
-import ModalComponent from "@/components/Modal";
-import PurchaseFor from "@/components/ValubahPlans/PurchaseFor";
-import RightSideModal from "@/components/Modal/RightSideModal";
-import ValubahOffers from "@/components/ValubahPlans/ValubahOffers";
 
 const ViewPlans = () => {
-  const [modalStack, setModalStack] = useState([]);
-
   const router = useRouter();
   return (
     <div className="px-10 mt-12 mb-14">

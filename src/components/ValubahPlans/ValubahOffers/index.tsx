@@ -13,18 +13,16 @@ const ValubahOffers: React.FC<ValubahOffersProps> = ({
   setIsBeneficiaryModalOpen,
   planData,
 }) => {
-  // console.log(planData);
-
   return (
-    <div className="">
-      <div className=" w-full flex self-center bg-white absolute top-[70%]">
+    <div className=" w-[476px] h-[100vh] flex flex-col">
+      <div className=" w-full flex self-center justify-center bg-white absolute top-[70%]">
         <Button
-          className="w-11/12 px-20"
+          className="w-[90%] px-20"
           onClick={() => {
             setIsBeneficiaryModalOpen(true);
           }}
         >
-          Buy Valubah Premium
+          Buy {planData.title}
         </Button>
       </div>
       <div className="flex justify-between items-center">

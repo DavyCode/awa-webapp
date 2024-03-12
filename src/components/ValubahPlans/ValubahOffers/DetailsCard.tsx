@@ -2,7 +2,7 @@ import React from "react";
 
 const DetailsCard = () => {
   return (
-    <div className="bg-[#F9FDF7] px-4 py-8 ">
+    <div className="bg-[#F9FDF7] px-4 py-8 w-full">
       <div>
         <p className="text-[12px] text-[#333] leading-[20px] mb-4">
           Valubah offers flexible pricing plans tailored to suit your financial
