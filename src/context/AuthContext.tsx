@@ -11,6 +11,7 @@ import { IndividualSignupFormProps } from "@/types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { createContext, ReactNode, useContext, useMemo, useState } from "react";
+import { useCookies } from "react-cookie";
 import { useForm } from "react-hook-form";
 import countryList from "react-select-country-list";
 
@@ -70,6 +71,7 @@ export const useAuthManager = () => {
     "individual",
   );
   const router = useRouter();
+  const [, setCookie] = useCookies(["awabah_tkn", "awabah_user_type"]);
   const [activeSection, setActiveSection] = useState<
     "registration" | "password"
   >("registration");
@@ -97,7 +99,12 @@ export const useAuthManager = () => {
 
   const { mutate: loginUser, isPending: isLoginPending } = useLogin(
     errorToastHandler,
-    () => {
+    (msg, data) => {
+      setCookie("awabah_tkn", data.access_token);
+      setCookie("awabah_user_type", data?.user?.role, {
+        path: "/",
+      });
+      localStorage.setItem("awabah_udt", JSON.stringify(data?.user));
       router.push("/dashboard");
     },
   );
@@ -155,7 +162,6 @@ export const useAuthManager = () => {
     setActiveSection("password");
   });
   const loginSubmit = loginForm.handleSubmit((data) => {
-    console.log("data :>> ", data);
     loginUser(data);
   });
   const createPasswordSubmit = passwordCreationForm.handleSubmit((data) => {

@@ -110,8 +110,8 @@ export const setNewPasswordSchema = yup.object().shape({
     .test("length", "Atleast one lowercase character", (val, ctx) => {
       return val ? val.trim().length >= 8 : false;
     })
-    .test("itMatches", "Passwords do not match", (val, ctx) => {
-      return ctx.parent.confirm_password === val;
+    .test("itMatches", "Passwords do not match", function (val, ctx) {
+      return this.parent.confirm_password === val;
     })
     .required("Password is required"),
   confirm_password: yup
