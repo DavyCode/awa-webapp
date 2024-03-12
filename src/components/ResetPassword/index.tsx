@@ -54,7 +54,7 @@ const ResetPasswordComponent = () => {
         account
       </p>
 
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className="">
         <div className="pb-6">
           <InputField
             label="Email address"
@@ -82,7 +82,7 @@ const ResetPasswordComponent = () => {
         </Button>
       </form>
 
-      <p className="py-1 text-center text-sm">
+      <p className="py-1 text-center text-sm pt-6">
         Already have an account?
         <Link href="/" className="ml-1 font-semibold text-base text-[#3D663D]">
           Log in

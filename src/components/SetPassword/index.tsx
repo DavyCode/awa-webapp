@@ -10,14 +10,20 @@ import { useSetNewPassword } from "@/queries/auth-queries";
 import useToast from "@/hooks/useToast";
 import TickIcon from "@/assets/svg/tick-circle.svg";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 const SetNewPasswordComponent = () => {
+  const router = useRouter();
   const {
     handleSubmit,
     register,
     formState: { isValid, errors, dirtyFields },
     control,
+    getFieldState,
   } = useForm<{ otp: string; password: string; confirm_password: string }>({
+    mode: "all",
+    reValidateMode: "onChange",
+    criteriaMode: "all",
     defaultValues: {
       otp: "",
       password: "",
@@ -26,20 +32,13 @@ const SetNewPasswordComponent = () => {
     resolver: yupResolver<any>(setNewPasswordSchema),
   });
 
-  //   const { isDirty, dirtyFields } = useFormState({
-  //     control,
-  //   });
-
-  console.log("dirtyFields :>> ", dirtyFields);
-  console.log("errors :>> ", errors);
-  console.log("isValid :>> ", isValid);
-
   const { errorToastHandler, loadingToastHandler, successToastHandler } =
     useToast();
   const { mutate, isPending } = useSetNewPassword(
     errorToastHandler,
     (message: string) => {
       successToastHandler(message);
+      router.push("/");
     },
   );
 
