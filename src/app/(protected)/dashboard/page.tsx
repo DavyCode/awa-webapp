@@ -10,7 +10,7 @@ const page = () => {
         <ChatMessageIcon />
       </div>
     </div>
-    );
+  );
 };
 
 export default page;
