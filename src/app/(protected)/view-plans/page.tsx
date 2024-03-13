@@ -5,6 +5,7 @@ import BackIcon from "@/assets/svg/back-icon.svg";
 import PlanCard from "./card";
 import { PlanData } from "@/lib/data";
 import SheetComponent from "@/components/Modal/SheetComponent";
+import ProgressFormSteps from "@/components/ProgressForm";
 
 const ViewPlans = () => {
   const router = useRouter();
@@ -18,7 +19,7 @@ const ViewPlans = () => {
             Content goes here
           </div>
         </SheetComponent> */}
-
+      <ProgressFormSteps />
       <div className="px-10 mt-12 mb-14">
         <div className="w-full sm:w-[253px] space-y-4">
           <div
