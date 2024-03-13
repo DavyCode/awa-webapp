@@ -13,30 +13,32 @@ const ValubahOffers: React.FC<ValubahOffersProps> = ({
   setIsBeneficiaryModalOpen,
   planData,
 }) => {
-  // console.log(planData);
 
   return (
-    <div className=" h-[100vh] flex flex-col">
-      <div className=" w-full flex self-center justify-center bg-white absolute top-[70%]">
+    <div className=" h-screen flex flex-col">
+      <div className=" w-full sm:w-[355px] h-12 flex self-center justify-center bg-white absolute bottom-14">
         <Button
-          className="w-[90%] px-20"
+        type="submit"
+          className="w-full px-20 py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4"
+          style={{
+            backgroundColor: "var(--primary)",
+          }}
           onClick={() => {
             setIsBeneficiaryModalOpen(true);
           }}
         >
           Buy {planData.title}
         </Button>
+
       </div>
       <div className="flex justify-between items-center">
         <div className="flex-1 gap-2 ">
-          <h2 className="text-[16px] font-bold leading-[19px] mb-[8px] text-[#1A1A1A]">
+          <h2 className="text-base font-bold mb-2 text-[#1A1A1A]">
             {planData.title}
           </h2>
-          <p className=" leading-[20px] text-[#666] text-[12px]">
-            {planData.desc}
-          </p>
+          <p className="text-[#666666] text-xs">{planData.desc}</p>
         </div>
-        <span className="flex-1  flex justify-end text-[24px] font-bold leading-[32px] text-[#3D663D]">
+        <span className="flex-1  flex justify-end text-2xl font-bold text-[#3D663D]">
           ₦{formatAmountVariant(planData.amount)}/month
         </span>
       </div>
