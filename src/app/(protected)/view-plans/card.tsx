@@ -4,10 +4,10 @@ import { formatAmountVariant } from "@/lib/utils";
 import clsx from "clsx";
 import ModalComponent from "@/components/Modal";
 import PurchaseFor from "@/components/ValubahPlans/PurchaseFor";
-import RightSideModal from "@/components/Modal/RightSideModal";
 import ValubahOffers from "@/components/ValubahPlans/ValubahOffers";
 // import { PlanData } from "@/lib/data";
 import Beneficiary from "@/components/ValubahPlans/Beneficiary";
+import SheetComponent from "@/components/Modal/SheetComponent";
 
 interface PlanCardProps {
   planData: {
@@ -95,25 +95,21 @@ const PlanCard: React.FC<PlanCardProps> = (props) => {
           setIsValubahOffersModalOpen={setIsValubahOffersModalOpen}
         />
       </ModalComponent>
-      <RightSideModal
+      <SheetComponent
         isOpen={isValubahOffersModalOpen}
-        onClose={handleCloseValubahOffersModal}
-        title=""
-        width="523px"
+        handleClose={handleCloseValubahOffersModal}
       >
         <ValubahOffers
           setIsBeneficiaryModalOpen={setIsBeneficiaryModalOpen}
           planData={planData}
         />
-      </RightSideModal>
-      <RightSideModal
+      </SheetComponent>
+      <SheetComponent
         isOpen={isBeneficiaryModalOpen}
-        onClose={handleCloseBeneficiaryModal}
-        title=""
-        width="523px"
+        handleClose={handleCloseBeneficiaryModal}
       >
         <Beneficiary planData={planData} />
-      </RightSideModal>
+      </SheetComponent>
     </>
   );
 };

@@ -16,7 +16,7 @@ const ValubahOffers: React.FC<ValubahOffersProps> = ({
   // console.log(planData);
 
   return (
-    <div className=" w-[476px] h-[100vh] flex flex-col">
+    <div className=" h-[100vh] flex flex-col">
       <div className=" w-full flex self-center justify-center bg-white absolute top-[70%]">
         <Button
           className="w-[90%] px-20"
@@ -29,7 +29,7 @@ const ValubahOffers: React.FC<ValubahOffersProps> = ({
       </div>
       <div className="flex justify-between items-center">
         <div className="flex-1 gap-2 ">
-          <h2 className="text-[16px] font-bold leading-[19px] mb-[8px]">
+          <h2 className="text-[16px] font-bold leading-[19px] mb-[8px] text-[#1A1A1A]">
             {planData.title}
           </h2>
           <p className=" leading-[20px] text-[#666] text-[12px]">

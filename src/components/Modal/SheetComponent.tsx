@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Sheet,
   SheetContent,
@@ -7,11 +7,15 @@ import {
 } from "@/components/ui/sheet";
 import ArrowCircleLeft from "@/assets/icons/ArrowCircleLeft";
 interface SheetProps {
-    isOpen: boolean;
-    children: JSX.Element;
-    handleClose: any
+  isOpen: boolean;
+  children: JSX.Element;
+  handleClose: any;
 }
-const SheetComponent:React.FC<SheetProps> = ({ isOpen, children, handleClose }) => {
+const SheetComponent: React.FC<SheetProps> = ({
+  isOpen,
+  children,
+  handleClose,
+}) => {
   return (
     <Sheet open={isOpen} onOpenChange={handleClose}>
       <SheetContent className="sm:max-w-xl w-[532px]">
@@ -25,6 +29,6 @@ const SheetComponent:React.FC<SheetProps> = ({ isOpen, children, handleClose }) 
       </SheetContent>
     </Sheet>
   );
-}
+};
 
-export default SheetComponent
+export default SheetComponent;
