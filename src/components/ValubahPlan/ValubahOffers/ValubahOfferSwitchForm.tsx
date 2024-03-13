@@ -1,4 +1,4 @@
-import BenefitsComponent from "./BenefitsCard.tsx";
+import BenefitsComponent from "./BenefitsCard";
 import DetailsCard from "./DetailsCard";
 import TermsCard from "./TermsCard";
 

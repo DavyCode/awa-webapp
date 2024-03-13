@@ -22,6 +22,13 @@ const PlanCard: React.FC<PlanCardProps> = ({
     useState(false);
 
   const closeForWhoPurchaseModal = () => setIsForWhoPurchaseModalOpen(false);
+
+  const [isValubahOffersModalOpen, setIsValubahOffersModalOpen] =
+    useState(false);
+
+  const handleCloseValubahOffersModal = () => {
+    setIsValubahOffersModalOpen(false);
+  };
   return (
     <>
       <div
@@ -74,7 +81,8 @@ const PlanCard: React.FC<PlanCardProps> = ({
         title={title}
         size="medium"
       >
-        <PurchaseFor // setIsValubahOffersModalOpen={setIsValubahOffersModalOpen}
+        <PurchaseFor
+          setIsValubahOffersModalOpen={setIsValubahOffersModalOpen}
         />
       </ModalComponent>
     </>

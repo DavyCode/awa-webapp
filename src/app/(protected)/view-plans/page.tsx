@@ -8,9 +8,9 @@ import SheetComponent from "@/components/Modal/SheetComponent";
 
 const ViewPlans = () => {
   const router = useRouter();
-  const [isSheetOpen, setIsSheetOpen] = useState<boolean>(true);
+  // const [isSheetOpen, setIsSheetOpen] = useState<boolean>(true);
 
-  const handleCloseSheet = () => setIsSheetOpen(false);
+  // const handleCloseSheet = () => setIsSheetOpen(false);
   return (
     <>
       {/* <SheetComponent isOpen={isSheetOpen} handleClose={handleCloseSheet}>
