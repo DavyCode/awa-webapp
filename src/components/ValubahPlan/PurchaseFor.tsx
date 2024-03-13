@@ -4,12 +4,14 @@ import RadioButton from "../Forms/Button/radio";
 import { PurchaseForData } from "@/lib/data";
 
 interface PurchaseForProps {
-  setIsValubahOffersModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  //   setIsValubahOffersModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const PurchaseFor: React.FC<PurchaseForProps> = ({
-  setIsValubahOffersModalOpen,
-}) => {
+const PurchaseFor: React.FC<PurchaseForProps> = (
+  {
+    //   setIsValubahOffersModalOpen,
+  }
+) => {
   return (
     <div>
       <p className="text-[#666] text-[14px]">Who are you buying for</p>
@@ -22,7 +24,7 @@ const PurchaseFor: React.FC<PurchaseForProps> = ({
             <div
               className="flex items-center gap-2 w-full"
               onClick={() => {
-                setIsValubahOffersModalOpen(true);
+                // setIsValubahOffersModalOpen(true);
               }}
             >
               <div className="bg-[#F9FDF7] w-10 h-10 rounded-full p-auto flex justify-center items-center">
