@@ -1,6 +1,7 @@
 import AddIcon from "@/assets/svg/add.svg";
 import TransferIcon from "@/assets/svg/transfer.svg";
 import PayBillsIcon from "@/assets/svg/pay-bills.svg";
+import MyselfIcon from "@/assets/icons/MyselfIcon";
 
 interface ResetPasswordProps {
   label: string;
@@ -21,18 +22,23 @@ interface WalletInfoProps {
 
 interface TransactionInfoProps {
   title: string;
-  createdDate: string,
-  amount: number,
-  status: string
+  createdDate: string;
+  amount: number;
+  status: string;
 }
 
-
-interface PlanCardProps {
+export interface PlanCardProps {
   label: string;
   title: string;
   amount: number;
   desc: string;
 }
+
+interface PurchaseForProps {
+  icon: JSX.Element;
+  title: string;
+}
+[];
 
 export const PlanData: PlanCardProps[] = [
   {
@@ -121,13 +127,12 @@ export const DummyTransactionInfo: TransactionInfoProps[] = [
     title: "Valubah premium purchase",
     createdDate: "Dec 22nd 2023,11:02:03",
     amount: 124414324103,
-    status: "Successful"
+    status: "Successful",
   },
   {
     title: "Valubah premium purchase",
     createdDate: "Dec 22nd 2023,11:02:03",
     amount: 124414324103,
-    status: "Processing"
+    status: "Processing",
   },
-
 ];

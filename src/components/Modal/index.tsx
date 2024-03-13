@@ -2,13 +2,15 @@
 
 import React, { useEffect, useRef } from "react";
 import CloseIcon from '@/assets/svg/close-circle.svg'
+import clsx from "clsx";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
-  size: "small" | "medium" | "large";
+  size: "small" | "medium" | "large" | "custom";
   children: JSX.Element;
+  width?: number
 }
 
 const ModalComponent: React.FC<ModalProps> = ({
@@ -17,6 +19,7 @@ const ModalComponent: React.FC<ModalProps> = ({
   title,
   size,
   children,
+  width
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -45,23 +48,25 @@ const ModalComponent: React.FC<ModalProps> = ({
     return null;
   }
 
-  let modalSizeClass = "";
-  if (size === "small") {
-    modalSizeClass = "w-full mx-8 sm:mx-0 sm:max-w-sm";
-  } else if (size === "medium") {
-    modalSizeClass = "w-full mx-4 sm:mx-0 sm:max-w-[422px] sm:w-[422px]";
-  } else if (size === "large") {
-    modalSizeClass = "w-full mx-4 sm:mx-0 sm:w-[70%] sm:ml-[200px]";
-  }
-
   return (
     <>
       <div className="fixed top-0 left-0 w-full h-full z-50 flex items-center justify-center bg-opacity-75 bg-black flex-col">
         <div
           ref={modalRef}
-          className={`${modalSizeClass}`}
+          className={clsx({
+            "w-full mx-4 sm:mx-0": true,
+            "sm:max-w-sm": ["small"].includes(size),
+            "sm:max-w-[422px] sm:w-[422px]": ["medium"].includes(size),
+            "sm:w-[80%]": ["large"].includes(size),
+            [`sm:max-w-[${width}px] sm:w-[${width}px]`]: ["custom"].includes(
+              size
+            ),
+          })}
         >
-          <div className="mb-4 flex justify-end cursor-pointer" onClick={onClose}>
+          <div
+            className="mb-4 flex justify-end cursor-pointer"
+            onClick={onClose}
+          >
             <div className="w-6 h-6 rounded-full bg-white flex justify-center items-center">
               <CloseIcon />
             </div>

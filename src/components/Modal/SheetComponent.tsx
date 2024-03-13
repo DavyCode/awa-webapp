@@ -20,7 +20,7 @@ const SheetComponent:React.FC<SheetProps> = ({ isOpen, children, handleClose }) 
             <ArrowCircleLeft />
             Go back
           </div>
-          <SheetDescription className="h-screen">{children}</SheetDescription>
+          <SheetDescription className="h-screen overflow-y-auto">{children}</SheetDescription>
         </SheetHeader>
       </SheetContent>
     </Sheet>
