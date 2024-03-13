@@ -37,15 +37,8 @@ const ViewPlans = () => {
           <h1 className="text-xl text-[#1A1A1A] font-medium">View Plans</h1>
         </div>
         <div className="flex flex-col sm:flex-row justify-between flex-wrap">
-          {PlanData.map(({ label, title, amount, desc }, index) => (
-            <PlanCard
-              label={label}
-              index={index}
-              title={title}
-              amount={amount}
-              desc={desc}
-              key={title}
-            />
+          {PlanData.map((data, index) => (
+            <PlanCard key={index} planData={{ ...data, index }} />
           ))}
         </div>
       </div>

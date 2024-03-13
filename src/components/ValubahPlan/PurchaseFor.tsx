@@ -45,6 +45,7 @@ const PurchaseFor: React.FC<PurchaseForProps> = ({
               className="flex items-center gap-2 w-full"
               onClick={() => {
                 setIsValubahOffersModalOpen(true);
+                console.log("true");
               }}
             >
               <div className="bg-[#F9FDF7] w-10 h-10 rounded-full p-auto flex justify-center items-center">

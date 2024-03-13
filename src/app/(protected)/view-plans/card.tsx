@@ -3,21 +3,22 @@ import { formatAmountVariant } from "@/lib/utils";
 import clsx from "clsx";
 import ModalComponent from "@/components/Modal";
 import PurchaseFor from "@/components/ValubahPlan/PurchaseFor";
+import SheetComponent from "@/components/Modal/SheetComponent";
+import ValubahOffers from "@/components/ValubahPlan/ValubahOffers";
 
 interface PlanCardProps {
-  label: string;
-  index: number;
-  title: string;
-  amount: number;
-  desc: string;
+  planData: {
+    label: string;
+    index: number;
+    title: string;
+    amount: number;
+    desc: string;
+  };
 }
-const PlanCard: React.FC<PlanCardProps> = ({
-  label,
-  index,
-  title,
-  amount,
-  desc,
-}) => {
+const PlanCard: React.FC<PlanCardProps> = (props) => {
+  const { planData } = props;
+  const { label, index, title, amount, desc } = planData;
+
   const [isForWhoPurchaseModalOpen, setIsForWhoPurchaseModalOpen] =
     useState(false);
 
@@ -28,6 +29,11 @@ const PlanCard: React.FC<PlanCardProps> = ({
 
   const handleCloseValubahOffersModal = () => {
     setIsValubahOffersModalOpen(false);
+  };
+  const [isBeneficiaryModalOpen, setIsBeneficiaryModalOpen] = useState(false);
+
+  const handleCloseBeneficiaryModal = () => {
+    setIsBeneficiaryModalOpen(false);
   };
   return (
     <>
@@ -85,6 +91,15 @@ const PlanCard: React.FC<PlanCardProps> = ({
           setIsValubahOffersModalOpen={setIsValubahOffersModalOpen}
         />
       </ModalComponent>
+      <SheetComponent
+        isOpen={isValubahOffersModalOpen}
+        handleClose={handleCloseValubahOffersModal}
+      >
+        <ValubahOffers
+          setIsBeneficiaryModalOpen={setIsBeneficiaryModalOpen}
+          planData={planData}
+        />
+      </SheetComponent>
     </>
   );
 };
