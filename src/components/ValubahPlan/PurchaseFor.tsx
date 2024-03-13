@@ -5,13 +5,16 @@ import MyselfIcon from "@/assets/icons/MyselfIcon";
 import MyselfandOthersIcon from "@/assets/icons/MyselfandOthersIcon";
 import Others from "@/assets/icons/Others";
 
-interface PurchaseForProps {
+interface PurchaseForCard {
   icon: JSX.Element;
   title: string;
 }
 [];
+interface PurchaseForProps {
+  setIsValubahOffersModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const PurchaseForData: PurchaseForProps[] = [
+const PurchaseForData: PurchaseForCard[] = [
   {
     icon: <MyselfIcon />,
     title: "Myself",
@@ -26,11 +29,9 @@ const PurchaseForData: PurchaseForProps[] = [
   },
 ];
 
-const PurchaseFor: React.FC = (
-  {
-    //   setIsValubahOffersModalOpen,
-  }
-) => {
+const PurchaseFor: React.FC<PurchaseForProps> = ({
+  setIsValubahOffersModalOpen,
+}) => {
   return (
     <div>
       <p className="text-[#666] text-[14px]">Who are you buying for</p>
@@ -43,7 +44,7 @@ const PurchaseFor: React.FC = (
             <div
               className="flex items-center gap-2 w-full"
               onClick={() => {
-                // setIsValubahOffersModalOpen(true);
+                setIsValubahOffersModalOpen(true);
               }}
             >
               <div className="bg-[#F9FDF7] w-10 h-10 rounded-full p-auto flex justify-center items-center">

@@ -27,7 +27,7 @@ interface TransactionInfoProps {
   status: string;
 }
 
-interface PlanCardProps {
+export interface PlanCardProps {
   label: string;
   title: string;
   amount: number;
