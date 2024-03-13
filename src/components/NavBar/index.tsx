@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import Logo from "@/assets/svg/awabah_user_logo.svg";
 import { Button } from "../ui/button";
 import PlusIcon from "@/assets/svg/add.svg";
+import Logout from "@/assets/svg/logout.svg";
 import DashboardIcon from "@/assets/svg/element-3.svg";
 import ProductIcon from "@/assets/svg/box.svg";
 import UserIcon from "@/assets/svg/users.svg";
@@ -131,55 +132,16 @@ const NavBar = () => {
         </div>
         <div className="pt-10 px-6 text-[#333]">
           <p className="text-base pb-2">Menu</p>
-          <ul className="list-none">
-            <Menu list={routes} />
-            {/* {routes.map((route, i) => {
-              if (route.subMenu?.length) {
-                return (
-                  <li key={i}>
-                    <div>
-                      <Button
-                        className="flex gap-2 w-full p-3 justify-start"
-                        onClick={() => {}}
-                        variant={"ghost"}
-                      >
-                        <route.Icon />
-                        <span className=" whitespace-nowrap text-ellipsis overflow-hidden font-semibold">
-                          {route.name}
-                        </span>
-                      </Button>
-                    </div>
-                    <ul className="ml-6 pl-2 border-l border-[#EBEBEB]">
-                      {route.subMenu.map((item, idx) => {
-                        return (
-                          <li key={idx} className="">
-                            <Link
-                              href={item.path}
-                              className="flex gap-2 w-full p-3"
-                            >
-                              <span className=" whitespace-nowrap text-ellipsis overflow-hidden font-semibold">
-                                {item.name}
-                              </span>
-                            </Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </li>
-                );
-              }
-              return (
-                <li key={i}>
-                  <Link href={route.path} className="flex gap-2 w-full p-3">
-                    <route.Icon />
-                    <span className=" whitespace-nowrap text-ellipsis overflow-hidden font-semibold">
-                      {route.name}
-                    </span>
-                  </Link>
-                </li>
-              );
-            })} */}
-          </ul>
+          <div className="flex justify-between flex-col sm:h-[778px] sm:pb-[171px]">
+            <ul className="list-none">
+              <Menu list={routes} />
+            </ul>
+            <div className="bg-[#FFF2F1] text-[#EA4335] w-full cursor-pointer sm:w-[251px] py-[6px] px-2 flex justify-center items-center gap-1 rounded-[4px]">
+              <Logout />
+              Logout
+            </div>
+
+          </div>
         </div>
       </nav>
     </div>
