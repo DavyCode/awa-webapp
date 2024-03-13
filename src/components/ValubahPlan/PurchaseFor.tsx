@@ -1,13 +1,32 @@
 "use client";
 import React, { useState } from "react";
 import RadioButton from "../Forms/Button/radio";
-import { PurchaseForData } from "@/lib/data";
+import MyselfIcon from "@/assets/icons/MyselfIcon";
+import MyselfandOthersIcon from "@/assets/icons/MyselfandOthersIcon";
+import Others from "@/assets/icons/Others";
 
 interface PurchaseForProps {
-  //   setIsValubahOffersModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  icon: JSX.Element;
+  title: string;
 }
+[];
 
-const PurchaseFor: React.FC<PurchaseForProps> = (
+const PurchaseForData: PurchaseForProps[] = [
+  {
+    icon: <MyselfIcon />,
+    title: "Myself",
+  },
+  {
+    icon: <MyselfandOthersIcon />,
+    title: "Myself and Others",
+  },
+  {
+    icon: <Others />,
+    title: "Others",
+  },
+];
+
+const PurchaseFor: React.FC = (
   {
     //   setIsValubahOffersModalOpen,
   }

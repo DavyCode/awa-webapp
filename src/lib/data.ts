@@ -1,10 +1,7 @@
 import AddIcon from "@/assets/svg/add.svg";
 import TransferIcon from "@/assets/svg/transfer.svg";
 import PayBillsIcon from "@/assets/svg/pay-bills.svg";
-
 import MyselfIcon from "@/assets/icons/MyselfIcon";
-import MyselfandOthersIcon from "@/assets/icons/MyselfandOthersIcon";
-import Others from "@/assets/icons/Others";
 
 interface ResetPasswordProps {
   label: string;
@@ -137,20 +134,5 @@ export const DummyTransactionInfo: TransactionInfoProps[] = [
     createdDate: "Dec 22nd 2023,11:02:03",
     amount: 124414324103,
     status: "Processing",
-  },
-];
-
-export const PurchaseForData: PurchaseForProps[] = [
-  {
-    icon: MyselfIcon,
-    title: "Myself",
-  },
-  {
-    icon: MyselfandOthersIcon,
-    title: "Myself and Others",
-  },
-  {
-    icon: Others,
-    title: "Others",
   },
 ];

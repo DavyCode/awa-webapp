@@ -74,8 +74,7 @@ const PlanCard: React.FC<PlanCardProps> = ({
         title={title}
         size="medium"
       >
-        <PurchaseFor
-        // setIsValubahOffersModalOpen={setIsValubahOffersModalOpen}
+        <PurchaseFor // setIsValubahOffersModalOpen={setIsValubahOffersModalOpen}
         />
       </ModalComponent>
     </>
