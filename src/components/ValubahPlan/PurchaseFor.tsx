@@ -11,7 +11,8 @@ interface PurchaseForCard {
 }
 [];
 interface PurchaseForProps {
-  setIsValubahOffersModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsBeneficiaryModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  handleCloseModal: () => void;
 }
 
 const PurchaseForData: PurchaseForCard[] = [
@@ -30,15 +31,15 @@ const PurchaseForData: PurchaseForCard[] = [
 ];
 
 const PurchaseFor: React.FC<PurchaseForProps> = ({
-  setIsValubahOffersModalOpen,
+  setIsBeneficiaryModalOpen, handleCloseModal
 }) => {
+  const [selectedItem, setSelectedItem] = useState<string>("");
 
-   const [selectedItem, setSelectedItem] = useState<string>("");
-
-   const handleItemClick = (title: string) => {
-     setSelectedItem(title);
-     setIsValubahOffersModalOpen(true);
-   };
+  const handleItemClick = (title: string) => {
+    setSelectedItem(title);
+    setIsBeneficiaryModalOpen(true);
+    handleCloseModal()
+  };
 
   return (
     <div className="w-full sm:max-w-[470px]">
@@ -63,9 +64,7 @@ const PurchaseFor: React.FC<PurchaseForProps> = ({
                 </div>
               </div>
               <div className="w-fit">
-                <RadioButton
-                  checked={selectedItem === item.title}                  
-                />
+                <RadioButton checked={selectedItem === item.title} />
               </div>
             </div>
           </div>

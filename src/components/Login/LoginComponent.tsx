@@ -64,7 +64,7 @@ const LoginComponent = () => {
               register={register}
             />
             <InputFieldText
-              label="Create password"
+              label="Password"
               name="password"
               type="password"
               error={errors.password?.message}
