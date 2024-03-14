@@ -15,9 +15,6 @@ const MultiStepForm: React.FC<MultiStepFormProps> = (planData) => {
         <span className="flex-1 mt-[9px]  flex justify-start text-[24px] font-bold leading-[32px] text-[#3D663D]">
           ₦{formatAmountVariant(planData.planData.amount)} /month
         </span>
-        {/* <div className="bg-red-400 flex items-center w-full h-[20px] mt-[23px]">
-      jff
-    </div> */}
         <ProgressFormSteps />
       </div>
     </div>
