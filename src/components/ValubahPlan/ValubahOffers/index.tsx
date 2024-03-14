@@ -13,13 +13,12 @@ const ValubahOffers: React.FC<ValubahOffersProps> = ({
   setIsBeneficiaryModalOpen,
   planData,
 }) => {
-
   return (
     <div className=" h-screen flex flex-col">
       <div className=" w-full sm:w-[355px] h-12 flex self-center justify-center bg-white absolute bottom-14">
         <Button
-        type="submit"
-          className="w-full px-20 py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4"
+          type="submit"
+          className="w-full px-20 py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded "
           style={{
             backgroundColor: "var(--primary)",
           }}
@@ -29,7 +28,6 @@ const ValubahOffers: React.FC<ValubahOffersProps> = ({
         >
           Buy {planData.title}
         </Button>
-
       </div>
       <div className="flex justify-between items-center">
         <div className="flex-1 gap-2 ">

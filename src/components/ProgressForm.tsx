@@ -1,13 +1,17 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import { Check } from "lucide-react";
-import DashLine from '@/assets/svg/dash-line.svg'
+import DashLine from "@/assets/svg/dash-line.svg";
+import PlanDetails from "./ValubahPlan/MultiStepForm/PlanDetails";
+import BeneficiariesDetails from "./ValubahPlan/MultiStepForm/BeneficiariesDetails";
+import Summary from "./ValubahPlan/MultiStepForm/Summary";
+import Payment from "./ValubahPlan/MultiStepForm/Payment";
 
 const steps = [
-  { label: "Plan details", content: "Step 1 Content" },
-  { label: "Beneficiaries details", content: "Step 2 Content" },
-  { label: "Summary", content: "Step 3 Content" },
-  { label: "Payment", content: "Step 4 Content" },
+  { label: "Plan details", content: <PlanDetails /> },
+  { label: "Beneficiaries details", content: <BeneficiariesDetails /> },
+  { label: "Summary", content: <Summary /> },
+  { label: "Payment", content: <Payment /> },
 ];
 
 const ProgressFormSteps = () => {
@@ -48,28 +52,29 @@ const ProgressFormSteps = () => {
   };
 
   return (
-    <div className="flex w-full mx-auto">
-      {steps.map((step, index) => (
-        <div
-          key={index}
-          className="flex items-center mb-4 mx-0.5 gap-1 cursor-pointer"
-          onClick={() => goToStep(index)}
-        >
-          {renderCircle(index)}
-          <div className="flex items-center gap-1">
-            <label
-              className={`text-xs ${
-                currentStep === index ? "text-[#3D663D]" : "text-gray-400"
-              }`}
-            >
-              {step.label}
-            </label>
-            <DashLine />
+    <div className=" w-full mx-auto">
+      <div className="flex mt-[24px]">
+        {steps.map((step, index) => (
+          <div
+            key={index}
+            className="flex items-center mb-4 mx-0.5 gap-1 cursor-pointer"
+            onClick={() => goToStep(index)}
+          >
+            {renderCircle(index)}
+            <div className="flex items-center gap-1">
+              <label
+                className={`text-xs ${
+                  currentStep === index ? "text-[#3D663D]" : "text-gray-400"
+                }`}
+              >
+                {step.label}
+              </label>
+              <DashLine />
+            </div>
           </div>
-        </div>
-      ))}
-
-      <div className="mt-8">{steps[currentStep].content}</div>
+        ))}
+      </div>
+      <div className="mt-8 ">{steps[currentStep].content}</div>
     </div>
   );
 };
