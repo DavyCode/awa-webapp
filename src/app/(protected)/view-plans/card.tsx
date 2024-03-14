@@ -7,6 +7,7 @@ import PurchaseFor from "@/components/ValubahPlan/PurchaseFor";
 import SheetComponent from "@/components/Modal/SheetComponent";
 import ValubahOffers from "@/components/ValubahPlan/ValubahOffers";
 import PlanDetails from "@/components/ValubahPlan/MultiStepForm/PlanDetails";
+import MultiStepForm from "@/components/ValubahPlan/MultiStepForm";
 
 interface PlanData {
   label: string;
@@ -102,7 +103,8 @@ const PlanCard: React.FC<PlanCardProps> = ({ planData }) => {
         isOpen={isBeneficiaryModalOpen}
         handleClose={closeBeneficiaryModal}
       >
-        <PlanDetails planData={planData} />
+        {/* <PlanDetails planData={planData} /> */}
+        <MultiStepForm planData={planData} />
       </SheetComponent>
     </>
   );
