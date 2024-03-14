@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Check } from "lucide-react";
 import DashLine from "@/assets/svg/dash-line.svg";
 import PlanDetails from "./ValubahPlan/MultiStepForm/PlanDetails";
-import { PlanData } from "@/lib/data";
 import BeneficiariesDetails from "./ValubahPlan/MultiStepForm/BeneficiariesDetails";
 import Summary from "./ValubahPlan/MultiStepForm/Summary";
 import Payment from "./ValubahPlan/MultiStepForm/Payment";
