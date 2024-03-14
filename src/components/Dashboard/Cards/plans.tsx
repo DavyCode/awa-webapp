@@ -2,16 +2,14 @@
 import InformationIcon from '@/assets/svg/information.svg'
 import RevealSmallIcon from '@/assets/svg/eye-small.svg'
 import AddBlackIcon from '@/assets/svg/add-black.svg'
-import TransferIcon from '@/assets/svg/transfer.svg'
-import PayBillsIcon from '@/assets/svg/pay-bills.svg'
 import RenewIcon from '@/assets/svg/renew.svg'
 import UserPlanIcon from '@/assets/svg/user-plan.svg'
 import InviteIcon from "@/assets/svg/invite.svg"
-
-import { formatAmount } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation'
 
 const UserPlanCard = () => {
+  const router = useRouter()
     return (
       <div className="flex gap-6 mt-6">
         <div className="py-6 px-4 bg-white rounded-2xl border border-[#EBEBEB] w-full sm:w-[544px]">
@@ -60,6 +58,7 @@ const UserPlanCard = () => {
               type="button"
               variant="outline"
               className="py-[14.5px] h-[unset] bg-product-button-gradient rounded px-4 w-full sm:w-[134px] flex font-medium items-center gap-2"
+              onClick={() => router.push('/view-plans')}
             >
               <RevealSmallIcon />
               View plans

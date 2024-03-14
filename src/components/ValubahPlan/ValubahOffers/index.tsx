@@ -5,12 +5,14 @@ import { PlanCardProps } from "@/lib/data";
 import { formatAmountVariant } from "@/lib/utils";
 
 interface ValubahOffersProps {
-  setIsBeneficiaryModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsForWhoPurchaseModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  closeValubahOffers: () => void;
   planData: PlanCardProps;
 }
 
 const ValubahOffers: React.FC<ValubahOffersProps> = ({
-  setIsBeneficiaryModalOpen,
+  setIsForWhoPurchaseModalOpen,
+  closeValubahOffers,
   planData,
 }) => {
   return (
@@ -23,7 +25,8 @@ const ValubahOffers: React.FC<ValubahOffersProps> = ({
             backgroundColor: "var(--primary)",
           }}
           onClick={() => {
-            setIsBeneficiaryModalOpen(true);
+            setIsForWhoPurchaseModalOpen(true);
+            closeValubahOffers()
           }}
         >
           Buy {planData.title}
