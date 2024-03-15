@@ -37,7 +37,7 @@ const PlanCard: React.FC<PlanCardProps> = ({ planData }) => {
   return (
     <>
       <div
-        className="w-full h-fit sm:h-[190px] rounded-lg border-2 mt-10 overflow-hidden group"
+        className="w-full h-fit sm:h-[190px] rounded-lg border-2 mt-4 sm:mt-10 overflow-hidden group"
         onClick={() => setIsValubahOffersModalOpen(true)}
       >
         <div
@@ -56,7 +56,7 @@ const PlanCard: React.FC<PlanCardProps> = ({ planData }) => {
           <div className="w-full flex justify-end">
             <div
               className={clsx({
-                "text-xs text-white w-fit px-4 flex justify-center items-center rounded-[4px] sm:h-[26px]":
+                "text-xs text-white w-fit px-4 flex justify-center items-center rounded-[4px] h-6 sm:h-[26px]":
                   true,
                 "bg-[#97912E]": index === 0,
                 "bg-[#A4813A]": index === 1,

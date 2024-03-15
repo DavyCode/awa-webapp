@@ -9,8 +9,8 @@ const ViewPlanComponent = () => {
 
   return (
     <>
-      <div className="px-10 mt-12 mb-14">
-        <div className="w-full sm:w-[253px] space-y-4">
+      <div className="px-4 sm:px-10 sm:mt-12 sm:mb-14">
+        <div className="w-full sm:w-[253px] space-y-2 sm:space-y-4">
           <div
             className="w-full sm:w-[90px] flex gap-2 text-[#3D663D] cursor-pointer items-center"
             onClick={() => router.back()}

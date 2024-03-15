@@ -12,16 +12,18 @@ const AccidentCoverList = [
 
 const PersonalAccidentCoverCard = () => {
   return (
-    <div className="border rounded-[8px] py-4 pl-4 pr-[21px]">
-      <h2 className="font-bold text text-[#1A1A1A] leading-[20px] text-[14px]">
+    <div className="border rounded-lg py-4 pl-4 pr-[21px]">
+      <h2 className="font-bold text-[#1A1A1A] text-sm">
         Personal Accident Cover
       </h2>
 
-      <ul className="flex flex-wrap w-[439px]">
+      <ul className="flex flex-wrap w-full sm:w-[439px]">
         {AccidentCoverList.map((item, index) => (
           <li key={index} className="flex items-center gap-2 mt-4 mr-4">
-            <TickCircleIcon />
-            <p className="text-[14px] leading-[20px] font-[400] text-[#333]">
+            <span className="w-4 h-4">
+              <TickCircleIcon />
+            </span>
+            <p className="text-sm text-[#333]">
               {item.text}
             </p>
           </li>

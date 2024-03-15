@@ -1,9 +1,9 @@
 
 import InformationIcon from '@/assets/svg/information.svg'
 import RevealSmallIcon from '@/assets/svg/eye-small.svg'
-import AddBlackIcon from '@/assets/svg/add-black.svg'
 import RenewIcon from '@/assets/svg/renew.svg'
 import UserPlanIcon from '@/assets/svg/user-plan.svg'
+import BuyPlanIcon from '@/assets/svg/buy-valubah.svg'
 import InviteIcon from "@/assets/svg/invite.svg"
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation'
@@ -42,9 +42,10 @@ const UserPlanCard = () => {
               type="button"
               variant="outline"
               className="py-[14.5px] h-[unset] bg-product-button-gradient rounded px-4 w-full font-medium sm:w-[134px] flex gap-2"
+              onClick={() => router.push("/view-plans")}
             >
-              <AddBlackIcon />
-              Add new
+              <BuyPlanIcon />
+              Purchase
             </Button>
             <Button
               type="button"
@@ -58,7 +59,6 @@ const UserPlanCard = () => {
               type="button"
               variant="outline"
               className="py-[14.5px] h-[unset] bg-product-button-gradient rounded px-4 w-full sm:w-[134px] flex font-medium items-center gap-2"
-              onClick={() => router.push('/view-plans')}
             >
               <RevealSmallIcon />
               View plans
