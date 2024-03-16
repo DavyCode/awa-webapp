@@ -13,7 +13,7 @@ const HealthInsuranceList = [
     span: "(view here)",
   },
   { text: "Malaria test" },
-  { text: " Malaria Drugs" },
+  { text: "Malaria Drugs" },
   { text: "Telemedicine" },
   { text: "Typhoid Tests" },
   { text: "Heart Check" },
