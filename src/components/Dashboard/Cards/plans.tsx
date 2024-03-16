@@ -1,3 +1,7 @@
+import { useRouter } from 'next/navigation'
+import { Button } from '@/components/ui/button';
+
+import ToolTip from '@/components/ToolTip'
 
 import InformationIcon from '@/assets/svg/information.svg'
 import RevealSmallIcon from '@/assets/svg/eye-small.svg'
@@ -5,8 +9,7 @@ import RenewIcon from '@/assets/svg/renew.svg'
 import UserPlanIcon from '@/assets/svg/user-plan.svg'
 import BuyPlanIcon from '@/assets/svg/buy-valubah.svg'
 import InviteIcon from "@/assets/svg/invite.svg"
-import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation'
+
 
 const UserPlanCard = () => {
   const router = useRouter()
@@ -33,7 +36,10 @@ const UserPlanCard = () => {
           <div className="flex gap-2 items-center mb-2">
             <span className="text-sm text-[#292D32]">Total Valubah plans</span>
             <span className="cursor-pointer">
-              <InformationIcon />
+              <ToolTip
+                icon={<InformationIcon />}
+                label="Total Valubah plans"
+              />
             </span>
           </div>
           <h1 className="sm:text-2xl font-bold text-[#333] mb-4">0</h1>
@@ -72,7 +78,10 @@ const UserPlanCard = () => {
           <div className="flex gap-2 items-center my-2">
             <span className="text-sm text-[#292D32]">Total Beneficiaries</span>
             <span className="cursor-pointer">
-              <InformationIcon />
+             <ToolTip
+                icon={<InformationIcon />}
+                label="Total Beneficiaries"
+              />
             </span>
           </div>
           <h1 className="sm:text-2xl font-bold text-[#333] mb-8">3</h1>
