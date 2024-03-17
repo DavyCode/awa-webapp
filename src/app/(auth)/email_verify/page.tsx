@@ -1,8 +1,8 @@
-import VerifyAccountComponent from '@/components/VerifyAccount'
-import React from 'react'
+import VerifyAccountComponent from "@/components/VerifyAccount";
+import React from "react";
 
 const page = () => {
-  return <VerifyAccountComponent />
-}
+  return <VerifyAccountComponent />;
+};
 
-export default page
+export default page;
