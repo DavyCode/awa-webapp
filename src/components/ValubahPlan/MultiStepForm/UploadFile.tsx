@@ -1,3 +1,4 @@
+
 import React from "react";
 import UploadFileIcon from "@/assets/svg/upload-icon.svg";
 import ExcelIcon from "@/assets/svg/excel-icon.svg";
@@ -7,6 +8,7 @@ import { Button } from "@/components/Forms/Button";
 const UploadFile = () => {
   return (
     <div className="h-[100vh]">
+
       <div className="w-full sm:py-[27px] rounded-lg border border-dashed flex justify-center items-center border-[#EBEBEB]">
         <div className="w-full sm:w-[146px] sm:h-[99px] mx-auto flex justify-center items-center flex-col cursor-pointer">
           <div className="sm:w-[47px] sm:h-[47px] flex justify-center items-center bg-[#F1F1F166] rounded-full mb-1">
@@ -45,9 +47,21 @@ const UploadFile = () => {
           <p className="flex justify-end text-[10px] text-gray-400">
             75% 10 sec
           </p>
+
           <Progress value={33} />
+
         </div>
+        <ul className="text-[#333] text-xs list-disc list-inside space-y-2">
+          <li>Use supported headings, name, email, phone number etc</li>
+          <li>You can import a maximum of 500 rows</li>
+          <li>You can only upload one file per time</li>
+        </ul>
       </div>
+      <div className="my-6 flex justify-between items-center">
+        <span className="text-[#3D663D] underline text-sx font-medium">Download Sample Template</span>
+        <Link href="#" className="text-[#3D663D] underline text-sx font-medium">Watch demo</Link>
+      </div>
+
       <div className="bg-[#FFF8F2] mt-[21px] rounded-lg p-4 text-[#1A1A1A] space-y-[13px]">
         <p className="">Preparing Csv</p>
         <ul className="list-disc ml-4 space-y-4">
@@ -69,6 +83,7 @@ const UploadFile = () => {
           Skip, {"i'll"} do this later
         </span>
       </div>
+
     </div>
   );
 };

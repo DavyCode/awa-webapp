@@ -1,17 +1,18 @@
+import { useRouter } from 'next/navigation'
+import { Button } from '@/components/ui/button';
+
+import ToolTip from '@/components/ToolTip'
 
 import InformationIcon from '@/assets/svg/information.svg'
 import RevealSmallIcon from '@/assets/svg/eye-small.svg'
-import AddBlackIcon from '@/assets/svg/add-black.svg'
-import TransferIcon from '@/assets/svg/transfer.svg'
-import PayBillsIcon from '@/assets/svg/pay-bills.svg'
 import RenewIcon from '@/assets/svg/renew.svg'
 import UserPlanIcon from '@/assets/svg/user-plan.svg'
+import BuyPlanIcon from '@/assets/svg/buy-valubah.svg'
 import InviteIcon from "@/assets/svg/invite.svg"
 
-import { formatAmount } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
 
 const UserPlanCard = () => {
+  const router = useRouter()
     return (
       <div className="flex gap-6 mt-6">
         <div className="py-6 px-4 bg-white rounded-2xl border border-[#EBEBEB] w-full sm:w-[544px]">
@@ -35,7 +36,10 @@ const UserPlanCard = () => {
           <div className="flex gap-2 items-center mb-2">
             <span className="text-sm text-[#292D32]">Total Valubah plans</span>
             <span className="cursor-pointer">
-              <InformationIcon />
+              <ToolTip
+                icon={<InformationIcon />}
+                label="Total Valubah plans"
+              />
             </span>
           </div>
           <h1 className="sm:text-2xl font-bold text-[#333] mb-4">0</h1>
@@ -44,9 +48,10 @@ const UserPlanCard = () => {
               type="button"
               variant="outline"
               className="py-[14.5px] h-[unset] bg-product-button-gradient rounded px-4 w-full font-medium sm:w-[134px] flex gap-2"
+              onClick={() => router.push("/view-plans")}
             >
-              <AddBlackIcon />
-              Add new
+              <BuyPlanIcon />
+              Purchase
             </Button>
             <Button
               type="button"
@@ -73,7 +78,10 @@ const UserPlanCard = () => {
           <div className="flex gap-2 items-center my-2">
             <span className="text-sm text-[#292D32]">Total Beneficiaries</span>
             <span className="cursor-pointer">
-              <InformationIcon />
+             <ToolTip
+                icon={<InformationIcon />}
+                label="Total Beneficiaries"
+              />
             </span>
           </div>
           <h1 className="sm:text-2xl font-bold text-[#333] mb-8">3</h1>

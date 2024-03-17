@@ -14,9 +14,9 @@ interface SheetProps {
 const SheetComponent:React.FC<SheetProps> = ({ isOpen, children, handleClose }) => {
   return (
     <Sheet open={isOpen} onOpenChange={handleClose}>
-      <SheetContent className="sm:max-w-xl w-[532px]">
+      <SheetContent className="w-full sm:max-w-xl sm:w-[532px]">
         <SheetHeader>
-          <div className="flex items-center gap-x-2 text-[#3D663D] cursor-pointer mb-[26px]">
+          <div className="flex items-center gap-x-2 text-[#3D663D] cursor-pointer mb-[26px]" onClick={handleClose}>
             <ArrowCircleLeft />
             Go back
           </div>

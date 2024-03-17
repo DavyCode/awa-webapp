@@ -22,15 +22,15 @@ const ButtonTabs:React.FC<ButtonTabsProps> = ({ tabsData}) => {
     >
     <TabsList className="w-full sm:w-[252px] h-12 py-2 border border-[#EBEBEB] sm:mb-[24px]">
         {tabsData.map((tab) => (
-        <TabsTrigger key={tab.label} value={tab.label} className="h-8 rounded-md sm:w-[118px]">
+        <TabsTrigger key={tab.label} value={tab.label} className="h-8 rounded-md w-2/4 sm:w-[118px]">
             {tab.label}
         </TabsTrigger>
         ))}
     </TabsList>
     {tabsData.map((tab) => (
-        <TabsContent key={tab.label} value={tab.label}>
-        {tab.content}
-        </TabsContent>
+      <TabsContent key={tab.label} value={tab.label} className="text-left mt-6">
+      {tab.content}
+      </TabsContent>
     ))}
     </Tabs>
   );

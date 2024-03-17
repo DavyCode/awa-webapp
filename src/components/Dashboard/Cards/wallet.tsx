@@ -9,6 +9,7 @@ import ClaimPensionIcon from "@/assets/svg/claim.svg";
 
 import { formatAmount } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import ToolTip from '@/components/ToolTip'
 
 const UserWalletCard = () => {
 
@@ -18,7 +19,7 @@ const UserWalletCard = () => {
         <div className="flex gap-2 items-center mb-2">
           <span className="text-sm text-[#292D32]">Total Wallet Balance</span>
           <span className="cursor-pointer">
-            <InformationIcon />
+            <ToolTip icon={<InformationIcon />} label="Total Wallet Balance" />
           </span>
         </div>
         <div className="flex gap-2 items-center">
@@ -64,7 +65,7 @@ const UserWalletCard = () => {
             Total Processed Balance
           </span>
           <span className="cursor-pointer">
-            <InformationIcon />
+            <ToolTip icon={<InformationIcon />} label="Total Processed Balance" />
           </span>
         </div>
         <div className="flex gap-2 items-center">

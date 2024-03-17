@@ -37,12 +37,13 @@ const PlanCard: React.FC<PlanCardProps> = ({ planData }) => {
   return (
     <>
       <div
-        className="w-full sm:w-[322px] h-fit sm:h-[190px] rounded-[8px] border-2 mt-10 overflow-hidden"
-        onClick={openForWhoPurchaseModal}
+        className="w-full h-fit sm:h-[190px] rounded-lg border-2 mt-4 sm:mt-10 overflow-hidden group"
+        onClick={() => setIsValubahOffersModalOpen(true)}
       >
         <div
           className={clsx({
-            "w-full h-fit sm:h-screen border-l-4 p-2 pb-6": true,
+            "w-full h-fit sm:h-screen border-l-4 p-2 pb-6 group-hover:cursor-pointer":
+              true,
             "border-[#97912E]": index === 0,
             "border-[#A4813A]": index === 1,
             "border-[#354D72]": index === 2,
@@ -55,7 +56,7 @@ const PlanCard: React.FC<PlanCardProps> = ({ planData }) => {
           <div className="w-full flex justify-end">
             <div
               className={clsx({
-                "text-xs text-white w-fit px-4 flex justify-center items-center rounded-[4px] sm:h-[26px]":
+                "text-xs text-white w-fit px-4 flex justify-center items-center rounded-[4px] h-6 sm:h-[26px]":
                   true,
                 "bg-[#97912E]": index === 0,
                 "bg-[#A4813A]": index === 1,
@@ -85,16 +86,15 @@ const PlanCard: React.FC<PlanCardProps> = ({ planData }) => {
         size="custom"
         width={470}
       >
-        <PurchaseFor
-          setIsValubahOffersModalOpen={setIsValubahOffersModalOpen}
-        />
+        <PurchaseFor setIsBeneficiaryModalOpen={setIsBeneficiaryModalOpen} handleCloseModal={closeForWhoPurchaseModal} />
       </ModalComponent>
       <SheetComponent
         isOpen={isValubahOffersModalOpen}
         handleClose={closeValubahOffersModal}
       >
         <ValubahOffers
-          setIsBeneficiaryModalOpen={setIsBeneficiaryModalOpen}
+          setIsForWhoPurchaseModalOpen={setIsForWhoPurchaseModalOpen}
+          closeValubahOffers={closeValubahOffersModal}
           planData={planData}
         />
       </SheetComponent>

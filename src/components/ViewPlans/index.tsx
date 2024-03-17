@@ -9,8 +9,8 @@ const ViewPlanComponent = () => {
 
   return (
     <>
-    <div className="px-10 mt-12 mb-14">
-        <div className="w-full sm:w-[253px] space-y-4">
+      <div className="px-4 sm:px-10 sm:mt-12 sm:mb-14">
+        <div className="w-full sm:w-[253px] space-y-2 sm:space-y-4">
           <div
             className="w-full sm:w-[90px] flex gap-2 text-[#3D663D] cursor-pointer items-center"
             onClick={() => router.back()}
@@ -26,14 +26,14 @@ const ViewPlanComponent = () => {
           </div>
           <h1 className="text-xl text-[#1A1A1A] font-medium">View Plans</h1>
         </div>
-        <div className="flex flex-col sm:flex-row justify-between flex-wrap">
+        <div className="flex flex-col sm:grid grid-flow-row grid-cols-3 gap-4 justify-between flex-wrap">
           {PlanData.map((data, index) => (
             <PlanCard key={index} planData={{ ...data, index }} />
           ))}
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default ViewPlanComponent
