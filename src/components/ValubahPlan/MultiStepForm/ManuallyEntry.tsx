@@ -22,7 +22,7 @@ const ManuallyEntry = () => {
   return (
     <div className="h-[100%] mb-40  space-y-4">
       <div className="flex items-center gap-2">
-        <div className="w-[99%]">
+        <div className="w-[99%] bg-red-200" onFocus={toggleContainer}>
           <InputField type="" name="" placeholder="Dagana Lois" />
         </div>
         <TrashIcon />

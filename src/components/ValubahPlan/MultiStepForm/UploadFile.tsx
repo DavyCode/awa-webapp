@@ -2,6 +2,7 @@ import React from "react";
 import UploadFileIcon from "@/assets/svg/upload-icon.svg";
 import ExcelIcon from "@/assets/svg/excel-icon.svg";
 import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/Forms/Button";
 
 const UploadFile = () => {
   return (
@@ -55,6 +56,18 @@ const UploadFile = () => {
           <li>I need something to add here</li>
           <li>I need something to add here</li>
         </ul>
+      </div>
+      <div className="flex justify-between mt-[18px]">
+        <u className="text-[#3D663D]">Download CSV Template</u>
+        <u className="text-[#3D663D]">Watch demo</u>
+      </div>
+      <div className="flex justify-center mt-9">
+        <Button className="w-9/12">Submit</Button>
+      </div>
+      <div className="flex justify-center mt-[10px]">
+        <span className="underline text-[#3D663D]">
+          Skip, {"i'll"} do this later
+        </span>
       </div>
     </div>
   );
