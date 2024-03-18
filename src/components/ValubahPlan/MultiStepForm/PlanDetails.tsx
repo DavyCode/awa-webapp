@@ -7,11 +7,11 @@ const PlanDetails = () => {
   const [inputValue, setInputValue] = useState<number>(4);
 
   return (
-    <div className=" w-full sm:mb-[67px] sm:w-[476px]">
+    <div className="w-full sm:mb-[67px] sm:w-[476px] mx-auto">
       <div className="mt-6">
         <div className="mb-4">
           <InputField
-            type="number"
+            type="tel"
             value={inputValue}
             name="number-of-beneficiaries"
             label="Enter number of beneficiaries"
@@ -37,9 +37,6 @@ const PlanDetails = () => {
             className="w-full px-20 py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded "
             style={{
               backgroundColor: "var(--primary)",
-            }}
-            onClick={() => {
-              console.log(true);
             }}
           >
             Proceed

@@ -17,7 +17,7 @@ const ValubahOffers: React.FC<ValubahOffersProps> = ({
 }) => {
   return (
     <div className=" h-screen flex flex-col">
-      <div className="flex flex-col sm:flex-row justify-between items-center sticky -top-1 pb-4 bg-white">
+      <div className="flex flex-col sm:flex-row justify-between items-center sticky -top-1 pb-4 bg-white gap-4">
         <div className="flex-1 gap-2 ">
           <h2 className="text-lg sm:text-base font-bold mb-2 text-[#1A1A1A]">
             {planData.title}
@@ -29,7 +29,7 @@ const ValubahOffers: React.FC<ValubahOffersProps> = ({
         </div>
         <Button
           type="submit"
-          className="w-full px-20 py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded sm:w-fit my-2"
+          className="w-full px-4 py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded sm:w-fit my-2"
           style={{
             backgroundColor: "var(--primary)",
           }}

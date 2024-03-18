@@ -101,6 +101,7 @@ const PlanCard: React.FC<PlanCardProps> = ({ planData }) => {
       <SheetComponent
         isOpen={isBeneficiaryModalOpen}
         handleClose={closeBeneficiaryModal}
+        customizedWidth={705}
       >
         <MultiStepForm planData={planData} />
       </SheetComponent>

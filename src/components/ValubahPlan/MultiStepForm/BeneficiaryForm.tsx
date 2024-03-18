@@ -5,163 +5,91 @@ import ImageIcon from "@/assets/svg/image-icon.svg";
 import CloseIconCircle from "@/assets/svg/close-green.svg";
 import AddGreenIcon from "@/assets/svg/add-black.svg";
 import { Button } from "@/components/ui/button";
+import SelectField from "@/components/Forms/input-select";
+import TextField from "@/components/Forms/text-field";
+import InputFieldPhoneNumber from "@/components/Forms/input-phone-number";
+import DateInputField from "@/components/Forms/date-input";
+import FileUploader from "@/components/Common/File-uploader";
+import FileUploaderProgress from "@/components/Common/File-uploader-progress";
+
+const Options = ["Yes", "No"];
+const StatusOption = ["Married", "Single", "Divorce"];
+const BankOptions = ["GTB", "UBA", "KUDA", "ABC", "First Bank"];
+const GenderOptions = ["Male", "Female"];
+const RelationshipOptions = ["Husband", "Wife", "Father", "Mother", "Son", "Daughter"];
+
 const BeneficiaryForm = () => {
+
+  const handleFileSelect = (file: any) => {
+    console.log("Selected file:", file);
+  };
+
   return (
-    <div className="border-[1px] rounded-lg p-4 space-y-4">
-      <InputField
-        type={""}
-        name=""
+    <div className="w-full border-[1px] rounded-lg p-4 space-y-4">
+      <SelectField
+        data={Options}
         label="Does beneficiary have a micro pension account"
-        placeholder="No"
       />
-      <div className="flex gap-4">
-        <InputField
-          name={""}
-          label="Beneficiary RSA number"
-          type={"text"}
-          placeholder="2223445567"
-        />
-        <InputField
-          name={""}
-          label="Select PFA"
-          type={"text"}
-          placeholder="Email"
-        />
+      <div className="flex gap-4 w-full">
+        <TextField label="Full name" placeholder="Dagana Lois" />
+        <TextField label="Email address" placeholder="daganalois@gmail.com" type="email" />
+        {/* <SelectField data={Options} label="Select PFA" /> */}
       </div>
-      <div className="flex gap-4">
-        <InputField
-          type={""}
-          name=""
-          label="Full Name"
-          placeholder="Enter full name"
-        />
-        <InputField name={""} label="Email" type={"text"} placeholder="Email" />
-      </div>
-      <div className="flex gap-4">
-        <InputField label="Country" name={""} type="" placeholder="Select" />
-        <InputField
+      <div className="flex gap-4 w-full">
+        <SelectField data={Options} label="Country" />
+        <InputFieldPhoneNumber
           label="Phone number"
-          name={""}
-          type=""
-          placeholder="Phone number"
+          name="phone"
+          type="tel"
+          /* error={errors.email?.message} */
+          placeholder="80xxxxxxxx"
+          //register={register}
+          additionalClassname="w-full"
         />
       </div>
-      <div className="flex gap-4">
-        <InputField
+      <div className="flex gap-4 w-full">
+        <TextField
           label="Address"
-          name={""}
-          type=""
-          placeholder="enter address"
+          placeholder="No. 12 Bangore street Lagos Nigeria"
         />
-        <InputField
-          label="State of Origin"
-          name={""}
-          type=""
-          placeholder="Select"
-        />
+        <SelectField data={Options} label="State of Origin" />
       </div>
+      <div className="flex gap-4 w-full">
+        <SelectField data={Options} label="LGA" />
+        <SelectField data={Options} label="Qualification" />
+      </div>
+      <div className="flex gap-4 w-full">
+        <DateInputField label="Date of birth" />
+        <SelectField data={StatusOption} label="Marital status" />
+      </div>
+      <div className="flex flex-col gap-2 w-full">
+        <TextField label="Nin" placeholder="1234567890" />
+        <span className="text-xs text-[#3D663D]">Dial *346#</span>
+      </div>
+      <FileUploader onFileSelect={handleFileSelect} label="Upload Nin" />
+      <FileUploader onFileSelect={handleFileSelect} label="Upload passport" />
 
-      <div className="flex gap-4">
-        <InputField label="LGA" name="" type="" />
-        <InputField
-          label="Qualification"
-          name=""
-          type="text"
-          placeholder="Bsc"
-        />
-      </div>
-      <div className="flex ">
-        <InputField label="Date of Birth" name="" type="" />
-        <InputField label="Marital status" name="" type="" />
-      </div>
-      <InputField label="NIN" name="" type="" />
+      <FileUploaderProgress
+        progress={54}
+        fileTitle="Imagename.jpeg"
+        isFileAnImage={true}
+      />
 
-      {/* Upload NIN */}
-      <div>
-        <h2 className="leading-[22px] text-[#333] mb-2">Upload NIN</h2>
-        <div className="w-full sm:py-[27px] rounded-lg border border-dashed flex justify-center items-center border-[#EBEBEB]">
-          <div className="w-full sm:w-[146px] sm:h-[99px] mx-auto flex justify-center items-center flex-col cursor-pointer">
-            <div className="sm:w-[47px] sm:h-[47px] flex justify-center items-center bg-[#F1F1F166] rounded-full mb-1">
-              <UploadFileIcon />
-            </div>
-            <p className="text-xs text-[#ccc]">
-              Upload image or{" "}
-              <span className="underline text-[#3D663D]">Browse</span>
-            </p>
-            <span className="text-gray-400 text-[10px] leading-[14px] mt-2">
-              Supports png jpeg
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Upload Passport */}
-      <div>
-        <h2 className="leading-[22px] text-[#333] mb-2">Upload Passport</h2>
-        <div className="w-full sm:py-[27px] rounded-lg border border-dashed flex justify-center items-center border-[#EBEBEB]">
-          <div className="w-full sm:w-[146px] sm:h-[99px] mx-auto flex justify-center items-center flex-col cursor-pointer">
-            <div className="sm:w-[47px] sm:h-[47px] flex justify-center items-center bg-[#F1F1F166] rounded-full mb-1">
-              <UploadFileIcon />
-            </div>
-            <p className="text-xs text-[#ccc]">
-              Upload image or{" "}
-              <span className="underline text-[#3D663D]">Browse</span>
-            </p>
-            <span className="text-gray-400 text-[10px] leading-[14px] mt-2">
-              Supports png jpeg
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Uploading image progress */}
-      <div className="w-full h-fit rounded-lg p-4 border border-[#EBEBEB] flex flex-col mt-4 pl-4 ">
-        <div className="flex justify-between">
-          <div className="w-full sm:w-[169px] sm:h-8 justify-between items-center flex gap-1 mb-4">
-            <span>
-              <ImageIcon />
-            </span>
-            <div className="flex flex-col w-full">
-              <p className="text-[#1A1A1A] text-xs font-medium">
-                Imagename.jpeg
-              </p>
-              <div className="flex gap-1">
-                <p className="text-gray-400 text-[10px]">5.6MB of 7.8MB</p>
-                <div className="flex items-center gap-1">
-                  <span className="w-[5px] h-[5px] rounded-full bg-[#D9D9D9]"></span>
-                  <span className="text-[#3D663D] font-medium text-[10px]">
-                    Uploading
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <CloseIconCircle />
-        </div>
-
-        <div className="flex flex-col w-full ">
-          <p className="flex justify-end text-[10px] text-gray-400">
-            75% 10 sec
-          </p>
-          <Progress value={33} />
-        </div>
-      </div>
       {/*Bank Details */}
 
-      <section className="space-y-4 mt-[39px]">
+      <section className="space-y-4 mt-24">
         <h2 className="leading-[22px] text-[#1A1A1A] mb-2 font-bold">
           Bank Details
         </h2>
         <div className="flex gap-4">
-          <InputField label="Bank name" name="" type="select" />
-          <InputField
-            label="Account number"
-            name=""
-            type="text"
-            placeholder="Bsc"
-          />
+          <SelectField data={BankOptions} label="Bank name" />
+          <div className="flex flex-col w-full">
+            <TextField label="Account number" placeholder="1234567890" />
+            {/* Validated account name */}
+            <span className="text-xs mt-2 text-[#3D663D]">Dagana Lois</span>
+          </div>
         </div>
-        <InputField label="Signature" name="signature" type="text" />
+        <TextField label="Signature" />
       </section>
 
       {/* Next of kin details */}
@@ -169,52 +97,39 @@ const BeneficiaryForm = () => {
         <h2 className="leading-[22px] text-[#333] mb-2 text-[16px] ">
           Next of kin details
         </h2>
-        <InputField
-          type={""}
-          name=""
-          label="Full Name"
-          placeholder="Enter full name"
-        />
-        <div className="flex space-x-5">
-          <InputField
-            type={""}
-            name=""
-            label="Email"
-            placeholder="Enter Email"
-          />
-          <InputField
-            type={""}
-            name=""
-            label="Contact number"
-            placeholder="Enter full name"
+        <TextField label="Full name" placeholder="Preye Dagana" />
+
+        <div className="flex gap-4 w-full">
+          <TextField label="Email address" placeholder="daganalois@gmail.com" type="email" />
+          <InputFieldPhoneNumber
+            label="Phone number"
+            name="phone"
+            type="tel"
+            /* error={errors.email?.message} */
+            placeholder="80xxxxxxxx"
+            //register={register}
+            additionalClassname="w-full"
           />
         </div>
-        <div className="flex space-x-5">
-          <InputField
-            type={""}
-            name=""
-            label="Occupation"
-            placeholder="Enter Occupation"
-          />
+        <div className="flex gap-4 w-full">
+          <TextField label="Occupation" placeholder="Enter Occupation" />
           {/* <InputField type={""} name="" label="Gender" placeholder="Select" />
            */}
-          <InputField type="" label="Gender" name="" />
-          <InputField
-            type={""}
-            name=""
-            label="Relationship"
-            placeholder="Select"
-          />
+           <SelectField data={GenderOptions} label="Gender" />
+           <SelectField data={RelationshipOptions} label="Relationship" />
         </div>
-        <InputField
-          type={""}
-          name=""
-          label="Address"
-          placeholder="Enter Address"
-        />
+          <TextField label="Address" placeholder="Enter Address" />
       </section>
       <div className="flex justify-end mt-6">
-        <Button className="px-[16px] py-[6px]">Save</Button>
+        <Button
+          type="submit"
+          className="w-full px-4 py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded sm:w-[113px] my-2"
+          style={{
+            backgroundColor: "var(--primary)",
+          }}
+        >
+          Save
+        </Button>
       </div>
     </div>
   );

@@ -1,99 +1,76 @@
-import clsx from "clsx";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-import InputField from "./input-text";
-import { Control, Controller, UseFormSetValue } from "react-hook-form";
-import { cn } from "@/lib/utils";
-import { useCallback } from "react";
-
-interface PhoneNumberInputProps {
-  placeholder?: string;
+import { clsx } from "clsx";
+import { Input } from "../ui/input";
+interface IProps {
+  type: string;
   label?: string;
+  placeholder?: string;
   name: string;
-  required?: boolean;
-  error?: string;
-  errors?: { [key: string]: any };
   register?: any;
-  control?: Control<any>;
-  setValue?: UseFormSetValue<any>;
+  icon?: JSX.Element;
+  error?: any;
+  additionalClassname?: any;
+  value?: any;
+  disabled?: boolean;
 }
 
-const InputFieldPhoneNumber = (props: PhoneNumberInputProps) => {
-  const {
-    label,
-    placeholder,
-    error,
-    errors,
-    name,
-    control,
-    register,
-    setValue,
-    ...others
-  } = props;
-
-  const callbackRef = useCallback((node: HTMLInputElement) => {
-    if (!node) return;
-    setValue?.(name, node.value);
-    // setValue?.("phoneNumber", node.value);
-  }, []);
-
+const InputFieldPhoneNumber = ({
+  type,
+  placeholder,
+  name,
+  error,
+  register,
+  label,
+  icon,
+  additionalClassname,
+  disabled = false,
+}: IProps): JSX.Element => {
   return (
-    <div className="relative z-10 flex flex-col">
-      <span className="text-base text-[#333] font-medium">{label}</span>
-      <div
-        className={cn(
-          "items-center border border-solid border-gray-200 focus:border-gray-200 rounded-md inline-flex",
-          {
-            "border-red-600": !!errors?.phoneNumber?.message,
-          },
-        )}
-      >
-        <Controller
-          render={({ field: { ref, ...others } }) => {
-            return (
-              <PhoneInput
-                countryCodeEditable
-                country={"ng"}
-                autoFormat
-                inputProps={{
-                  readOnly: true,
-                  ref: callbackRef,
-                }}
-                inputClass={clsx({
-                  ["!border-none focus:outline-none placeholder:text-color-100 rounded-md overflow-hidden !text-base !w-fit hidden"]:
-                    true,
-                })}
-                containerClass={clsx({
-                  " focus:outline-none placeholder:text-color-100 rounded-md !border-none mt-1 p-[1px] !w-[unset] inline [&_.flag-dropdown]:!border-none [&_.flag-dropdown]:!relative [&_.flag-dropdown]:!top-[unset] [&_.flag-dropdown]:!bottom-[unset] [&_.flag-dropdown]:!h-[40px] h-full [&_.selected-flag]:cursor-pointer [&_.flag]:cursor-pointer [&_.flag-dropdown]:!cursor-pointer":
-                    true,
-                  "border-red-600": !!error,
-                })}
-                dropdownClass="absolute z-20" // Set the dropdown class with a higher z-index
-                {...others}
-                onChange={(value, country, e, formattedValue) => {
-                  //   setValue?.("phoneNumber", formattedValue);
-                  setValue?.(name, formattedValue);
-                }}
-              />
-            );
-          }}
-          control={control}
-          name={name}
-        />
-        <div className="flex-1">
-          <InputField
-            name="phoneNumber"
-            type="text"
-            // error={errors?.phoneNumber?.message}
-            additionalClassname={"!border-none !flex-1"}
-            style={{ paddingLeft: 0 }}
-            register={register}
-          />
+    <div className="w-full">
+      <div className="w-full">
+        <span className="text-base text-[#333] font-medium">{label}</span>
+        <div
+          className={clsx({
+            ["flex justify-between items-center border border-solid border-gray-200 focus:border-gray-200 focus:outline-none placeholder:text-color-100 rounded-md overflow-hidden mt-2"]:
+              true,
+            [additionalClassname]: !!additionalClassname,
+          })}
+        >
+          {register ? (
+            <div className="flex items-center px-2 w-full">
+              <span className="w-full pr-2 text-gray-400 inline-block border-r border-gray-200">
+                +234{" "}
+              </span>
+              <Input placeholder={placeholder} type={type} />
+              {/*  <input
+                type={type}
+                id={name}
+                maxLength={9}
+                placeholder={placeholder}
+                disabled={disabled}
+                className="w-full h-10 pl-2 border-none pr-4 focus:outline-0 appearance-none leading-tight"
+                {...register(name)}
+              /> */}
+            </div>
+          ) : (
+            <div className="flex items-center px-2 w-full">
+              <span className="w-fit pr-2 text-gray-400 inline-block border-r border-gray-200">
+                +234{" "}
+              </span>
+              <Input placeholder={placeholder} type={type} className="border-none" />
+            </div>
+          )}
+          {icon !== undefined ? (
+            <span className="px-2" aria-label="Open">
+              {icon}
+            </span>
+          ) : (
+            ""
+          )}
         </div>
       </div>
-      {errors?.phoneNumber?.message ? (
-        <p className="flex items-center lowercase text-red-600 text-xs">
-          {errors?.phoneNumber?.message}
+      {error ? (
+        <p className="flex items-center lowercase text-[#ED2E7E] text-xs">
+          {error}
         </p>
       ) : null}
     </div>
