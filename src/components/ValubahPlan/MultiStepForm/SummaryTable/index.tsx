@@ -1,13 +1,12 @@
 import { Button } from "@/components/Forms/Button";
 import React from "react";
-import { DataTable } from "./DataTable";
 import { BeneficiarySummaryData } from "@/lib/data";
-import { columns } from "./columns";
+import TableComponent from "./Table";
 
 const Summary = () => {
   return (
     <div className="space-y-6 h-[100vh]">
-      <DataTable columns={columns} data={BeneficiarySummaryData} />
+      <TableComponent />
       <div className="flex justify-center">
         <Button
           type="submit"

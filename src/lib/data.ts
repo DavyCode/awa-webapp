@@ -2,7 +2,6 @@ import AddIcon from "@/assets/svg/add.svg";
 import TransferIcon from "@/assets/svg/transfer.svg";
 import PayBillsIcon from "@/assets/svg/pay-bills.svg";
 import MyselfIcon from "@/assets/icons/MyselfIcon";
-import { BeneficiarySummaryDataProps } from "@/components/ValubahPlan/MultiStepForm/SummaryTable/columns";
 
 interface ResetPasswordProps {
   label: string;
@@ -137,6 +136,26 @@ export const DummyTransactionInfo: TransactionInfoProps[] = [
     status: "Processing",
   },
 ];
+
+export interface BeneficiarySummaryDataProps {
+  name?: string;
+  phoneNumber?: string;
+  country?: string;
+  stateOfOrigin?: string;
+  lga?: string;
+  qualification?: string;
+  age?: string;
+  maritalStatus?: string;
+  rsaNumber?: string;
+  image?: string;
+  nokName?: string;
+  nokEmail?: string;
+  nokPhoneNumber?: string;
+  nokGender?: string;
+  relationship?: string;
+  occupation?: string;
+  nokAddress?: string;
+}
 
 export const BeneficiarySummaryData: BeneficiarySummaryDataProps[] = [
   {
