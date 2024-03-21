@@ -6,7 +6,7 @@ import React from 'react'
 const UserTransactionHistory = () => {
   return (
     <div className="py-[25px] flex flex-col w-full my-6 border sm:w-[1042px] sm:pr-[35px] rounded-2xl px-[22px]">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center" id="transactionHistory">
         <p className="text-base text-[#333]">Transaction History</p>
         <span className="text-sm text-[#3D663D] underline font-semibold">
           See all
