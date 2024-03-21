@@ -6,9 +6,11 @@ interface TextFieldProps {
     label?: string;
     type?: string;
     placeholder?: string;
+    isDisabled?: boolean;
+    maxLength?: number
 }
 
-const TextField:React.FC<TextFieldProps> = ({ label, type, placeholder }) => {
+const TextField:React.FC<TextFieldProps> = ({ label, type, placeholder, isDisabled, maxLength }) => {
   return (
     <div className="flex flex-col space-y-2 w-full">
         <span
@@ -18,7 +20,7 @@ const TextField:React.FC<TextFieldProps> = ({ label, type, placeholder }) => {
         >
           {label}
         </span>
-        <Input type={type} placeholder={placeholder} />
+        <Input disabled={isDisabled} maxLength={maxLength} type={type} placeholder={placeholder} />
     </div>
   )
 }

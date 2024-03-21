@@ -53,7 +53,7 @@ export const PlanData: PlanCardProps[] = [
     amount: 3500,
     desc: "Valubah offers flexible pricing plans tailored to suit your financial goals and needs",
   },
-  {
+  /* {
     label: "Suitable for middle-level workers",
     title: "Valubah Flexicare",
     amount: 3900,
@@ -82,7 +82,7 @@ export const PlanData: PlanCardProps[] = [
     title: "Diamond(No waiting period)",
     amount: 18300,
     desc: "Valubah offers flexible pricing plans tailored to suit your financial goals and needs",
-  },
+  }, */
 ];
 
 export const ResetPasswordOptions: ResetPasswordProps[] = [
