@@ -83,12 +83,25 @@ const PersonalForm = () => {
             />
           </div>
           <div className="w-full sm:w-[263px]">
-            <InputFieldPhoneNumber label="Phone number" name="phone" />
+            <InputFieldPhoneNumber
+              label="Phone number"
+              name="phone"
+              type="tel"
+              /* error={errors.email?.message} */
+              placeholder="80xxxxxxxx"
+              //register={register}
+              additionalClassname="w-full"
+            />
           </div>
           <div className="w-full sm:w-[263px]">
             <InputFieldPhoneNumber
               label="Secondary phone number(optional)"
               name="secondaryPhone"
+              type="tel"
+              /* error={errors.email?.message} */
+              placeholder="80xxxxxxxx"
+              //register={register}
+              additionalClassname="w-full"
             />
           </div>
         </div>

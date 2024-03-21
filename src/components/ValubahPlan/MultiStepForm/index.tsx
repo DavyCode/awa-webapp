@@ -9,15 +9,13 @@ interface MultiStepFormProps {
 
 const MultiStepForm: React.FC<MultiStepFormProps> = (planData) => {
   return (
-    <div>
-      <div className=" ">
+      <div className="w-full mx-auto">
         <h2>{planData.planData.title} </h2>
-        <span className="flex-1 mt-[9px]  flex justify-start text-[24px] font-bold leading-[32px] text-[#3D663D]">
+        <span className="flex-1 mt-[9px]  flex justify-start text-2xl font-bold text-[#3D663D]">
           ₦{formatAmountVariant(planData.planData.amount)} /month
         </span>
         <ProgressFormSteps />
       </div>
-    </div>
   );
 };
 

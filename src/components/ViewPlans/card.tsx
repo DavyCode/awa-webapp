@@ -37,12 +37,12 @@ const PlanCard: React.FC<PlanCardProps> = ({ planData }) => {
   return (
     <>
       <div
-        className="w-full h-fit sm:h-[190px] rounded-lg border-2 mt-4 sm:mt-10 overflow-hidden group"
+        className="w-full h-fit rounded-lg border-2 mt-4 sm:mt-10 group overflow-hidden group-hover:shadow-xl"
         onClick={() => setIsValubahOffersModalOpen(true)}
       >
         <div
           className={clsx({
-            "w-full h-fit sm:h-screen border-l-4 p-2 pb-6 group-hover:cursor-pointer":
+            "w-full h-fit border-l-4 p-2 pb-6 group-hover:cursor-pointer":
               true,
             "border-[#97912E]": index === 0,
             "border-[#A4813A]": index === 1,
@@ -101,6 +101,7 @@ const PlanCard: React.FC<PlanCardProps> = ({ planData }) => {
       <SheetComponent
         isOpen={isBeneficiaryModalOpen}
         handleClose={closeBeneficiaryModal}
+        customizedWidth={705}
       >
         <MultiStepForm planData={planData} />
       </SheetComponent>

@@ -53,7 +53,7 @@ export const PlanData: PlanCardProps[] = [
     amount: 3500,
     desc: "Valubah offers flexible pricing plans tailored to suit your financial goals and needs",
   },
-  {
+  /* {
     label: "Suitable for middle-level workers",
     title: "Valubah Flexicare",
     amount: 3900,
@@ -82,7 +82,7 @@ export const PlanData: PlanCardProps[] = [
     title: "Diamond(No waiting period)",
     amount: 18300,
     desc: "Valubah offers flexible pricing plans tailored to suit your financial goals and needs",
-  },
+  }, */
 ];
 
 export const ResetPasswordOptions: ResetPasswordProps[] = [
@@ -134,5 +134,78 @@ export const DummyTransactionInfo: TransactionInfoProps[] = [
     createdDate: "Dec 22nd 2023,11:02:03",
     amount: 124414324103,
     status: "Processing",
+  },
+];
+
+export interface BeneficiarySummaryDataProps {
+  name?: string;
+  phoneNumber?: string;
+  country?: string;
+  stateOfOrigin?: string;
+  lga?: string;
+  qualification?: string;
+  age?: string;
+  maritalStatus?: string;
+  rsaNumber?: string;
+  image?: string;
+  nokName?: string;
+  nokEmail?: string;
+  nokPhoneNumber?: string;
+  nokGender?: string;
+  relationship?: string;
+  occupation?: string;
+  nokAddress?: string;
+}
+
+export const BeneficiarySummaryData: BeneficiarySummaryDataProps[] = [
+  {
+    name: "Dagana Lois",
+    phoneNumber: "08082280975",
+    country: "Kenya",
+    qualification: "O'level",
+    rsaNumber: "23456785678",
+    nokEmail: "alma.lawson@example.com",
+    nokPhoneNumber: "08082280975",
+    nokGender: "Male",
+    relationship: "Brother",
+    occupation: "Self employed",
+    nokAddress: "8502 Preston Rd. Inglewood,Maine 98380",
+  },
+  {
+    name: "Guy Hawkins",
+    country: "Nigeria",
+    stateOfOrigin: "Kogi",
+    lga: "Okene",
+    qualification: "O'level",
+    age: "25yrs",
+    maritalStatus: "VG Pensions",
+    rsaNumber: "23456785678",
+    image: "image",
+    nokName: "Leslie Alexander",
+    nokEmail: "alma.lawson@example.com",
+    nokPhoneNumber: "08082280975",
+    nokGender: "Female",
+    relationship: "Sister",
+    occupation: "Employed",
+    nokAddress: "8502 Preston Rd. Inglewood,Maine 98380",
+  },
+  {
+    name: "Leslie Alexander",
+    phoneNumber: "08082280975",
+    country: "Nigeria",
+    stateOfOrigin: "Bayelsa",
+    lga: "Kolga",
+    qualification: "O'level",
+    age: "32yrs",
+    maritalStatus: "VG Pensions",
+    rsaNumber: "23456785678",
+    image: "image",
+    nokName: "Leslie Alexander",
+    nokEmail: "alma.lawson@example.com",
+    nokPhoneNumber: "08082280975",
+    nokGender: "Female",
+    relationship: "Sister",
+    occupation: "Civil servant",
+    nokAddress: "8502 Preston Rd. Inglewood,Maine 98380",
   },
 ];

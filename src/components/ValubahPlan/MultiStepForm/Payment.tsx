@@ -5,12 +5,13 @@ import WalletIcon from "@/assets/icons/WalletIcon";
 import AddIcon from "@/assets/icons/AddIcon";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+
 const Payment = () => {
   return (
-    <div>
+    <div className="w-full sm:w-[471px] mx-auto">
       <div className="bg-[#E0ECD8] flex justify-between items-center border-[1px] border-[#E0ECD8] w-full h-[62px] rounded-lg px-4 py-2 mb-4">
         <div className="flex items-center gap-2">
-          <Paystack /> <p>Paystack</p>
+          <Paystack /> Paystack
         </div>
         <TickIcon />
       </div>
@@ -30,17 +31,17 @@ const Payment = () => {
         <Checkbox id="terms" />
         <label
           htmlFor="terms"
-          className="text-sm font-[12px]   peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-[#666]"
+          className="text-sm peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-[#666]"
         >
-          By clicking {"continue"} you are agreeing to our{" "}
-          <u>Terms and Conditions, </u>
-          <u>Privacy Policy</u>.
+          By clicking {"continue"} you are agreeing to our
+          <Button variant="link" className="-ml-3">Terms and Conditions,</Button>
+          <Button variant="link" className="-ml-7">Privacy Policy</Button>
         </label>
       </div>
       <Button
         type="button"
         variant={"secondary"}
-        className="w-full h-[48px] text-[#C2C2C2)]"
+        className="w-full text-[#C2C2C2)] h-12"
       >
         Proceed
       </Button>

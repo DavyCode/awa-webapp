@@ -9,6 +9,7 @@ import Select from "react-select";
 import { selectStyles } from "./corporate";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import HookPhoneNumberFieldInput from "@/components/Forms/phone-input-with-hook";
 
 const options = ["Option 1", "Option 2", "Option 3"];
 
@@ -60,7 +61,7 @@ const IndividualForm = () => {
         <Controller
           render={({ field: { ref, ...others } }) => {
             return (
-              <InputFieldPhoneNumber
+              <HookPhoneNumberFieldInput
                 label="Phone number"
                 error={errors.phoneCountryCode?.message}
                 errors={errors}
