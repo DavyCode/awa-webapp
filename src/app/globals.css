@@ -77,3 +77,28 @@
     @apply !border-none !bg-transparent
   }
 }
+
+.editCell {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.editCell p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: none;
+  z-index: 5;
+  background-color: #e7e0e058;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.editCell:hover p {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.editCell:hover h6 {
+  display: none;
+  }

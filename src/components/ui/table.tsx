@@ -23,7 +23,10 @@ const TableHeader = React.forwardRef<
   <thead
     style={{ marginBottom: "10px" }}
     ref={ref}
-    className={cn("[&_tr]:border-b m-6 rounded-bl-lg", className)}
+    className={cn(
+      "[&_tr]:border-b m-6 rounded-bl-lg text-nowrap space-x-4",
+      className
+    )}
     {...props}
   />
 ));
@@ -35,7 +38,7 @@ const TableBody = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <tbody
     ref={ref}
-    className={cn("[&_tr:last-child]:border-0", className)}
+    className={cn("[&_tr:last-child]:border-0 text-nowrap", className)}
     {...props}
   />
 ));
