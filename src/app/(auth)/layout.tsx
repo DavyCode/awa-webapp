@@ -13,8 +13,8 @@ const layout = ({ children }: { children: React.ReactNode }) => {
           height={45}
         />
       </div>
-      <div className="pt-12 flex px-4 sm:px-20 gap-x-20 flex-col sm:flex-row relative sm:justify-center pb-[20px]">
-        <div className="py-6 px-[40px] flex flex-col justify-center w-full sm:max-w-[518px] relative mx-auto">
+      <div className="pt-12 flex px-2 sm:px-20 gap-x-20 flex-col sm:flex-row relative sm:justify-center pb-[20px]">
+        <div className="py-6 px-2 tab:px-[40px] flex flex-col justify-center w-full sm:max-w-[518px] relative mx-auto">
           <Header />
           {children}
         </div>

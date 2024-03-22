@@ -122,8 +122,6 @@ const CorporateForm = () => {
     howDidYouHearAboutUs,
   } = useAuthContext();
 
-  console.log("errors :>> ", errors);
-
   const handleSelect = (selectedOption: string) => {
     console.log(`Selected: ${selectedOption}`);
     // Perform any other actions based on the selected option
@@ -255,21 +253,21 @@ const CorporateForm = () => {
           />
           <Button
             type="submit"
-            className="py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4 cursor-pointer"
+            className="py-[14.5px] mt-10 h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4 cursor-pointer"
             style={{
               backgroundColor: "var(--primary)",
             }}
           >
             Sign up
           </Button>
-          <OrDivider content="or" />
+          {/* <OrDivider content="or" />
           <Button
             className="bg-[rgba(241,241,241,0.60)] w-full gap-x-2 py-3 rounded-md flex justify-center items-center border-[#EBEBEB] border px-4 h-[unset] shadow-none"
             type="button"
           >
             <GoogleIcon />
             <span className="text-sm text-gray-800">Sign up with Google</span>
-          </Button>
+          </Button> */}
 
           <p className="py-1 text-center text-sm">
             Already have an account?

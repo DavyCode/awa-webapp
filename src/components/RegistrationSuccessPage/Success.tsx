@@ -44,7 +44,7 @@ const Success = () => {
         ref={containerRef}
       ></div>
       <div className="">
-        <h5 className="text-center text-2xl font-bold whitespace-nowrap py-6">
+        <h5 className="text-center text-2xl font-bold md:whitespace-nowrap py-6">
           Thank you for Joining Awabah
         </h5>
         <div>

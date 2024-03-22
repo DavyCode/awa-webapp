@@ -29,7 +29,7 @@ const CreatePasswordComponent = () => {
 
   return (
     <div className="flex w-full flex-col sm:flex-row relative sm:justify-center pb-[20px]">
-      <div className="py-6 px-10 border border-[#EBEBEB] flex flex-col justify-center w-full sm:max-w-[518px] relative">
+      <div className="py-6 px-6 sm:px-10 border border-[#EBEBEB] flex flex-col justify-center w-full sm:max-w-[518px] relative mx-auto">
         <p className="mb-2 text-[32px] leading-[48px] font-bold text-[#1a1a1a] text-center">
           Create password
         </p>
