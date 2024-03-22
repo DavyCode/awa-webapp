@@ -7,8 +7,16 @@ export const signUpSchema = yup.object().shape({
     .email("Enter a valid email")
     .required("Email is required"),
 
-  firstName: yup.string().required("First name is required"),
-  lastName: yup.string().required("Last name is required"),
+  firstName: yup
+    .string()
+    .required("First name is required")
+    .matches(/^[A-Za-z]+$/, "Field supports only alphabets")
+    .max(20, "First name cannot be more than 20 characters"),
+  lastName: yup
+    .string()
+    .required("Last name is required")
+    .matches(/^[A-Za-z]+$/, "Field supports only alphabets")
+    .max(20, "Last name cannot be more than 20 characters"),
   phoneCountryCode: yup.string().required("Country code is required"),
   howDidYouHearAboutUs: yup
     .object()
@@ -35,12 +43,16 @@ export const signUpSchema = yup.object().shape({
     .required("Country is required"),
   businessName: yup.string().when("$activeTab", ([activeTab], schema) => {
     return activeTab === "corporate"
-      ? schema.required("Business name is required")
+      ? schema
+          .required("Business name is required")
+          .matches(/^[A-Za-z]+$/, "Field supports only alphabets")
       : schema.notRequired();
   }),
   businessLocation: yup.string().when("$activeTab", ([activeTab], schema) => {
     return activeTab === "corporate"
-      ? schema.required("Business location is required")
+      ? schema
+          .required("Business location is required")
+          .matches(/^[A-Za-z]+$/, "Field supports only alphabets")
       : schema.notRequired();
   }),
 });
