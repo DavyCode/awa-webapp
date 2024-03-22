@@ -9,7 +9,7 @@ interface IProp {
 const Header: React.FC<IProp> = ({}) => {
   return (
     <div>
-      <div className="mb-2 absolute top-0 -translate-x-[calc(100%+24px+120px)]">
+      <div className="mb-[80px] lg:mb-2 lg:absolute top-0 xl:-translate-x-[calc(100%+24px+120px)] lg:-translate-x-[calc(100%+70px)]">
         <Link
           href="https://awa-site.netlify.app
 "

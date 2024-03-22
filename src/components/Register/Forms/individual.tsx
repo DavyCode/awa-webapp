@@ -137,7 +137,7 @@ const IndividualForm = () => {
         <Button
           type="submit"
           className={cn(
-            "py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4 bg-no-repeat cursor-pointer",
+            "py-[14.5px] mt-10 h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4 bg-no-repeat cursor-pointer",
             {
               "bg-button_loading": isIndividualApplicationLoading,
             },
