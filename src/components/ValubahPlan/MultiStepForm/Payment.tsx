@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import TickIcon from "@/assets/icons/TickIcon";
 import Paystack from "@/assets/icons/Paystack";
 import WalletIcon from "@/assets/icons/WalletIcon";
 import AddIcon from "@/assets/icons/AddIcon";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import ModalComponent from "@/components/Modal";
+import SuccessfulTransactionModal from "../SuccessfulTransactionModal";
 
 const Payment = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleOpenSuccessModal = () => {
+    setModalOpen(true);
+  };
   return (
     <div className="w-full sm:w-[471px] mx-auto">
       <div className="bg-[#E0ECD8] flex justify-between items-center border-[1px] border-[#E0ECD8] w-full h-[62px] rounded-lg px-4 py-2 mb-4">
@@ -34,17 +40,29 @@ const Payment = () => {
           className="text-sm peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-[#666]"
         >
           By clicking {"continue"} you are agreeing to our
-          <Button variant="link" className="-ml-3">Terms and Conditions,</Button>
-          <Button variant="link" className="-ml-7">Privacy Policy</Button>
+          <Button variant="link" className="-ml-3">
+            Terms and Conditions,
+          </Button>
+          <Button variant="link" className="-ml-7">
+            Privacy Policy
+          </Button>
         </label>
       </div>
       <Button
         type="button"
         variant={"secondary"}
         className="w-full text-[#C2C2C2)] h-12"
+        onClick={handleOpenSuccessModal}
       >
         Proceed
       </Button>
+      <ModalComponent
+        onClose={handleOpenSuccessModal}
+        isOpen={modalOpen}
+        size={"medium"}
+      >
+        <SuccessfulTransactionModal />
+      </ModalComponent>
     </div>
   );
 };
