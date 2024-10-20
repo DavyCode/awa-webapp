@@ -68,7 +68,7 @@ const howDidYouHearAboutUs = [
 
 export const useAuthManager = () => {
   const [activeTab, setActiveTab] = useState<"individual" | "corporate">(
-    "individual",
+    "individual"
   );
   const router = useRouter();
   const [, setCookie] = useCookies(["awabah_tkn", "awabah_user_type"]);
@@ -87,26 +87,26 @@ export const useAuthManager = () => {
     (msg: string) => {
       successToastHandler(msg);
       router.push(
-        `/success?e=${encodeURIComponent(formData?.email as string)}`,
+        `/success?e=${encodeURIComponent(formData?.email as string)}`
       );
       //   router.push(
       //     `/otp-verification?p=${encodeURIComponent(
       //       formData?.phoneCountryCode as string,
       //     )}${encodeURIComponent(formData?.phoneNumber as string)}`,
       //   );
-    },
+    }
   );
 
   const { mutate: loginUser, isPending: isLoginPending } = useLogin(
     errorToastHandler,
     (msg, data) => {
-      setCookie("awabah_tkn", data.access_token);
-      setCookie("awabah_user_type", data?.user?.role, {
-        path: "/",
-      });
+      //setCookie("awabah_tkn", data.access_token);
+      // setCookie("awabah_user_type", data?.user?.role, {
+      //   path: "/",
+      // });
       localStorage.setItem("awabah_udt", JSON.stringify(data?.user));
       router.push("/dashboard");
-    },
+    }
   );
 
   const signupForm = useForm<IndividualSignupFormProps>({
@@ -162,14 +162,16 @@ export const useAuthManager = () => {
     setActiveSection("password");
   });
   const loginSubmit = loginForm.handleSubmit((data) => {
-    loginUser(data);
+    //loginUser(data);
+    router.push("/dashboard");
   });
   const createPasswordSubmit = passwordCreationForm.handleSubmit((data) => {
     loadingToastHandler("Creating an account. Please wait...");
-    mutate({
-      ...((formData as Omit<IndividualSignupFormProps, "password">) || {}),
-      password: data.password,
-    });
+    router.push("/dashboard");
+    // mutate({
+    //   ...((formData as Omit<IndividualSignupFormProps, "password">) || {}),
+    //   password: data.password,
+    // });
   });
 
   return {

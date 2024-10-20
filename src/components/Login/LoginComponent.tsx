@@ -10,9 +10,11 @@ import { useAuthContext } from "@/context/AuthContext";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const LoginComponent = () => {
   const [showPassword] = useState(true);
+  const router = useRouter();
   const {
     loginForm: {
       register,
@@ -42,19 +44,17 @@ const LoginComponent = () => {
             Welcome back. Please Login to your account
           </span>
           {/* <Button
-          className="bg-[rgba(241,241,241,0.60)] w-full gap-x-2 py-3 rounded-md flex justify-center items-center border-[#EBEBEB] border px-4 h-[unset] shadow-none"
-          type="button"
-        >
-          <GoogleIcon />
-          <span className="text-sm leading-[22px] text-[#333]">
-            Login with Google
-          </span>
-        </Button>
-        <OrDivider content="or" /> */}
+            className="bg-[rgba(241,241,241,0.60)] w-full gap-x-2 py-3 rounded-md flex justify-center items-center border-[#EBEBEB] border px-4 h-[unset] shadow-none"
+            type="button">
+            <GoogleIcon />
+            <span className="text-sm leading-[22px] text-[#333]">
+              Login with Google
+            </span>
+          </Button>
+          <OrDivider content="or" /> */}
           <form
             className="flex flex-col gap-6 text-left sm:gap-4"
-            onSubmit={loginSubmit}
-          >
+            onSubmit={loginSubmit}>
             <InputFieldText
               label="Email address"
               name="email"
@@ -79,28 +79,25 @@ const LoginComponent = () => {
                 </span>
               </Link>
             </p>
-
             <Button
               type="submit"
               className={cn(
                 "py-[14.5px] h-[unset] bg-product-button-gradient shadow-[0px_0px_0px_1px_#3D663D] rounded px-4",
                 {
                   "bg-button_loading": isLoginPending,
-                },
+                }
               )}
               style={{
                 backgroundColor: "var(--primary)",
               }}
-              disabled={isLoginPending}
-            >
+              disabled={isLoginPending}>
               {isLoginPending ? "Logging in. Please wait..." : "Log in"}
             </Button>
             <p className="py-1 text-center text-[#333]">
               Dont have an account?
               <Link
                 href="/register"
-                className="ml-1 font-bold text-base text-[#3D663D] leading-[19px]"
-              >
+                className="ml-1 font-bold text-base text-[#3D663D] leading-[19px]">
                 Sign up
               </Link>
             </p>
