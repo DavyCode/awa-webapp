@@ -1,6 +1,6 @@
 export const routes = [
-  {
-    path: "/dashboard",
-  },
+  // {
+  //   path: "/dashboard",
+  // },
   { path: "/settings" },
 ];
