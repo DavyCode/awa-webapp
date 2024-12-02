@@ -132,7 +132,7 @@ const NavBar = () => {
         </div>
         <div className="pt-10 px-6 text-[#333]">
           <p className="text-base pb-2">Menu</p>
-          <div className="flex justify-between flex-col sm:h-[778px] sm:pb-[171px]">
+          <div className="flex justify-between flex-col sm:h-[778px] sm:pb-[171px]"  id="exploreNavBar">
             <ul className="list-none">
               <Menu list={routes} />
             </ul>

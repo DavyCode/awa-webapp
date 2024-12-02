@@ -15,19 +15,19 @@ const UserPlanCard = () => {
   const router = useRouter()
     return (
       <div className="flex gap-6 mt-6">
-        <div className="py-6 px-4 bg-white rounded-2xl border border-[#EBEBEB] w-full sm:w-[544px]">
-          <div className="flex flex-col sm:flex-row justify-between items-center">
+        <div className="py-6 px-4 bg-white rounded-2xl border border-[#EBEBEB] w-full sm:max-w-[544px]">
+          <div id="plans" className="flex flex-col sm:flex-row justify-between items-center">
             <UserPlanIcon />
             <div className="w-full sm:w-[284px] bg-[#F6FFF6] p-2 flex gap-[18px] justify-center">
-              <div className="w-full sm:w-[68px] text-[#3D663D]">
+              <div className="w-full sm:w-fit text-[#3D663D]">
                 <h1 className="font-medium text-sm">0</h1>
                 <span className="text-xs italic">Active plans</span>
               </div>
-              <div className="w-full sm:w-[79px] text-[#3D663D]">
+              <div className="w-full sm:w-fit text-[#3D663D]">
                 <h1 className="font-medium text-sm">1</h1>
                 <span className="text-xs italic">Pending plans</span>
               </div>
-              <div className="w-full sm:w-[75px] text-[#3D663D]">
+              <div className="w-full sm:w-fit text-[#3D663D]">
                 <h1 className="font-medium text-sm">0</h1>
                 <span className="text-xs italic">Expired plans</span>
               </div>
@@ -36,10 +36,7 @@ const UserPlanCard = () => {
           <div className="flex gap-2 items-center mb-2">
             <span className="text-sm text-[#292D32]">Total Valubah plans</span>
             <span className="cursor-pointer">
-              <ToolTip
-                icon={<InformationIcon />}
-                label="Total Valubah plans"
-              />
+              <ToolTip icon={<InformationIcon />} label="Total Valubah plans" />
             </span>
           </div>
           <h1 className="sm:text-2xl font-bold text-[#333] mb-4">0</h1>
@@ -47,7 +44,7 @@ const UserPlanCard = () => {
             <Button
               type="button"
               variant="outline"
-              className="py-[14.5px] h-[unset] bg-product-button-gradient rounded px-4 w-full font-medium sm:w-[134px] flex gap-2"
+              className="py-[14.5px] h-[unset] bg-product-button-gradient rounded px-4 w-full font-medium sm:w-fit flex gap-2"
               onClick={() => router.push("/view-plans")}
             >
               <BuyPlanIcon />
@@ -56,7 +53,7 @@ const UserPlanCard = () => {
             <Button
               type="button"
               variant="outline"
-              className="py-[14.5px] h-[unset] bg-product-button-gradient rounded px-4 w-full sm:w-[134px] font-medium flex gap-2"
+              className="py-[14.5px] h-[unset] bg-product-button-gradient rounded px-4 w-full sm:w-fit font-medium flex gap-2"
             >
               <RenewIcon />
               Renew
@@ -64,10 +61,10 @@ const UserPlanCard = () => {
             <Button
               type="button"
               variant="outline"
-              className="py-[14.5px] h-[unset] bg-product-button-gradient rounded px-4 w-full sm:w-[134px] flex font-medium items-center gap-2"
+              className="py-[14.5px] h-[unset] bg-product-button-gradient rounded px-4 w-full sm:w-fit flex font-medium items-center gap-2"
             >
               <RevealSmallIcon />
-              View plans
+              View my plans
             </Button>
           </div>
         </div>
@@ -75,13 +72,10 @@ const UserPlanCard = () => {
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <UserPlanIcon />
           </div>
-          <div className="flex gap-2 items-center my-2">
+          <div className="flex gap-2 items-center my-2" id="totalBeneficiaries">
             <span className="text-sm text-[#292D32]">Total Beneficiaries</span>
             <span className="cursor-pointer">
-             <ToolTip
-                icon={<InformationIcon />}
-                label="Total Beneficiaries"
-              />
+              <ToolTip icon={<InformationIcon />} label="Total Beneficiaries" />
             </span>
           </div>
           <h1 className="sm:text-2xl font-bold text-[#333] mb-8">3</h1>

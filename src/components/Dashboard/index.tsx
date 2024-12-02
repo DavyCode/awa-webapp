@@ -7,19 +7,29 @@ import InsertPFAPin from "./InsertRSA";
 import { Button } from "../ui/button";
 import VerifyEmailComponent from "../VerifyEmail";
 import EnrolOnBoarding from "../EnrolOnBoarding";
-
-const Dashboard = () => {
+import TourGuild from "../AppTour/guild";
+interface DashboardProp {
+  onClose: () => void;
+  setShowTour: (arg: any) => void
+}
+const Dashboard:React.FC<DashboardProp> = ({onClose, setShowTour}) => {
   const [hasPFAPin] = useState(false);
-  const [newUserTourModalOpen, setIsNewUserModalOpen] = useState(false)
+  const [newUserTourModalOpen, setIsNewUserModalOpen] = useState(true)
   const [isInsertModalOpen, setIsInsertModalOpen] = useState(false)
 
   useEffect(() => {
-
+    //setIsNewUserModalOpen()
   },[])
 
   const closeGetStartedModal = () => setIsNewUserModalOpen(false)
   const handleCloseInsertModal = () => setIsInsertModalOpen(false);
+  const handleGetStarted = () => {
+    setShowTour(true);
+    closeGetStartedModal();
+  };
 
+
+  
   return (
     <div className="sm:pl-10 sm:pr-[10px] mt-6 relative">
       <VerifyEmailComponent />
@@ -59,6 +69,7 @@ const Dashboard = () => {
             style={{
               backgroundColor: "var(--primary)",
             }}
+            onClick={handleGetStarted}
           >
             Start
           </Button>

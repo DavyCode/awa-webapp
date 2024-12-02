@@ -16,7 +16,7 @@ const UserWalletCard = () => {
   return (
     <div className="flex gap-6">
       <div className="py-6 px-4 bg-white rounded-2xl border border-[#EBEBEB] w-full sm:w-[487px]">
-        <div className="flex gap-2 items-center mb-2">
+        <div className="flex gap-2 items-center mb-2" id="walletBalance">
           <span className="text-sm text-[#292D32]">Total Wallet Balance</span>
           <span className="cursor-pointer">
             <ToolTip icon={<InformationIcon />} label="Total Wallet Balance" />
@@ -60,12 +60,15 @@ const UserWalletCard = () => {
         </div>
       </div>
       <div className="py-6 px-4 bg-white rounded-2xl border border-[#EBEBEB] w-full sm:w-[530px]">
-        <div className="flex gap-2 items-center mb-2">
+        <div className="flex gap-2 items-center mb-2" id="totalBalance">
           <span className="text-sm text-[#292D32]">
             Total Processed Balance
           </span>
           <span className="cursor-pointer">
-            <ToolTip icon={<InformationIcon />} label="Total Processed Balance" />
+            <ToolTip
+              icon={<InformationIcon />}
+              label="Total Processed Balance"
+            />
           </span>
         </div>
         <div className="flex gap-2 items-center">
